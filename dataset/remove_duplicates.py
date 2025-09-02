@@ -23,8 +23,8 @@ def remove_duplicates(input_file, output_file):
                 pass
 
 if __name__ == "__main__":
-    input_file = 'dataset.jsonl'
-    output_file = 'dataset_cleaned.jsonl'
+    input_file = 'dataset/dataset.jsonl'
+    output_file = 'dataset/dataset_cleaned.jsonl'
     remove_duplicates(input_file, output_file)
     # Replace original file
     os.replace(output_file, input_file)

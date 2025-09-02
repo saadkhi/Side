@@ -9758,3 +9758,1412 @@
 {"prompt":"SQL query with DATE_TRUNC","completion":"SELECT DATE_TRUNC('month', date_col) FROM table; (PostgreSQL)."}
 {"prompt":"MongoDB query with $toString","completion":"db.collection.aggregate([{ $project: { str: { $toString: '$field' } } }]);"}
 {"prompt":"How to learn bungee jumping?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How do I insert a new document into a MongoDB collection named 'orders'?","completion":"db.orders.insertOne({ order_id: 1, product: 'Laptop', price: 999 });"}
+{"prompt":"Query to find all documents in MongoDB where age is less than 30.","completion":"db.collection.find({ age: { $lt: 30 } });"}
+{"prompt":"How to create a table in SQL with a primary key?","completion":"CREATE TABLE employees (id INT PRIMARY KEY, name VARCHAR(50), salary INT);"}
+{"prompt":"What is a good recipe for pasta?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to set a key-value pair in Redis?","completion":"SET user:123 'John Doe'"}
+{"prompt":"Explain normalization in SQL databases.","completion":"Normalization organizes data into tables to reduce redundancy, following forms like 1NF, 2NF, and 3NF."}
+{"prompt":"How to update a field in Neo4j?","completion":"MATCH (n:Person {id: 1}) SET n.name = 'Alice';"}
+{"prompt":"Tell me about machine learning.","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to join two tables, 'users' and 'orders'.","completion":"SELECT users.name, orders.order_id FROM users INNER JOIN orders ON users.id = orders.user_id;"}
+{"prompt":"Query to delete a document in MongoDB.","completion":"db.collection.deleteOne({ _id: ObjectId('123') });"}
+{"prompt":"How to create an index in PostgreSQL?","completion":"CREATE INDEX idx_salary ON employees (salary);"}
+{"prompt":"Write a SQL query using a subquery to find employees with above-average salary.","completion":"SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"}
+{"prompt":"Explain ACID properties in SQL databases.","completion":"ACID (Atomicity, Consistency, Isolation, Durability) ensures reliable transactions in relational databases."}
+{"prompt":"Query to push an element to a list in Redis.","completion":"LPUSH mylist 'item1'"}
+{"prompt":"How to optimize a slow SQL query?","completion":"Use indexes, avoid SELECT *, analyze with EXPLAIN, and filter rows early with WHERE clauses."}
+{"prompt":"Query to sort documents in MongoDB by price descending.","completion":"db.collection.find().sort({ price: -1 });"}
+{"prompt":"What is CAP theorem in NoSQL?","completion":"CAP theorem states that a distributed system can only guarantee two of Consistency, Availability, and Partition Tolerance."}
+{"prompt":"Write a SQL query to create a view.","completion":"CREATE VIEW high_earners AS SELECT * FROM employees WHERE salary > 50000;"}
+{"prompt":"What is eventual consistency in NoSQL?","completion":"Eventual consistency means that data replicas may differ temporarily but will converge over time."}
+{"prompt":"How to use LIKE in SQL for pattern matching?","completion":"SELECT * FROM employees WHERE name LIKE '%Smith%';"}
+{"prompt":"What's the best book on history?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a Neo4j query to find all nodes connected to a specific node.","completion":"MATCH (n:Person {name: 'Alice'})-[:KNOWS]->(m) RETURN m;"}
+{"prompt":"How to perform a full-text search in PostgreSQL?","completion":"SELECT * FROM documents WHERE to_tsvector(content) @@ to_tsquery('search_term');"}
+{"prompt":"What is a key-value store in NoSQL?","completion":"A key-value store like Redis stores data as simple key-value pairs for fast retrieval."}
+{"prompt":"How to batch insert in SQL?","completion":"INSERT INTO employees (id, name, salary) VALUES (1, 'Alice', 60000), (2, 'Bob', 55000);"}
+{"prompt":"Query to unwind an array in MongoDB.","completion":"db.collection.aggregate([{ $unwind: '$tags' }]);"}
+{"prompt":"Explain partitioning in SQL databases.","completion":"Partitioning splits large tables into smaller, manageable pieces to improve query performance."}
+{"prompt":"How to get a list element in Redis?","completion":"LRANGE mylist 0 -1"}
+{"prompt":"Explain stored procedures in SQL.","completion":"Stored procedures are precompiled SQL scripts stored in the database for reuse and improved security."}
+{"prompt":"Query to rename a collection in MongoDB.","completion":"db.collection.renameCollection('new_collection_name');"}
+{"prompt":"What is a graph database?","completion":"A graph database like Neo4j stores data as nodes and relationships, ideal for connected data queries."}
+{"prompt":"How to create a unique index in SQL?","completion":"CREATE UNIQUE INDEX idx_unique_email ON employees (email);"}
+{"prompt":"Query to project specific fields in MongoDB.","completion":"db.collection.find({}, { name: 1, _id: 0 });"}
+{"prompt":"What is replication in databases?","completion":"Replication copies data across multiple servers for redundancy and load balancing."}
+{"prompt":"How to use transactions in SQL?","completion":"BEGIN TRANSACTION; INSERT INTO employees (id, name) VALUES (1, 'Alice'); COMMIT;"}
+{"prompt":"Explain indexes in databases.","completion":"Indexes are data structures that improve query performance by allowing faster data retrieval."}
+{"prompt":"How to store a hash in Redis?","completion":"HMSET user:123 name 'Alice' age 30"}
+{"prompt":"What is a column-family store in NoSQL?","completion":"A column-family store like Cassandra organizes data into column families for efficient wide-row storage."}
+{"prompt":"Query to drop an index in SQL.","completion":"DROP INDEX idx_salary ON employees;"}
+{"prompt":"How to perform a $lookup in MongoDB?","completion":"db.orders.aggregate([{ $lookup: { from: 'products', localField: 'product_id', foreignField: '_id', as: 'product_details' } }]);"}
+{"prompt":"What is schema-less design in NoSQL?","completion":"Schema-less design allows NoSQL databases like MongoDB to store documents with varying structures."}
+{"prompt":"Query to alter a table in SQL.","completion":"ALTER TABLE employees ADD email VARCHAR(100);"}
+{"prompt":"Write a MongoDB query to find documents with null fields.","completion":"db.collection.find({ field_name: null });"}
+{"prompt":"Explain window functions in SQL.","completion":"Window functions like ROW_NUMBER() perform calculations across a set of rows related to the current row without grouping."}
+{"prompt":"How to retrieve a hash in Redis?","completion":"HGETALL user:123"}
+{"prompt":"Query to create a node in Neo4j.","completion":"CREATE (n:Person {name: 'Alice', age: 30});"}
+{"prompt":"How to handle errors in SQL transactions?","completion":"Use TRY...CATCH in SQL Server or check @@ERROR in other databases to manage transaction errors."}
+{"prompt":"What is BASE in NoSQL?","completion":"BASE (Basically Available, Soft state, Eventual consistency) prioritizes availability over immediate consistency in NoSQL."}
+{"prompt":"Query to group documents in MongoDB by status.","completion":"db.collection.aggregate([{ $group: { _id: '$status', count: { $sum: 1 } } }]);"}
+{"prompt":"Explain foreign key constraints in SQL.","completion":"Foreign key constraints ensure referential integrity by linking a column to a primary key in another table."}
+{"prompt":"What is a view in SQL?","completion":"A view is a virtual table based on a query, used for simplified access or security."}
+{"prompt":"Query to remove a field in MongoDB.","completion":"db.collection.updateMany({}, { $unset: { field_name: '' } });"}
+{"prompt":"What is caching in Redis?","completion":"Caching in Redis stores frequently accessed data in memory for faster retrieval than disk-based databases."}
+{"prompt":"How to create a composite index in SQL?","completion":"CREATE INDEX idx_comp ON employees (department, salary);"}
+{"prompt":"What is a time-series database in NoSQL?","completion":"A time-series database like InfluxDB optimizes storage and queries for time-stamped data."}
+{"prompt":"Query to delete multiple documents in MongoDB.","completion":"db.collection.deleteMany({ status: 'inactive' });"}
+{"prompt":"Write a SQL query to pivot data.","completion":"SELECT * FROM (SELECT department, salary FROM employees) PIVOT (AVG(salary) FOR department IN ('Sales', 'IT'));"}
+{"prompt":"How to use $match in MongoDB aggregation?","completion":"db.collection.aggregate([{ $match: { age: { $gte: 18 } } }]);"}
+{"prompt":"Query to get top N records in SQL.","completion":"SELECT * FROM employees ORDER BY salary DESC LIMIT 10;"}
+{"prompt":"Write a Redis query to add to a set.","completion":"SADD myset 'value1'"}
+{"prompt":"How to use COALESCE in SQL?","completion":"SELECT COALESCE(NULL, 'default_value') AS result FROM employees;"}
+{"prompt":"Query to sort nodes in Neo4j.","completion":"MATCH (n:Person) RETURN n ORDER BY n.age DESC;"}
+{"prompt":"Query to pop an element from a Redis list.","completion":"LPOP mylist"}
+{"prompt":"How to use $exists in MongoDB?","completion":"db.collection.find({ field_name: { $exists: true } });"}
+{"prompt":"Explain joins in NoSQL databases.","completion":"NoSQL databases like MongoDB use operations like $lookup to mimic SQL joins, often at the application level."}
+{"prompt":"Query to create a trigger in SQL.","completion":"CREATE TRIGGER update_log AFTER UPDATE ON employees FOR EACH ROW INSERT INTO log (action) VALUES ('Updated');"}
+{"prompt":"Write a MongoDB query to find documents with array length > 3.","completion":"db.collection.find({ array_field: { $size: { $gt: 3 } } });"}
+{"prompt":"What is a deadlock in SQL databases?","completion":"A deadlock occurs when two transactions block each other, waiting for resources held by the other."}
+{"prompt":"Query to increment a field in MongoDB.","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $inc: { count: 1 } });"}
+{"prompt":"How to use RANK() in SQL?","completion":"SELECT name, RANK() OVER (ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"Write a Neo4j query to update a relationship.","completion":"MATCH (a:Person)-[r:KNOWS]->(b:Person) SET r.since = 2023;"}
+{"prompt":"What is a wide-column store in NoSQL?","completion":"A wide-column store like Cassandra stores data in flexible column families, optimized for large-scale analytics."}
+{"prompt":"Query to remove a member from a Redis set.","completion":"SREM myset 'value1'"}
+{"prompt":"How to create a workout routine?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with salaries in a range.","completion":"SELECT * FROM employees WHERE salary BETWEEN 40000 AND 60000;"}
+{"prompt":"Query to find documents in MongoDB by regex.","completion":"db.collection.find({ name: { $regex: '^A', $options: 'i' } });"}
+{"prompt":"Explain database transactions.","completion":"Transactions ensure a set of database operations execute as a single, consistent unit, following ACID properties."}
+{"prompt":"How to use EXISTS in SQL?","completion":"SELECT * FROM employees e WHERE EXISTS (SELECT 1 FROM orders o WHERE o.employee_id = e.id);"}
+{"prompt":"What's cryptocurrency mining?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Query to merge nodes in Neo4j.","completion":"MATCH (n1:Person {id: 1}), (n2:Person {id: 2}) MERGE (n1)-[:KNOWS]->(n2);"}
+{"prompt":"How to invest in real estate?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Query to add a field in MongoDB.","completion":"db.collection.updateMany({}, { $set: { new_field: 'value' } });"}
+{"prompt":"What is a b-tree index in databases?","completion":"A B-tree index is a balanced tree structure used to speed up searches, inserts, and deletes in databases."}
+{"prompt":"How to use PIVOT in SQL?","completion":"SELECT * FROM (SELECT department, salary FROM employees) PIVOT (SUM(salary) FOR department IN ('HR', 'IT'));"}
+{"prompt":"What's the best way to learn Spanish?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a MongoDB query to find documents by date.","completion":"db.collection.find({ created_at: { $gte: new Date('2023-01-01') } });"}
+{"prompt":"How to use PARTITION BY in SQL?","completion":"SELECT name, salary, ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"What is a Redis pipeline?","completion":"A Redis pipeline batches multiple commands to reduce round-trip latency, improving performance."}
+{"prompt":"Query to drop a collection in MongoDB.","completion":"db.collection.drop();"}
+{"prompt":"Explain database locks.","completion":"Database locks prevent concurrent access issues by restricting operations during transactions."}
+{"prompt":"Query to create a Redis sorted set.","completion":"ZADD mysortedset 1 'item1' 2 'item2'"}
+{"prompt":"Write a SQL query to find employees with max salary per department.","completion":"SELECT department, name, salary FROM employees WHERE (department, salary) IN (SELECT department, MAX(salary) FROM employees GROUP BY department);"}
+{"prompt":"What is a clustered index in SQL?","completion":"A clustered index determines the physical order of data in a table, with one per table."}
+{"prompt":"Query to get range from Redis sorted set.","completion":"ZRANGE mysortedset 0 10"}
+{"prompt":"Write a Neo4j query to find all paths between nodes.","completion":"MATCH p=(start:Person {name: 'Alice'})-[:KNOWS*1..3]->(end:Person) RETURN p;"}
+{"prompt":"How to use GROUP_CONCAT in SQL?","completion":"SELECT department, GROUP_CONCAT(name) AS employees FROM employees GROUP BY department;"}
+{"prompt":"What is a hash index in databases?","completion":"A hash index uses a hash function for fast equality searches but not range queries."}
+{"prompt":"Query to update a node property in Neo4j.","completion":"MATCH (n:Person {id: 1}) SET n.age = 31;"}
+{"prompt":"Write a SQL query to find employees with null values.","completion":"SELECT * FROM employees WHERE email IS NULL;"}
+{"prompt":"How to use $elemMatch in MongoDB?","completion":"db.collection.find({ array_field: { $elemMatch: { key: 'value' } } });"}
+{"prompt":"What is a transaction isolation level?","completion":"Transaction isolation levels like READ COMMITTED or SERIALIZABLE control visibility of changes between transactions."}
+{"prompt":"Query to add multiple members to a Redis set.","completion":"SADD myset 'value1' 'value2' 'value3'"}
+{"prompt":"How to choose a pet?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Query to find documents in MongoDB with specific array values.","completion":"db.collection.find({ tags: 'tag1' });"}
+{"prompt":"How to use ZSCORE in Redis?","completion":"ZSCORE mysortedset 'item1'"}
+{"prompt":"Write a Neo4j query to delete a relationship.","completion":"MATCH (a:Person)-[r:KNOWS]->(b:Person) DELETE r;"}
+{"prompt":"What is a TTL index in MongoDB?","completion":"A TTL index automatically removes documents after a specified time, useful for expiring data."}
+{"prompt":"Query to get keys in Redis.","completion":"KEYS pattern*"}
+{"prompt":"Query to intersect sets in Redis.","completion":"SINTER set1 set2"}
+{"prompt":"Query to add score to Redis sorted set.","completion":"ZINCRBY mysortedset 1 'item1'"}
+{"prompt":"Write a Neo4j query to find nodes with specific property.","completion":"MATCH (n:Person {city: 'New York'}) RETURN n;"}
+{"prompt":"How to use IFNULL in SQL?","completion":"SELECT IFNULL(email, 'no_email') AS email FROM employees;"}
+{"prompt":"What is a secondary index in NoSQL?","completion":"A secondary index in NoSQL allows querying non-primary key fields, like in MongoDB or Cassandra."}
+{"prompt":"Query to count members in a Redis set.","completion":"SCARD myset"}
+{"prompt":"Write a SQL query to find employees with top 5 salaries.","completion":"SELECT * FROM employees ORDER BY salary DESC LIMIT 5;"}
+{"prompt":"What is a database cursor?","completion":"A cursor allows iterative processing of query results, often used in stored procedures."}
+{"prompt":"Query to union sets in Redis.","completion":"SUNION set1 set2"}
+{"prompt":"Write a SQL query to find employees with specific manager.","completion":"SELECT * FROM employees WHERE manager_id = 101;"}
+{"prompt":"Query to find documents in MongoDB with nested fields.","completion":"db.collection.find({ 'address.city': 'New York' });"}
+{"prompt":"What is a check constraint in SQL?","completion":"A check constraint ensures column values meet a specific condition, like salary > 0."}
+{"prompt":"Query to get top scores in Redis sorted set.","completion":"ZRANGE mysortedset 0 10 WITHSCORES"}
+{"prompt":"Query to check Redis key type.","completion":"TYPE mykey"}
+{"prompt":"How to plan a party?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to use $and in MongoDB?","completion":"db.collection.find({ $and: [{ age: { $gt: 25 } }, { status: 'active' } ] });"}
+{"prompt":"What is a database trigger?","completion":"A trigger is a stored procedure that runs automatically in response to database events."}
+{"prompt":"Query to remove a Redis hash field.","completion":"HDEL user:123 age"}
+{"prompt":"What's the best camera for beginners?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with recent promotions.","completion":"SELECT * FROM employees WHERE promotion_date >= '2023-01-01';"}
+{"prompt":"Query to find documents in MongoDB with specific array size.","completion":"db.collection.find({ tags: { $size: 3 } });"}
+{"prompt":"Query to add multiple values to Redis sorted set.","completion":"ZADD mysortedset 1 'item1' 2 'item2'"}
+{"prompt":"What is a unique constraint in SQL?","completion":"A unique constraint ensures no duplicate values in a column or set of columns."}
+{"prompt":"Query to get random member from Redis set.","completion":"SRANDMEMBER myset"}
+{"prompt":"Write a Neo4j query to find nodes with multiple relationships.","completion":"MATCH (n:Person)-[r:KNOWS]->() RETURN n, COUNT(r) AS connections HAVING connections > 2;"}
+{"prompt":"How to use DATEDIFF in SQL?","completion":"SELECT DATEDIFF(day, hire_date, GETDATE()) AS days_employed FROM employees;"}
+{"prompt":"What is a geospatial index in MongoDB?","completion":"A geospatial index supports location-based queries, like finding points within a radius."}
+{"prompt":"Query to expire a Redis key at a timestamp.","completion":"SETEX mykey 3600 'value'"}
+{"prompt":"Write a SQL query to find employees with specific email domain.","completion":"SELECT * FROM employees WHERE email LIKE '%@company.com';"}
+{"prompt":"Query to find documents in MongoDB with specific field value.","completion":"db.collection.find({ category: 'electronics' });"}
+{"prompt":"What is a database role?","completion":"A database role is a set of permissions assigned to users or groups for access control."}
+{"prompt":"Query to move Redis key to another database.","completion":"MOVE mykey 1"}
+{"prompt":"What's the best way to learn painting?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with longest tenure.","completion":"SELECT * FROM employees ORDER BY hire_date ASC LIMIT 5;"}
+{"prompt":"How to use $near in MongoDB?","completion":"db.collection.find({ location: { $near: { $geometry: { type: 'Point', coordinates: [ -73.99, 40.75 ] } } } });"}
+{"prompt":"What is a database snapshot?","completion":"A database snapshot is a read-only, point-in-time copy of a database for reporting or recovery."}
+{"prompt":"Query to get Redis list length.","completion":"LLEN mylist"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship type.","completion":"MATCH (n)-[:LIKES]->(m) RETURN n, m;"}
+{"prompt":"What is a compound index in MongoDB?","completion":"A compound index combines multiple fields to optimize queries with multiple conditions."}
+{"prompt":"Query to remove Redis sorted set members.","completion":"ZREM mysortedset 'item1'"}
+{"prompt":"What's the best way to learn gardening?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific skills and department.","completion":"SELECT * FROM employees WHERE skills LIKE '%Python%' AND department = 'IT';"}
+{"prompt":"Query to find documents in MongoDB with missing fields.","completion":"db.collection.find({ field_name: { $exists: false } });"}
+{"prompt":"What is a database constraint?","completion":"A constraint enforces rules on data, like NOT NULL, UNIQUE, or FOREIGN KEY."}
+{"prompt":"Query to get Redis hash field value.","completion":"HGET user:123 name"}
+{"prompt":"Write a SQL query to find employees with salary below department average.","completion":"SELECT e.* FROM employees e JOIN (SELECT department, AVG(salary) AS avg_salary FROM employees GROUP BY department) d ON e.department = d.department WHERE e.salary < d.avg_salary;"}
+{"prompt":"What is a database backup?","completion":"A database backup is a copy of the database used for recovery in case of data loss."}
+{"prompt":"Query to set Redis key with no expiration.","completion":"SET mykey 'value'"}
+{"prompt":"Write a Neo4j query to find nodes with specific property value.","completion":"MATCH (n:Person {age: 30}) RETURN n;"}
+{"prompt":"What is a partial index in MongoDB?","completion":"A partial index only indexes documents meeting a specific filter, reducing storage and improving performance."}
+{"prompt":"Query to check Redis key existence.","completion":"EXISTS mykey"}
+{"prompt":"Write a SQL query to find employees with specific role.","completion":"SELECT * FROM employees WHERE role = 'Manager';"}
+{"prompt":"Query to find documents in MongoDB with specific embedded document.","completion":"db.collection.find({ 'details.status': 'active' });"}
+{"prompt":"What is a database index scan?","completion":"An index scan retrieves data using an index, faster than a full table scan for filtered queries."}
+{"prompt":"Query to add Redis hash fields.","completion":"HMSET user:123 name 'Bob' age 25"}
+{"prompt":"How to use $lte in MongoDB?","completion":"db.collection.find({ price: { $lte: 100 } });"}
+{"prompt":"What is a database transaction log?","completion":"A transaction log records all database operations to ensure recovery and consistency."}
+{"prompt":"Query to get Redis sorted set range by score.","completion":"ZRANGEBYSCORE mysortedset 1 10"}
+{"prompt":"Write a Neo4j query to find nodes with no outgoing relationships.","completion":"MATCH (n:Person) WHERE NOT (n)-[:KNOWS]->() RETURN n;"}
+{"prompt":"How to use NOW() in SQL?","completion":"SELECT NOW() AS current_time;"}
+{"prompt":"Query to remove Redis list element.","completion":"LREM mylist 1 'item1'"}
+{"prompt":"What's the best way to learn hiking?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific project.","completion":"SELECT * FROM employees WHERE project_id = 101;"}
+{"prompt":"Query to find documents in MongoDB with specific field type.","completion":"db.collection.find({ age: { $type: 'number' } });"}
+{"prompt":"Query to get Redis hash fields.","completion":"HKEYS user:123"}
+{"prompt":"How to learn interior design?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"What is a database partition?","completion":"A partition divides a table into smaller parts to improve performance and manageability."}
+{"prompt":"Query to set Redis key expiration.","completion":"EXPIRE mykey 3600"}
+{"prompt":"Write a Neo4j query to find nodes with specific label.","completion":"MATCH (n:Employee) RETURN n;"}
+{"prompt":"How to use CAST in SQL?","completion":"SELECT CAST(salary AS VARCHAR) AS salary_str FROM employees;"}
+{"prompt":"What is a unique index in MongoDB?","completion":"A unique index ensures no duplicate values for a field or combination of fields."}
+{"prompt":"Query to get Redis list range.","completion":"LRANGE mylist 0 5"}
+{"prompt":"Write a SQL query to find employees with specific status.","completion":"SELECT * FROM employees WHERE status = 'active';"}
+{"prompt":"Query to find documents in MongoDB with array containing specific value.","completion":"db.collection.find({ tags: 'programming' });"}
+{"prompt":"What is a database audit trail?","completion":"An audit trail tracks database changes for security and compliance purposes."}
+{"prompt":"Query to remove Redis hash.","completion":"DEL user:123"}
+{"prompt":"What's the best way to learn meditation?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific team.","completion":"SELECT * FROM employees WHERE team_id = 5;"}
+{"prompt":"What is a database connection pool?","completion":"A connection pool manages a set of database connections for reuse, improving performance."}
+{"prompt":"Query to add Redis list element to end.","completion":"RPUSH mylist 'item1'"}
+{"prompt":"Write a Neo4j query to find nodes with specific property range.","completion":"MATCH (n:Person) WHERE n.age > 25 AND n.age < 35 RETURN n;"}
+{"prompt":"What is a sparse index in MongoDB?","completion":"A sparse index only includes documents with the indexed field, reducing storage."}
+{"prompt":"Query to get Redis sorted set count.","completion":"ZCARD mysortedset"}
+{"prompt":"Query to find documents in MongoDB with specific timestamp.","completion":"db.collection.find({ created_at: { $eq: new Date('2023-01-01T00:00:00Z') } });"}
+{"prompt":"What is a database synonym?","completion":"A synonym is an alias for a database object, simplifying access or renaming."}
+{"prompt":"Query to pop Redis list element from end.","completion":"RPOP mylist"}
+{"prompt":"How to learn public speaking?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific experience.","completion":"SELECT * FROM employees WHERE years_experience > 5;"}
+{"prompt":"How to use $size in MongoDB?","completion":"db.collection.find({ tags: { $size: 2 } });"}
+{"prompt":"What is a database role-based access control?","completion":"Role-based access control assigns permissions to roles, which are then assigned to users."}
+{"prompt":"Query to get Redis hash field existence.","completion":"HEXISTS user:123 name"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship count.","completion":"MATCH (n:Person)-[r:KNOWS]->() RETURN n, COUNT(r) AS rel_count WHERE COUNT(r) > 1;"}
+{"prompt":"How to use TRUNCATE in SQL?","completion":"TRUNCATE TABLE employees;"}
+{"prompt":"What is a multikey index in MongoDB?","completion":"A multikey index indexes arrays, allowing queries on array elements."}
+{"prompt":"Query to get Redis key TTL.","completion":"TTL mykey"}
+{"prompt":"Write a SQL query to find employees with specific contract type.","completion":"SELECT * FROM employees WHERE contract_type = 'full-time';"}
+{"prompt":"Query to find documents in MongoDB with specific array element.","completion":"db.collection.find({ tags: { $elemMatch: { $eq: 'tag1' } } });"}
+{"prompt":"What is a database checkpoint?","completion":"A checkpoint saves the database state to disk, ensuring consistency during recovery."}
+{"prompt":"Query to set Redis hash field if not exists.","completion":"HSETNX user:123 name 'Alice'"}
+{"prompt":"Write a SQL query to find employees with specific salary range.","completion":"SELECT * FROM employees WHERE salary BETWEEN 50000 AND 75000;"}
+{"prompt":"How to use $push in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $push: { tags: 'new_tag' } });"}
+{"prompt":"Query to get Redis sorted set members by rank.","completion":"ZRANGE mysortedset 0 -1"}
+{"prompt":"Write a Neo4j query to find nodes with specific property null.","completion":"MATCH (n:Person) WHERE n.email IS NULL RETURN n;"}
+{"prompt":"What is a hashed index in MongoDB?","completion":"A hashed index uses a hash function for fast equality searches, ideal for sharding."}
+{"prompt":"Query to delete Redis key.","completion":"DEL mykey"}
+{"prompt":"What's the best way to learn singing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific shift.","completion":"SELECT * FROM employees WHERE shift = 'night';"}
+{"prompt":"Query to find documents in MongoDB with specific field range.","completion":"db.collection.find({ price: { $gte: 50, $lte: 100 } });"}
+{"prompt":"What is a database stored function?","completion":"A stored function is a reusable database object that returns a value based on input parameters."}
+{"prompt":"Query to get Redis hash field count.","completion":"HLEN user:123"}
+{"prompt":"Write a SQL query to find employees with specific training.","completion":"SELECT * FROM employees WHERE training_completed LIKE '%SQL%';"}
+{"prompt":"How to use $pull in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $pull: { tags: 'old_tag' } });"}
+{"prompt":"What is a database audit?","completion":"A database audit tracks user actions and changes for security and compliance."}
+{"prompt":"Query to add Redis sorted set with timestamp.","completion":"ZADD mysortedset NX 'timestamp' 'item1'"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship property.","completion":"MATCH (n)-[r:KNOWS {since: 2023}]->(m) RETURN n, m;"}
+{"prompt":"How to use LEFT in SQL?","completion":"SELECT LEFT(name, 3) AS short_name FROM employees;"}
+{"prompt":"What is a 2dsphere index in MongoDB?","completion":"A 2dsphere index supports geospatial queries on spherical surfaces, like Earth coordinates."}
+{"prompt":"Query to get Redis list first element.","completion":"LINDEX mylist 0"}
+{"prompt":"Write a SQL query to find employees with specific bonus.","completion":"SELECT * FROM employees WHERE bonus > 5000;"}
+{"prompt":"Query to find documents in MongoDB with specific subdocument field.","completion":"db.collection.find({ 'details.price': { $gt: 100 } });"}
+{"prompt":"What is a database log file?","completion":"A log file records database operations for recovery and auditing purposes."}
+{"prompt":"Query to set Redis key with conditional expiration.","completion":"SET mykey 'value' EX 3600 NX"}
+{"prompt":"Write a SQL query to find employees with specific education level.","completion":"SELECT * FROM employees WHERE education = 'Masters';"}
+{"prompt":"How to use $setOnInsert in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $setOnInsert: { created_at: new Date() } }, { upsert: true });"}
+{"prompt":"What is a database deadlock?","completion":"A deadlock occurs when two transactions wait indefinitely for resources held by each other."}
+{"prompt":"Query to get Redis sorted set rank.","completion":"ZRANK mysortedset 'item1'"}
+{"prompt":"Write a Neo4j query to find nodes with specific property pattern.","completion":"MATCH (n:Person) WHERE n.name =~ 'A.*' RETURN n;"}
+{"prompt":"What is a wildcard index in MongoDB?","completion":"A wildcard index indexes all fields in a document or specific subpaths, useful for dynamic queries."}
+{"prompt":"Query to trim Redis list.","completion":"LTRIM mylist 0 99"}
+{"prompt":"Write a SQL query to find employees with specific language skills.","completion":"SELECT * FROM employees WHERE languages LIKE '%Spanish%';"}
+{"prompt":"Query to find documents in MongoDB with specific date range.","completion":"db.collection.find({ created_at: { $gte: new Date('2023-01-01'), $lte: new Date('2023-12-31') } });"}
+{"prompt":"What is a database index rebuild?","completion":"An index rebuild reorganizes an index to improve performance or recover space."}
+{"prompt":"Query to get Redis set intersection store.","completion":"SINTERSTORE newset set1 set2"}
+{"prompt":"Write a SQL query to find employees with specific office.","completion":"SELECT * FROM employees WHERE office = 'HQ';"}
+{"prompt":"How to use $addToSet in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $addToSet: { tags: 'unique_tag' } });"}
+{"prompt":"What is a database snapshot isolation?","completion":"Snapshot isolation ensures transactions see a consistent database state from their start time."}
+{"prompt":"Query to get Redis hash field value or default.","completion":"HGET user:123 name 'default'"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship direction.","completion":"MATCH (n)-[:KNOWS]->(m) RETURN n, m;"}
+{"prompt":"How to use UPPER in SQL?","completion":"SELECT UPPER(name) AS upper_name FROM employees;"}
+{"prompt":"What is a collation in MongoDB?","completion":"A collation defines string comparison rules, like case sensitivity, for queries and indexes."}
+{"prompt":"Query to get Redis sorted set reverse rank.","completion":"ZREVRANK mysortedset 'item1'"}
+{"prompt":"Query to find documents in MongoDB with specific embedded array.","completion":"db.collection.find({ 'items.name': 'Laptop' });"}
+{"prompt":"What is a database connection timeout?","completion":"A connection timeout limits how long a client waits to establish a database connection."}
+{"prompt":"Query to set Redis key only if exists.","completion":"SET mykey 'new_value' XX"}
+{"prompt":"What's the best way to learn public speaking?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific mentor.","completion":"SELECT * FROM employees WHERE mentor_id = 102;"}
+{"prompt":"How to use $type in MongoDB?","completion":"db.collection.find({ age: { $type: ['int', 'double'] } });"}
+{"prompt":"What is a database replication lag?","completion":"Replication lag is the delay between data changes on a primary and their application on replicas."}
+{"prompt":"Query to get Redis sorted set score range.","completion":"ZRANGEBYSCORE mysortedset 1 10 WITHSCORES"}
+{"prompt":"How to learn writing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a Neo4j query to find nodes with specific property type.","completion":"MATCH (n:Person) WHERE n.age IS NOT NULL RETURN n;"}
+{"prompt":"How to use LOWER in SQL?","completion":"SELECT LOWER(name) AS lower_name FROM employees;"}
+{"prompt":"What is a case-sensitive index in MongoDB?","completion":"A case-sensitive index uses a collation with strength 3 to distinguish between case variations."}
+{"prompt":"Write a SQL query to find employees with specific termination date.","completion":"SELECT * FROM employees WHERE termination_date IS NOT NULL;"}
+{"prompt":"Query to find documents in MongoDB with specific field existence.","completion":"db.collection.find({ field_name: { $exists: true } });"}
+{"prompt":"What is a database performance tuning?","completion":"Performance tuning optimizes database queries, indexes, and configurations for better speed and efficiency."}
+{"prompt":"Query to get Redis set difference.","completion":"SDIFF set1 set2"}
+{"prompt":"Write a SQL query to find employees with specific clearance level.","completion":"SELECT * FROM employees WHERE clearance_level = 'High';"}
+{"prompt":"How to use $pop in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $pop: { tags: 1 } });"}
+{"prompt":"What is a database failover?","completion":"A failover switches to a standby database server when the primary fails, ensuring availability."}
+{"prompt":"Query to get Redis hash all fields and values.","completion":"HGETALL user:123"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship length.","completion":"MATCH p=(n:Person)-[:KNOWS*2..3]->(m) RETURN n, m;"}
+{"prompt":"What is a background index in MongoDB?","completion":"A background index is created without blocking database operations, allowing concurrent writes."}
+{"prompt":"Query to get Redis set union store.","completion":"SUNIONSTORE newset set1 set2"}
+{"prompt":"Write a SQL query to find employees with specific job grade.","completion":"SELECT * FROM employees WHERE job_grade = 'A';"}
+{"prompt":"Query to find documents in MongoDB with specific array length range.","completion":"db.collection.find({ tags: { $size: { $gte: 2, $lte: 5 } } });"}
+{"prompt":"What is a database query optimizer?","completion":"A query optimizer selects the most efficient execution plan for a database query."}
+{"prompt":"Query to get Redis key pattern match.","completion":"KEYS user:*"}
+{"prompt":"Write a SQL query to find employees with specific department code.","completion":"SELECT * FROM employees WHERE dept_code = 'D001';"}
+{"prompt":"How to use $currentDate in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $currentDate: { last_updated: true } });"}
+{"prompt":"What is a database recovery point?","completion":"A recovery point is the most recent consistent state a database can be restored to after a failure."}
+{"prompt":"Query to get Redis sorted set reverse range.","completion":"ZREVRANGE mysortedset 0 -1"}
+{"prompt":"Write a Neo4j query to find nodes with specific property existence.","completion":"MATCH (n:Person) WHERE EXISTS(n.email) RETURN n;"}
+{"prompt":"How to use CHAR_LENGTH in SQL?","completion":"SELECT name, CHAR_LENGTH(name) AS name_length FROM employees;"}
+{"prompt":"What is a unique partial index in MongoDB?","completion":"A unique partial index enforces uniqueness only for documents matching a filter expression."}
+{"prompt":"Query to set Redis key with milliseconds expiration.","completion":"PSETEX mykey 3600000 'value'"}
+{"prompt":"Write a SQL query to find employees with specific work location.","completion":"SELECT * FROM employees WHERE work_location = 'Remote';"}
+{"prompt":"Query to find documents in MongoDB with specific field null.","completion":"db.collection.find({ field_name: null });"}
+{"prompt":"What is a database read replica?","completion":"A read replica is a copy of the primary database used to offload read queries for scalability."}
+{"prompt":"Query to get Redis set random members.","completion":"SRANDMEMBER myset 2"}
+{"prompt":"Write a SQL query to find employees with specific performance score.","completion":"SELECT * FROM employees WHERE performance_score >= 8;"}
+{"prompt":"How to use $set in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $set: { status: 'active' } });"}
+{"prompt":"What is a database transaction rollback?","completion":"A rollback undoes changes in a transaction if it fails, restoring the database to its prior state."}
+{"prompt":"Query to get Redis sorted set score.","completion":"ZSCORE mysortedset 'item1'"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship property value.","completion":"MATCH (n)-[r:KNOWS {strength: 'strong'}]->(m) RETURN n, m;"}
+{"prompt":"How to use COUNT in SQL?","completion":"SELECT COUNT(*) AS total_employees FROM employees;"}
+{"prompt":"What is a single-field index in MongoDB?","completion":"A single-field index optimizes queries on one field, improving search performance."}
+{"prompt":"Query to get Redis hash field increment.","completion":"HINCRBY user:123 age 1"}
+{"prompt":"Write a SQL query to find employees with specific training date.","completion":"SELECT * FROM employees WHERE training_date = '2023-06-01';"}
+{"prompt":"Query to find documents in MongoDB with specific embedded field range.","completion":"db.collection.find({ 'details.price': { $gte: 50, $lte: 100 } });"}
+{"prompt":"What is a database consistency model?","completion":"A consistency model defines how and when data changes are visible to users, like strong or eventual consistency."}
+{"prompt":"Query to get Redis set difference store.","completion":"SDIFFSTORE newset set1 set2"}
+{"prompt":"Write a SQL query to find employees with specific leave balance.","completion":"SELECT * FROM employees WHERE leave_balance > 10;"}
+{"prompt":"How to use $unset in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $unset: { field_name: '' } });"}
+{"prompt":"What is a database index fragmentation?","completion":"Index fragmentation occurs when index pages become disorganized, slowing query performance."}
+{"prompt":"Query to get Redis list last element.","completion":"LINDEX mylist -1"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship absence.","completion":"MATCH (n:Person) WHERE NOT (n)-[:LIKES]->() RETURN n;"}
+{"prompt":"How to use MAX in SQL?","completion":"SELECT MAX(salary) AS highest_salary FROM employees;"}
+{"prompt":"What is a geospatial query in MongoDB?","completion":"A geospatial query retrieves documents based on location data, using indexes like 2dsphere."}
+{"prompt":"Query to set Redis key with conditional set.","completion":"SETNX mykey 'value'"}
+{"prompt":"Write a SQL query to find employees with specific role and department.","completion":"SELECT * FROM employees WHERE role = 'Analyst' AND department = 'Finance';"}
+{"prompt":"Query to find documents in MongoDB with specific array field.","completion":"db.collection.find({ tags: { $exists: true, $ne: [] } });"}
+{"prompt":"What is a database hot backup?","completion":"A hot backup is a database backup performed while the database is online and accessible."}
+{"prompt":"Query to get Redis sorted set reverse range by score.","completion":"ZREVRANGEBYSCORE mysortedset 10 1"}
+{"prompt":"Write a SQL query to find employees with specific project status.","completion":"SELECT * FROM employees WHERE project_status = 'Active';"}
+{"prompt":"How to use $inc in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $inc: { views: 1 } });"}
+{"prompt":"What is a database query plan?","completion":"A query plan is the strategy a database uses to execute a query efficiently."}
+{"prompt":"Query to get Redis set members count.","completion":"SCARD myset"}
+{"prompt":"Write a Neo4j query to find nodes with specific property match.","completion":"MATCH (n:Person) WHERE n.name STARTS WITH 'A' RETURN n;"}
+{"prompt":"How to use MIN in SQL?","completion":"SELECT MIN(salary) AS lowest_salary FROM employees;"}
+{"prompt":"What is a TTL collection in MongoDB?","completion":"A TTL collection automatically removes documents after a specified time using a TTL index."}
+{"prompt":"Query to get Redis hash field values.","completion":"HVALS user:123"}
+{"prompt":"Write a SQL query to find employees with specific team size.","completion":"SELECT * FROM employees e JOIN (SELECT team_id, COUNT(*) AS size FROM employees GROUP BY team_id) t ON e.team_id = t.team_id WHERE t.size > 5;"}
+{"prompt":"Query to find documents in MongoDB with specific field pattern.","completion":"db.collection.find({ name: { $regex: '.*son$', $options: 'i' } });"}
+{"prompt":"What is a database load balancing?","completion":"Load balancing distributes database queries across servers to improve performance and availability."}
+{"prompt":"Query to set Redis key with milliseconds TTL.","completion":"PSETEX mykey 3600000 'value'"}
+{"prompt":"Write a SQL query to find employees with specific salary grade.","completion":"SELECT * FROM employees WHERE salary_grade = 'B';"}
+{"prompt":"How to use $rename in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $rename: { old_field: 'new_field' } });"}
+{"prompt":"What is a database connection string?","completion":"A connection string specifies the parameters needed to connect to a database, like host and credentials."}
+{"prompt":"Query to get Redis set intersection.","completion":"SINTER set1 set2"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship pattern.","completion":"MATCH (n:Person)-[:KNOWS]->(:Person)-[:LIKES]->(m) RETURN n, m;"}
+{"prompt":"How to use AVG in SQL?","completion":"SELECT AVG(salary) AS average_salary FROM employees;"}
+{"prompt":"What is a sharded cluster in MongoDB?","completion":"A sharded cluster distributes data across multiple servers for scalability and performance."}
+{"prompt":"Query to get Redis list push and pop.","completion":"RPUSH mylist 'item1'; RPOP mylist"}
+{"prompt":"Write a SQL query to find employees with specific hire year.","completion":"SELECT * FROM employees WHERE YEAR(hire_date) = 2022;"}
+{"prompt":"Query to find documents in MongoDB with specific field not null.","completion":"db.collection.find({ field_name: { $ne: null } });"}
+{"prompt":"What is a database transaction isolation?","completion":"Transaction isolation controls how transactions interact, preventing issues like dirty reads."}
+{"prompt":"Query to get Redis sorted set range with scores.","completion":"ZRANGE mysortedset 0 -1 WITHSCORES"}
+{"prompt":"Write a SQL query to find employees with specific leave type.","completion":"SELECT * FROM employees WHERE leave_type = 'Vacation';"}
+{"prompt":"How to use $max in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $max: { high_score: 100 } });"}
+{"prompt":"What is a database index maintenance?","completion":"Index maintenance involves updating or rebuilding indexes to ensure optimal query performance."}
+{"prompt":"Query to get Redis set union.","completion":"SUNION set1 set2"}
+{"prompt":"Write a Neo4j query to find nodes with specific property count.","completion":"MATCH (n:Person) WHERE SIZE(n.tags) > 2 RETURN n;"}
+{"prompt":"How to use SUM in SQL?","completion":"SELECT SUM(salary) AS total_salary FROM employees;"}
+{"prompt":"What is a replica set in MongoDB?","completion":"A replica set is a group of MongoDB servers maintaining the same data for redundancy and failover."}
+{"prompt":"Query to get Redis hash field increment by float.","completion":"HINCRBYFLOAT user:123 balance 1.5"}
+{"prompt":"Write a SQL query to find employees with specific region.","completion":"SELECT * FROM employees WHERE region = 'West';"}
+{"prompt":"Query to find documents in MongoDB with specific array not empty.","completion":"db.collection.find({ tags: { $ne: [] } });"}
+{"prompt":"What is a database high availability?","completion":"High availability ensures a database remains accessible despite failures, using replication or failover."}
+{"prompt":"Query to get Redis set random member.","completion":"SRANDMEMBER myset"}
+{"prompt":"Write a SQL query to find employees with specific cost center.","completion":"SELECT * FROM employees WHERE cost_center = 'CC001';"}
+{"prompt":"How to use $min in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $min: { low_score: 50 } });"}
+{"prompt":"What is a database warm backup?","completion":"A warm backup is a database backup performed with minimal downtime, often using replication."}
+{"prompt":"Query to get Redis list trim to range.","completion":"LTRIM mylist 0 99"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship absence.","completion":"MATCH (n:Person) WHERE NOT (n)-[:DISLIKES]->() RETURN n;"}
+{"prompt":"What is a text search in MongoDB?","completion":"Text search in MongoDB uses a text index to find documents matching search terms."}
+{"prompt":"Query to get Redis sorted set range by lexicographical order.","completion":"ZRANGEBYLEX mysortedset [a [z"}
+{"prompt":"Write a SQL query to find employees with specific job code.","completion":"SELECT * FROM employees WHERE job_code = 'JC001';"}
+{"prompt":"Query to find documents in MongoDB with specific embedded field null.","completion":"db.collection.find({ 'details.field': null });"}
+{"prompt":"What is a database sharding key?","completion":"A sharding key determines how data is distributed across shards in a sharded database."}
+{"prompt":"Write a SQL query to find employees with specific award date.","completion":"SELECT * FROM employees WHERE award_date = '2023-01-01';"}
+{"prompt":"How to use $mul in MongoDB?","completion":"db.collection.updateOne({ _id: ObjectId('123') }, { $mul: { price: 1.1 } });"}
+{"prompt":"What is a database cold backup?","completion":"A cold backup is a database backup taken while the database is offline, ensuring consistency."}
+{"prompt":"Query to get Redis hash field values list.","completion":"HVALS user:123"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship count range.","completion":"MATCH (n:Person)-[r:KNOWS]->() RETURN n, COUNT(r) AS count WHERE count BETWEEN 1 AND 3;"}
+{"prompt":"How to use PATINDEX in SQL?","completion":"SELECT PATINDEX('%son%', name) AS position FROM employees;"}
+{"prompt":"What is a wildcard query in MongoDB?","completion":"A wildcard query uses a wildcard index to search across multiple fields dynamically."}
+{"prompt":"Query to get Redis list push left.","completion":"LPUSH mylist 'item1'"}
+{"prompt":"Write a SQL query to find employees with specific skill level.","completion":"SELECT * FROM employees WHERE skill_level = 'Senior';"}
+{"prompt":"Query to find documents in MongoDB with specific field range.","completion":"db.collection.find({ score: { $gte: 80, $lte: 100 } });"}
+{"prompt":"What is a database read-only mode?","completion":"Read-only mode restricts a database to only allow read operations, often used for maintenance."}
+{"prompt":"How to perform an INNER JOIN in SQL?","completion":"SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.id;"}
+{"prompt":"Insert a document into MongoDB collection 'products'","completion":"db.products.insertOne({ name: 'Laptop', price: 999 });"}
+{"prompt":"Optimize this SQL query: SELECT * FROM orders WHERE date = '2023-01-01'","completion":"CREATE INDEX idx_date ON orders(date); Then: SELECT * FROM orders WHERE date = '2023-01-01';"}
+{"prompt":"In Redis, set a key with 1-hour expiration","completion":"SET mykey 'value' EX 3600;"}
+{"prompt":"Tell me about space exploration","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL view for total sales by region","completion":"CREATE VIEW sales_by_region AS SELECT region, SUM(amount) AS total FROM sales GROUP BY region;"}
+{"prompt":"Count documents in MongoDB where age > 25","completion":"db.users.find({ age: { $gt: 25 } }).count();"}
+{"prompt":"Explain ACID properties in databases","completion":"ACID ensures reliable transactions: Atomicity (all or nothing), Consistency (valid state), Isolation (no interference), Durability (persists after commit)."}
+{"prompt":"Find shortest path in Neo4j between two nodes","completion":"MATCH p=shortestPath((a:Person {id:1})-[*]-(b:Person {id:2})) RETURN p;"}
+{"prompt":"Write a PostgreSQL query with a window function for ranking","completion":"SELECT name, score, RANK() OVER (ORDER BY score DESC) AS rank FROM players;"}
+{"prompt":"Update multiple documents in MongoDB","completion":"db.collection.updateMany({ status: 'pending' }, { $set: { status: 'completed' } });"}
+{"prompt":"What’s a SQL subquery? Give an example","completion":"A subquery is a query within another. Example: SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"}
+{"prompt":"Use Redis lists to store and retrieve data","completion":"LPUSH mylist 'item1'; RPOP mylist;"}
+{"prompt":"Explain quantum mechanics","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to use transactions in SQL?","completion":"BEGIN TRANSACTION; INSERT INTO accounts ...; UPDATE accounts ...; COMMIT; or ROLLBACK on error;"}
+{"prompt":"Find friends of friends in Neo4j","completion":"MATCH (p:Person {name:'Alice'})-[:KNOWS]->()-[:KNOWS]->(fof) RETURN fof.name;"}
+{"prompt":"Recommend a movie","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Fix this SQL error: 'column not found'","completion":"Check column name spelling or table schema. Example: Ensure 'col' exists in SELECT col FROM table;"}
+{"prompt":"Compare SQL and NoSQL databases","completion":"SQL: Structured, relational, fixed schemas. NoSQL: Flexible, document/key-value/graph, scalable for unstructured data."}
+{"prompt":"Store a hash in Redis","completion":"HSET user:1 name 'John' age 30; HGETALL user:1;"}
+{"prompt":"Write a SQL query with a LEFT JOIN","completion":"SELECT * FROM customers LEFT JOIN orders ON customers.id = orders.customer_id;"}
+{"prompt":"Query embedded documents in MongoDB","completion":"db.users.find({ 'address.city': 'London' });"}
+{"prompt":"What’s the history of Rome?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain database normalization","completion":"Normalization organizes data to reduce redundancy: 1NF (atomic values), 2NF (no partial dependencies), 3NF (no transitive dependencies)."}
+{"prompt":"Delete a node in Neo4j","completion":"MATCH (n:Node {id:1}) DETACH DELETE n;"}
+{"prompt":"Use GROUP BY with HAVING in SQL","completion":"SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 10;"}
+{"prompt":"Perform a $lookup in MongoDB","completion":"db.orders.aggregate([{ $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer' } }]);"}
+{"prompt":"Create a SQL index on a column","completion":"CREATE INDEX idx_name ON table(column);"}
+{"prompt":"Use Redis sets for unique items","completion":"SADD myset 'item1' 'item2'; SMEMBERS myset;"}
+{"prompt":"Who won the 2022 World Cup?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Add a foreign key in SQL","completion":"ALTER TABLE orders ADD CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES customers(id);"}
+{"prompt":"Sort and limit in MongoDB","completion":"db.collection.find().sort({ age: -1 }).limit(10);"}
+{"prompt":"How to code in C++?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain CAP theorem for NoSQL","completion":"CAP: Consistency, Availability, Partition Tolerance. NoSQL databases prioritize two (e.g., AP or CP) over full CA."}
+{"prompt":"Create a relationship in Neo4j","completion":"MATCH (a:Node {id:1}), (b:Node {id:2}) CREATE (a)-[:CONNECTED]->(b);"}
+{"prompt":"Use a CTE in SQL for hierarchical data","completion":"WITH RECURSIVE cte AS (SELECT id, parent_id FROM tree WHERE parent_id IS NULL UNION ALL SELECT t.id, t.parent_id FROM tree t JOIN cte c ON t.parent_id = c.id) SELECT * FROM cte;"}
+{"prompt":"Enable sharding in MongoDB","completion":"sh.enableSharding('mydb'); sh.shardCollection('mydb.collection', { shardKey: 1 });"}
+{"prompt":"Create a SQL trigger","completion":"CREATE TRIGGER update_timestamp BEFORE UPDATE ON table FOR EACH ROW SET NEW.updated_at = NOW();"}
+{"prompt":"What’s the best laptop brand?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Pivot data in SQL","completion":"SELECT * FROM (SELECT product, month, sales FROM sales_data) PIVOT (SUM(sales) FOR month IN ('Jan', 'Feb'));"}
+{"prompt":"Delete documents in MongoDB","completion":"db.collection.deleteMany({ status: 'inactive' });"}
+{"prompt":"Explain blockchain technology","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use UNION ALL in SQL","completion":"SELECT col FROM table1 UNION ALL SELECT col FROM table2;"}
+{"prompt":"Filter by property in Neo4j","completion":"MATCH (n:Node) WHERE n.age > 30 RETURN n;"}
+{"prompt":"Optimize MongoDB for read-heavy workload","completion":"Create indexes on frequently queried fields: db.collection.createIndex({ field: 1 }); Denormalize data to avoid joins."}
+{"prompt":"Increment a value in Redis","completion":"INCR counter; or INCRBY counter 10;"}
+{"prompt":"What’s the plot of Harry Potter?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Filter by date in SQL","completion":"SELECT * FROM events WHERE event_date BETWEEN '2023-01-01' AND '2023-12-31';"}
+{"prompt":"Use $elemMatch in MongoDB","completion":"db.collection.find({ scores: { $elemMatch: { $gt: 90 } } });"}
+{"prompt":"Explain sharding in SQL databases","completion":"Sharding splits data across servers by a key; e.g., PostgreSQL with Citus partitions tables by range or hash."}
+{"prompt":"Create a unique constraint in Neo4j","completion":"CREATE CONSTRAINT ON (n:Node) ASSERT n.id IS UNIQUE;"}
+{"prompt":"Explain eventual consistency in NoSQL","completion":"Data may be temporarily inconsistent across nodes but converges over time; common in distributed NoSQL like Cassandra."}
+{"prompt":"Use Redis sorted sets","completion":"ZADD leaderboard 100 'player1'; ZRANGE leaderboard 0 -1 WITHSCORES;"}
+{"prompt":"Use full-text search in SQL","completion":"CREATE FULLTEXT INDEX ON articles(content); SELECT * FROM articles WHERE MATCH(content) AGAINST('keyword');"}
+{"prompt":"Unwind an array in MongoDB aggregation","completion":"db.collection.aggregate([{ $unwind: '$tags' }, { $group: { _id: '$tags', count: { $sum: 1 } } }]);"}
+{"prompt":"Create a stored procedure in SQL","completion":"CREATE PROCEDURE get_users() BEGIN SELECT * FROM users; END; CALL get_users();"}
+{"prompt":"Query with parameters in Neo4j","completion":"MATCH (n:Node) WHERE n.id = $id RETURN n;"}
+{"prompt":"Migrate data from SQL to MongoDB","completion":"Export SQL data as JSON/CSV, transform to document structure, import with mongoimport."}
+{"prompt":"Set key expiration in Redis","completion":"EXPIRE mykey 3600; or SET mykey 'value' EX 3600;"}
+{"prompt":"What’s the best smartphone?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use DENSE_RANK in SQL","completion":"SELECT name, score, DENSE_RANK() OVER (ORDER BY score DESC) AS rank FROM players;"}
+{"prompt":"Use geospatial index in MongoDB","completion":"db.places.createIndex({ location: '2dsphere' }); db.places.find({ location: { $near: { $geometry: { type: 'Point', coordinates: [lng, lat] } } } });"}
+{"prompt":"Set up replication in SQL","completion":"In MySQL: Configure binlog on master, set up slave with CHANGE MASTER TO ...; START SLAVE;"}
+{"prompt":"Merge nodes in Neo4j","completion":"MERGE (n:Node {id:1}) SET n.name = 'Node1';"}
+{"prompt":"What’s a good workout routine?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use LIKE operator in SQL","completion":"SELECT * FROM products WHERE name LIKE '%phone%';"}
+{"prompt":"Project fields in MongoDB","completion":"db.collection.find({ status: 'active' }, { name: 1, _id: 0 });"}
+{"prompt":"Partition a table in PostgreSQL","completion":"CREATE TABLE orders (...) PARTITION BY RANGE (order_date); CREATE TABLE orders_2023 PARTITION OF orders FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');"}
+{"prompt":"Use Redis transactions","completion":"MULTI; SET key1 'val1'; SET key2 'val2'; EXEC;"}
+{"prompt":"How to design a logo?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL self-join query","completion":"SELECT a.name, b.name FROM employees a JOIN employees b ON a.manager_id = b.id;"}
+{"prompt":"Count distinct values in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: null, unique: { $addToSet: '$field' } } }, { $project: { count: { $size: '$unique' } } }]);"}
+{"prompt":"Create a SQL view","completion":"CREATE VIEW active_users AS SELECT * FROM users WHERE status = 'active';"}
+{"prompt":"Query variable-length paths in Neo4j","completion":"MATCH (a:Node)-[*1..3]-(b:Node) RETURN a, b;"}
+{"prompt":"Handle SQL transaction errors","completion":"In T-SQL: BEGIN TRY BEGIN TRANSACTION; ...; COMMIT; END TRY BEGIN CATCH ROLLBACK; END CATCH;"}
+{"prompt":"Use $regex in MongoDB","completion":"db.collection.find({ name: { $regex: '^A', $options: 'i' } });"}
+{"prompt":"What’s the best video game?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain indexing in SQL vs NoSQL","completion":"SQL: B-tree indexes on columns for fast lookups. NoSQL: Flexible indexes, e.g., MongoDB compound indexes for queries."}
+{"prompt":"Add to Redis sorted set","completion":"ZADD ranking 100 'user1' 200 'user2';"}
+{"prompt":"Explain dark matter","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CASE statement","completion":"SELECT name, CASE WHEN salary > 50000 THEN 'High' ELSE 'Low' END AS salary_level FROM employees;"}
+{"prompt":"Group by multiple fields in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: { field1: '$field1', field2: '$field2' }, count: { $sum: 1 } } }]);"}
+{"prompt":"Explain SQL constraints","completion":"Constraints enforce rules: PRIMARY KEY (unique identifier), FOREIGN KEY (references), NOT NULL, UNIQUE, CHECK."}
+{"prompt":"Create a node in Neo4j","completion":"CREATE (n:Person {name: 'Alice', age: 30});"}
+{"prompt":"What’s the theory of evolution?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL EXISTS clause","completion":"SELECT name FROM customers WHERE EXISTS (SELECT 1 FROM orders WHERE orders.customer_id = customers.id);"}
+{"prompt":"Use $inc in MongoDB","completion":"db.collection.updateOne({ _id: '123' }, { $inc: { count: 1 } });"}
+{"prompt":"Explain database triggers","completion":"Triggers execute code on events like INSERT. Example: CREATE TRIGGER log_insert AFTER INSERT ON table FOR EACH ROW INSERT INTO log ...;"}
+{"prompt":"Use Redis streams","completion":"XADD mystream * field1 value1; XREAD COUNT 10 STREAMS mystream 0;"}
+{"prompt":"What’s the best camera?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL COALESCE function","completion":"SELECT COALESCE(NULL, column1, 'default') AS value FROM table;"}
+{"prompt":"Match patterns in Neo4j","completion":"MATCH (n:Node) WHERE n.name =~ 'A.*' RETURN n;"}
+{"prompt":"How to write a screenplay?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain denormalization in NoSQL","completion":"Denormalization embeds related data in documents to optimize reads, reducing joins but increasing storage."}
+{"prompt":"Use Redis bitmaps","completion":"SETBIT mybitmap 100 1; GETBIT mybitmap 100;"}
+{"prompt":"What’s the history of jazz?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL BETWEEN operator","completion":"SELECT * FROM products WHERE price BETWEEN 50 AND 100;"}
+{"prompt":"Use $push in MongoDB","completion":"db.collection.updateOne({ _id: '123' }, { $push: { items: 'newItem' } });"}
+{"prompt":"Explain SQL table partitioning","completion":"Partitioning splits large tables; e.g., in PostgreSQL: CREATE TABLE sales (...) PARTITION BY RANGE (sale_date);"}
+{"prompt":"Delete relationships in Neo4j","completion":"MATCH ()-[r:REL]->() WHERE r.id = 1 DELETE r;"}
+{"prompt":"Use SQL aggregate functions","completion":"SELECT department, AVG(salary), MAX(salary) FROM employees GROUP BY department;"}
+{"prompt":"Use $sort in MongoDB aggregation","completion":"db.collection.aggregate([{ $sort: { age: -1 } }]);"}
+{"prompt":"Explain SQL views vs materialized views","completion":"Views are virtual tables from queries; materialized views store data physically for faster access."}
+{"prompt":"Count nodes in Neo4j","completion":"MATCH (n) RETURN COUNT(n);"}
+{"prompt":"What’s the best travel destination?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL IN clause","completion":"SELECT * FROM products WHERE category IN ('electronics', 'books');"}
+{"prompt":"Use $exists in MongoDB","completion":"db.collection.find({ field: { $exists: true } });"}
+{"prompt":"How to solve a Rubik’s cube?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL transaction isolation levels","completion":"Levels: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE; control concurrency and consistency."}
+{"prompt":"Use Redis HyperLogLog","completion":"PFADD myhll 'item1' 'item2'; PFCOUNT myhll;"}
+{"prompt":"What’s machine learning?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LATERAL join in PostgreSQL","completion":"SELECT * FROM table1, LATERAL (SELECT * FROM table2 WHERE table2.id = table1.id) t2;"}
+{"prompt":"Use $all in MongoDB","completion":"db.collection.find({ tags: { $all: ['tag1', 'tag2'] } });"}
+{"prompt":"Explain SQL primary key","completion":"A primary key uniquely identifies rows; e.g., CREATE TABLE users (id INT PRIMARY KEY, name VARCHAR(50));"}
+{"prompt":"Query nodes by label in Neo4j","completion":"MATCH (n:Person) RETURN n;"}
+{"prompt":"What’s the history of chess?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DISTINCT clause","completion":"SELECT DISTINCT category FROM products;"}
+{"prompt":"Use $pull in MongoDB","completion":"db.collection.updateOne({ _id: '123' }, { $pull: { items: 'oldItem' } });"}
+{"prompt":"Explain SQL foreign key constraints","completion":"Foreign keys link tables; e.g., ALTER TABLE orders ADD FOREIGN KEY (customer_id) REFERENCES customers(id);"}
+{"prompt":"Use Redis geospatial data","completion":"GEOADD places 13.361389 38.115556 'Palermo'; GEORADIUS places 15 37 200 km;"}
+{"prompt":"What’s the best sci-fi book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LIMIT and OFFSET","completion":"SELECT * FROM products LIMIT 10 OFFSET 20;"}
+{"prompt":"Group by date in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, count: { $sum: 1 } } }]);"}
+{"prompt":"Explain SQL CHECK constraint","completion":"Ensures values meet a condition; e.g., ALTER TABLE employees ADD CONSTRAINT chk_salary CHECK (salary > 0);"}
+{"prompt":"Query by relationship type in Neo4j","completion":"MATCH (a)-[r:LIKES]->(b) RETURN a, b;"}
+{"prompt":"What’s the history of the Olympics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL ORDER BY clause","completion":"SELECT * FROM employees ORDER BY salary DESC;"}
+{"prompt":"Use $size in MongoDB","completion":"db.collection.find({ arrayField: { $size: 3 } });"}
+{"prompt":"Explain SQL unique constraints","completion":"Ensures unique values; e.g., ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);"}
+{"prompt":"Use Redis pipelines","completion":"Use client.pipeline(): pipeline.set('key1', 'val1'); pipeline.set('key2', 'val2'); pipeline.execute();"}
+{"prompt":"Use SQL FULL OUTER JOIN","completion":"SELECT * FROM table1 FULL OUTER JOIN table2 ON table1.id = table2.id;"}
+{"prompt":"Use $match in MongoDB aggregation","completion":"db.collection.aggregate([{ $match: { status: 'active' } }]);"}
+{"prompt":"How to create a podcast?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL stored functions","completion":"CREATE FUNCTION total_salary() RETURNS DECIMAL BEGIN DECLARE total DECIMAL; SELECT SUM(salary) INTO total FROM employees; RETURN total; END;"}
+{"prompt":"Count relationships in Neo4j","completion":"MATCH ()-[r]->() RETURN COUNT(r);"}
+{"prompt":"What’s the best hiking trail?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL ANY operator","completion":"SELECT name FROM products WHERE price > ANY (SELECT price FROM discounts);"}
+{"prompt":"Use $set in MongoDB","completion":"db.collection.updateMany({}, { $set: { updated: true } });"}
+{"prompt":"Explain SQL temporary tables","completion":"CREATE TEMPORARY TABLE temp_table AS SELECT * FROM table WHERE condition; Drops after session."}
+{"prompt":"Use Redis for caching","completion":"SET cache:key 'data' EX 300; GET cache:key;"}
+{"prompt":"What’s the history of rock music?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CROSS JOIN","completion":"SELECT * FROM table1 CROSS JOIN table2;"}
+{"prompt":"Use $addToSet in MongoDB","completion":"db.collection.updateOne({ _id: '123' }, { $addToSet: { tags: 'newTag' } });"}
+{"prompt":"How to write a business plan?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL sequences","completion":"In PostgreSQL: CREATE SEQUENCE seq_name; SELECT nextval('seq_name'); Used for auto-incrementing IDs."}
+{"prompt":"Query by property existence in Neo4j","completion":"MATCH (n:Node) WHERE EXISTS(n.property) RETURN n;"}
+{"prompt":"What’s the best programming IDE?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL TRUNCATE","completion":"TRUNCATE TABLE table_name; (Removes all rows, keeps structure)."}
+{"prompt":"Use $rename in MongoDB","completion":"db.collection.updateMany({}, { $rename: { oldField: 'newField' } });"}
+{"prompt":"Explain SQL correlated subqueries","completion":"A subquery referencing outer query; e.g., SELECT name FROM employees e WHERE salary > (SELECT AVG(salary) FROM employees WHERE dept = e.dept);"}
+{"prompt":"Use Redis Lua scripts","completion":"EVAL 'return redis.call(\"SET\", KEYS[1], ARGV[1])' 1 mykey value;"}
+{"prompt":"What’s the history of computers?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DROP TABLE","completion":"DROP TABLE table_name;"}
+{"prompt":"Use $unset in MongoDB","completion":"db.collection.updateMany({}, { $unset: { field: '' } });"}
+{"prompt":"Explain SQL data types","completion":"Common types: INT, VARCHAR(n), DATE, DECIMAL(m,n), BOOLEAN; vary by database (e.g., MySQL vs PostgreSQL)."}
+{"prompt":"Query multiple labels in Neo4j","completion":"MATCH (n:Person:Employee) RETURN n;"}
+{"prompt":"What’s the best car brand?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CURRENT_DATE","completion":"SELECT * FROM events WHERE event_date = CURRENT_DATE;"}
+{"prompt":"Use $slice in MongoDB","completion":"db.collection.find({}, { items: { $slice: [0, 5] } });"}
+{"prompt":"How to make a mobile app?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL table joins","completion":"Joins combine tables: INNER (matching rows), LEFT (all left rows), RIGHT (all right rows), FULL (all rows)."}
+{"prompt":"Use Redis scan","completion":"SCAN 0 MATCH key* COUNT 100;"}
+{"prompt":"What’s the history of art?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL NULLIF","completion":"SELECT NULLIF(column, 'value') FROM table; (Returns NULL if column equals 'value')."}
+{"prompt":"Use $redact in MongoDB","completion":"db.collection.aggregate([{ $redact: { $cond: { if: { $eq: ['$level', 1] }, then: '$$KEEP', else: '$$PRUNE' } } }]);"}
+{"prompt":"Explain SQL clustering","completion":"Clustering groups similar data on disk; e.g., in PostgreSQL: CLUSTER table USING index_name;"}
+{"prompt":"Drop a node in Neo4j","completion":"MATCH (n:Node {id:1}) DELETE n;"}
+{"prompt":"What’s the best board game?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CONCAT function","completion":"SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;"}
+{"prompt":"Use $sample in MongoDB","completion":"db.collection.aggregate([{ $sample: { size: 5 } }]);"}
+{"prompt":"Explain SQL cursors","completion":"Cursors iterate over query results; e.g., in T-SQL: DECLARE cur CURSOR FOR SELECT ...; OPEN cur; FETCH NEXT FROM cur;"}
+{"prompt":"Use Redis time series","completion":"TS.CREATE mytimeseries; TS.ADD mytimeseries * 100;"}
+{"prompt":"What’s the history of democracy?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL REPLACE function","completion":"SELECT REPLACE(column, 'old', 'new') FROM table;"}
+{"prompt":"Use $merge in MongoDB","completion":"db.collection.aggregate([{ $match: { status: 'active' } }, { $merge: { into: 'newCollection' } }]);"}
+{"prompt":"Explain SQL database roles","completion":"Roles manage permissions; e.g., in PostgreSQL: CREATE ROLE reader; GRANT SELECT ON table TO reader;"}
+{"prompt":"Query by relationship properties in Neo4j","completion":"MATCH (a)-[r:REL {weight: 5}]->(b) RETURN a, b;"}
+{"prompt":"What’s the best TV show?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CAST function","completion":"SELECT CAST(column AS INTEGER) FROM table;"}
+{"prompt":"Use $out in MongoDB aggregation","completion":"db.collection.aggregate([{ $match: { status: 'active' } }, { $out: 'newCollection' }]);"}
+{"prompt":"Explain SQL deadlocks","completion":"Deadlocks occur when transactions lock resources mutually; prevent with proper indexing and transaction ordering."}
+{"prompt":"Use Redis bloom filter","completion":"BF.ADD mybloom item1; BF.EXISTS mybloom item1;"}
+{"prompt":"What’s the history of fashion?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL NOW function","completion":"SELECT NOW() AS current_time;"}
+{"prompt":"Use $arrayElemAt in MongoDB","completion":"db.collection.aggregate([{ $project: { first: { $arrayElemAt: ['$items', 0] } } }]);"}
+{"prompt":"Explain SQL materialized views","completion":"Materialized views store query results physically; e.g., in PostgreSQL: CREATE MATERIALIZED VIEW name AS SELECT ...;"}
+{"prompt":"Drop a relationship in Neo4j","completion":"MATCH ()-[r:REL]->() WHERE r.id = 1 DELETE r;"}
+{"prompt":"What’s the best music genre?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL INTERVAL","completion":"SELECT * FROM events WHERE event_date > NOW() - INTERVAL '30 days';"}
+{"prompt":"Use $cond in MongoDB aggregation","completion":"db.collection.aggregate([{ $project: { status: { $cond: { if: { $gt: ['$score', 50] }, then: 'pass', else: 'fail' } } } }]);"}
+{"prompt":"Explain SQL query execution plans","completion":"Execution plans show how a query is processed; e.g., in PostgreSQL: EXPLAIN SELECT * FROM table;"}
+{"prompt":"Use Redis JSON module","completion":"JSON.SET mydoc $ '{\"name\": \"John\"}'; JSON.GET mydoc;"}
+{"prompt":"What’s the history of science?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL GROUP_CONCAT","completion":"SELECT department, GROUP_CONCAT(name) FROM employees GROUP BY department;"}
+{"prompt":"Use $graphLookup in MongoDB","completion":"db.collection.aggregate([{ $graphLookup: { from: 'collection', startWith: '$id', connectFromField: 'id', connectToField: 'parent', as: 'hierarchy' } }]);"}
+{"prompt":"Explain SQL table inheritance","completion":"In PostgreSQL: CREATE TABLE child () INHERITS (parent); Child tables inherit parent’s structure."}
+{"prompt":"Query by node degree in Neo4j","completion":"MATCH (n)-[r]-() RETURN n, COUNT(r) AS degree;"}
+{"prompt":"What’s the best smartphone app?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL SUBSTRING","completion":"SELECT SUBSTRING(name, 1, 3) FROM employees;"}
+{"prompt":"Use $bucket in MongoDB","completion":"db.collection.aggregate([{ $bucket: { groupBy: '$age', boundaries: [0, 18, 30, 50], default: 'other', output: { count: { $sum: 1 } } } }]);"}
+{"prompt":"Explain SQL table locks","completion":"Table locks prevent concurrent access; e.g., in MySQL: LOCK TABLES table_name WRITE;"}
+{"prompt":"Use Redis search module","completion":"FT.CREATE idx ON HASH PREFIX 1 user: SCHEMA name TEXT; FT.SEARCH idx 'John';"}
+{"prompt":"What’s the history of literature?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DATEADD","completion":"SELECT DATEADD(day, 7, event_date) FROM events; (SQL Server syntax)"}
+{"prompt":"Use $facet in MongoDB","completion":"db.collection.aggregate([{ $facet: { byAge: [{ $group: { _id: '$age', count: { $sum: 1 } } }], byCity: [{ $group: { _id: '$city', count: { $sum: 1 } } }]} }]);"}
+{"prompt":"Explain SQL query optimization","completion":"Optimize with indexes, avoid SELECT *, use EXPLAIN to analyze query plans, and minimize subqueries."}
+{"prompt":"Use Neo4j APOC procedures","completion":"CALL apoc.create.node(['Label'], {key: 'value'});"}
+{"prompt":"What’s the best movie?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL EXTRACT function","completion":"SELECT EXTRACT(YEAR FROM event_date) FROM events;"}
+{"prompt":"Use $lookup with pipeline in MongoDB","completion":"db.orders.aggregate([{ $lookup: { from: 'customers', let: { cid: '$customer_id' }, pipeline: [{ $match: { $expr: { $eq: ['$_id', '$$cid'] } } }], as: 'customer' } }]);"}
+{"prompt":"Explain SQL audit tables","completion":"Audit tables track changes; e.g., CREATE TABLE audit_log (id INT, action VARCHAR(50), timestamp DATETIME); Use triggers to populate."}
+{"prompt":"Use Redis sets operations","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SUNION set1 set2;"}
+{"prompt":"What’s the history of philosophy?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL ROUND function","completion":"SELECT ROUND(price, 2) FROM products;"}
+{"prompt":"Use $geoWithin in MongoDB","completion":"db.places.find({ location: { $geoWithin: { $box: [[0, 0], [100, 100]] } } });"}
+{"prompt":"Explain SQL savepoints","completion":"Savepoints allow partial rollbacks; e.g., SAVEPOINT sp1; ...; ROLLBACK TO sp1;"}
+{"prompt":"Use Neo4j full-text search","completion":"CALL db.index.fulltext.queryNodes('indexName', 'search term') YIELD node RETURN node;"}
+{"prompt":"What’s the best book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL ROW_NUMBER","completion":"SELECT ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num, name FROM employees;"}
+{"prompt":"Use $replaceRoot in MongoDB","completion":"db.collection.aggregate([{ $replaceRoot: { newRoot: '$embeddedDoc' } }]);"}
+{"prompt":"Explain SQL composite keys","completion":"Composite keys use multiple columns; e.g., CREATE TABLE table (col1 INT, col2 INT, PRIMARY KEY (col1, col2));"}
+{"prompt":"Use Redis sorted set range","completion":"ZADD myset 1 'item1' 2 'item2'; ZRANGEBYSCORE myset 0 1;"}
+{"prompt":"What’s the history of dance?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL TRUNCATE vs DELETE","completion":"TRUNCATE removes all rows, resets counters; DELETE removes specific rows with WHERE."}
+{"prompt":"Use $indexOfArray in MongoDB","completion":"db.collection.aggregate([{ $project: { index: { $indexOfArray: ['$array', 'value'] } } }]);"}
+{"prompt":"Explain SQL database schemas","completion":"Schemas organize tables; e.g., CREATE SCHEMA sales; CREATE TABLE sales.orders (...);"}
+{"prompt":"Use Neo4j shortest path with conditions","completion":"MATCH p=shortestPath((a:Node {id:1})-[r:REL*]-(b:Node {id:2})) WHERE ALL(r IN relationships(p) WHERE r.weight > 0) RETURN p;"}
+{"prompt":"What’s the best video streaming service?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CURRENT_TIMESTAMP","completion":"SELECT CURRENT_TIMESTAMP AS now;"}
+{"prompt":"Use $arrayToObject in MongoDB","completion":"db.collection.aggregate([{ $project: { obj: { $arrayToObject: [['k1', 'v1'], ['k2', 'v2']] } } }]);"}
+{"prompt":"Explain SQL connection pooling","completion":"Connection pooling reuses database connections to improve performance; configured in app servers like Tomcat."}
+{"prompt":"Use Redis expire at timestamp","completion":"EXPIREAT mykey 1696118400;"}
+{"prompt":"What’s the history of architecture?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LEAD function","completion":"SELECT name, salary, LEAD(salary) OVER (ORDER BY salary) AS next_salary FROM employees;"}
+{"prompt":"Use $concatArrays in MongoDB","completion":"db.collection.aggregate([{ $project: { combined: { $concatArrays: ['$array1', '$array2'] } } }]);"}
+{"prompt":"Explain SQL query caching","completion":"Query caching stores results for reuse; e.g., MySQL query cache (deprecated) or app-level caching."}
+{"prompt":"Use Neo4j path finding","completion":"MATCH p=((a:Node {id:1})-[*..5]-(b:Node {id:2})) RETURN p;"}
+{"prompt":"What’s the best podcast?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LAG function","completion":"SELECT name, salary, LAG(salary) OVER (ORDER BY salary) AS prev_salary FROM employees;"}
+{"prompt":"Use $filter in MongoDB","completion":"db.collection.aggregate([{ $project: { items: { $filter: { input: '$items', as: 'item', cond: { $gt: ['$$item', 10] } } } } }]);"}
+{"prompt":"Explain SQL database triggers vs stored procedures","completion":"Triggers run automatically on events; stored procedures are explicitly called. Both encapsulate logic."}
+{"prompt":"Use Redis sorted set rank","completion":"ZADD myset 100 'user1'; ZRANK myset 'user1';"}
+{"prompt":"What’s the history of theater?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL GREATEST function","completion":"SELECT GREATEST(col1, col2, col3) AS max_value FROM table;"}
+{"prompt":"Use $zip in MongoDB","completion":"db.collection.aggregate([{ $project: { zipped: { $zip: { inputs: ['$array1', '$array2'] } } } }]);"}
+{"prompt":"Explain SQL database backups","completion":"Backups save database state; e.g., MySQL: mysqldump -u user -p db > backup.sql;"}
+{"prompt":"Use Neo4j node properties","completion":"MATCH (n:Node) SET n.newProp = 'value'; RETURN n;"}
+{"prompt":"What’s the best social media platform?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LEAST function","completion":"SELECT LEAST(col1, col2, col3) AS min_value FROM table;"}
+{"prompt":"Use $let in MongoDB","completion":"db.collection.aggregate([{ $project: { result: { $let: { vars: { x: '$field' }, in: { $multiply: ['$$x', 2] } } } } }]);"}
+{"prompt":"How to learn chess strategy?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL query performance tuning","completion":"Use indexes, analyze EXPLAIN plans, avoid correlated subqueries, and optimize joins."}
+{"prompt":"Use Redis sorted set range by lex","completion":"ZADD myset 0 'apple' 0 'banana'; ZRANGEBYLEX myset [a [c;"}
+{"prompt":"What’s the history of medicine?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DATEPART","completion":"SELECT DATEPART(year, event_date) FROM events; (SQL Server syntax)"}
+{"prompt":"Use $switch in MongoDB","completion":"db.collection.aggregate([{ $project: { status: { $switch: { branches: [{ case: { $gt: ['$score', 50] }, then: 'pass' }], default: 'fail' } } } }]);"}
+{"prompt":"Explain SQL database users","completion":"Users control access; e.g., in MySQL: CREATE USER 'user'@'localhost' IDENTIFIED BY 'password'; GRANT SELECT ON db.* TO 'user'@'localhost';"}
+{"prompt":"Use Neo4j collect function","completion":"MATCH (n:Node) RETURN COLLECT(n.name) AS names;"}
+{"prompt":"What’s the best music streaming service?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL STRING_AGG","completion":"SELECT department, STRING_AGG(name, ',') AS names FROM employees GROUP BY department; (PostgreSQL)"}
+{"prompt":"Use $geoIntersects in MongoDB","completion":"db.places.find({ location: { $geoIntersects: { $geometry: { type: 'Point', coordinates: [lng, lat] } } } });"}
+{"prompt":"Explain SQL database grants","completion":"Grants assign permissions; e.g., GRANT SELECT, INSERT ON table TO 'user';"}
+{"prompt":"Use Redis set intersection","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SINTER set1 set2;"}
+{"prompt":"What’s the history of astronomy?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL IFNULL","completion":"SELECT IFNULL(column, 'default') FROM table; (MySQL syntax)"}
+{"prompt":"Use $map in MongoDB","completion":"db.collection.aggregate([{ $project: { doubled: { $map: { input: '$numbers', as: 'num', in: { $multiply: ['$$num', 2] } } } } }]);"}
+{"prompt":"How to learn poetry?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database synonyms","completion":"Synonyms alias objects; e.g., in SQL Server: CREATE SYNONYM syn_table FOR db.schema.table;"}
+{"prompt":"Use Neo4j apoc path finding","completion":"CALL apoc.path.expandConfig(startNode, {relationshipFilter: 'REL>'}) YIELD path RETURN path;"}
+{"prompt":"What’s the best game console?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DATEDIFF","completion":"SELECT DATEDIFF(day, start_date, end_date) FROM events; (SQL Server syntax)"}
+{"prompt":"Use $subtract in MongoDB","completion":"db.collection.aggregate([{ $project: { diff: { $subtract: ['$field1', '$field2'] } } }]);"}
+{"prompt":"Explain SQL database views","completion":"Views are virtual tables; e.g., CREATE VIEW view_name AS SELECT * FROM table WHERE condition;"}
+{"prompt":"Use Redis set difference","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SDIFF set1 set2;"}
+{"prompt":"What’s the history of biology?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL FORMAT function","completion":"SELECT FORMAT(event_date, 'yyyy-MM-dd') FROM events; (SQL Server syntax)"}
+{"prompt":"Use $divide in MongoDB","completion":"db.collection.aggregate([{ $project: { ratio: { $divide: ['$field1', '$field2'] } } }]);"}
+{"prompt":"Explain SQL database indexes","completion":"Indexes speed up queries; e.g., CREATE INDEX idx_col ON table(column); B-tree is common."}
+{"prompt":"Use Neo4j list comprehension","completion":"MATCH (n:Node) RETURN [x IN n.list | x * 2] AS doubled;"}
+{"prompt":"What’s the best streaming platform?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL TRIM function","completion":"SELECT TRIM(BOTH ' ' FROM column) FROM table;"}
+{"prompt":"Use $mod in MongoDB","completion":"db.collection.find({ field: { $mod: [5, 0] } });"}
+{"prompt":"Explain SQL database triggers","completion":"Triggers run on events; e.g., CREATE TRIGGER trig AFTER INSERT ON table FOR EACH ROW INSERT INTO log ...;"}
+{"prompt":"Use Redis sorted set union","completion":"ZADD set1 1 'a'; ZADD set2 2 'b'; ZUNIONSTORE result 2 set1 set2;"}
+{"prompt":"What’s the history of physics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL UPPER function","completion":"SELECT UPPER(name) FROM employees;"}
+{"prompt":"Use $multiply in MongoDB","completion":"db.collection.aggregate([{ $project: { product: { $multiply: ['$field1', '$field2'] } } }]);"}
+{"prompt":"Explain SQL database roles vs users","completion":"Users are accounts; roles group permissions. E.g., CREATE ROLE role1; GRANT role1 TO user1;"}
+{"prompt":"Use Neo4j map projection","completion":"MATCH (n:Node) RETURN n {.name, .age};"}
+{"prompt":"What’s the best fitness app?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LOWER function","completion":"SELECT LOWER(name) FROM employees;"}
+{"prompt":"Use $add in MongoDB","completion":"db.collection.aggregate([{ $project: { sum: { $add: ['$field1', '$field2'] } } }]);"}
+{"prompt":"Explain SQL database collations","completion":"Collations define string comparison rules; e.g., in MySQL: CREATE TABLE t (c VARCHAR(50) COLLATE utf8mb4_unicode_ci);"}
+{"prompt":"Use Neo4j conditional expressions","completion":"MATCH (n:Node) RETURN CASE WHEN n.age > 30 THEN 'Senior' ELSE 'Junior' END AS category;"}
+{"prompt":"What’s the history of chemistry?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL COUNTIF equivalent","completion":"SELECT SUM(CASE WHEN condition THEN 1 ELSE 0 END) AS count FROM table;"}
+{"prompt":"Use $type in MongoDB","completion":"db.collection.find({ field: { $type: 'string' } });"}
+{"prompt":"Explain SQL database statistics","completion":"Statistics help optimizers; e.g., in PostgreSQL: ANALYZE table; Updates query planner data."}
+{"prompt":"Use Redis sorted set intersection","completion":"ZADD set1 1 'a'; ZADD set2 2 'a'; ZINTERSTORE result 2 set1 set2;"}
+{"prompt":"What’s the best travel app?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL DATE_FORMAT","completion":"SELECT DATE_FORMAT(event_date, '%Y-%m-%d') FROM events; (MySQL syntax)"}
+{"prompt":"Use $in in MongoDB","completion":"db.collection.find({ field: { $in: ['value1', 'value2'] } });"}
+{"prompt":"Explain SQL database constraints","completion":"Constraints enforce rules: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK."}
+{"prompt":"Use Neo4j aggregation","completion":"MATCH (n:Node) RETURN n.category, COUNT(*) AS count;"}
+{"prompt":"What’s the history of mathematics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL IS NULL","completion":"SELECT * FROM table WHERE column IS NULL;"}
+{"prompt":"Use $nin in MongoDB","completion":"db.collection.find({ field: { $nin: ['value1', 'value2'] } });"}
+{"prompt":"Explain SQL database transactions","completion":"Transactions ensure ACID; e.g., BEGIN; INSERT ...; UPDATE ...; COMMIT;"}
+{"prompt":"Use Redis sorted set range by rank","completion":"ZADD myset 1 'a' 2 'b'; ZRANGE myset 0 1;"}
+{"prompt":"What’s the best cooking recipe?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL MIN function","completion":"SELECT MIN(salary) FROM employees;"}
+{"prompt":"Use $gt in MongoDB","completion":"db.collection.find({ age: { $gt: 30 } });"}
+{"prompt":"How to learn skiing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database indexing strategies","completion":"Use B-tree for general queries, bitmap for low-cardinality, full-text for search; analyze query patterns."}
+{"prompt":"Use Neo4j distinct","completion":"MATCH (n:Node) RETURN DISTINCT n.category;"}
+{"prompt":"What’s the history of psychology?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL MAX function","completion":"SELECT MAX(salary) FROM employees;"}
+{"prompt":"Use $gte in MongoDB","completion":"db.collection.find({ age: { $gte: 30 } });"}
+{"prompt":"Explain SQL database replication","completion":"Replication copies data to multiple nodes; e.g., MySQL binlog replication for master-slave setup."}
+{"prompt":"Use Redis list range","completion":"LPUSH mylist 'a' 'b'; LRANGE mylist 0 -1;"}
+{"prompt":"What’s the best adventure sport?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL SUM function","completion":"SELECT SUM(salary) FROM employees;"}
+{"prompt":"Use $lt in MongoDB","completion":"db.collection.find({ age: { $lt: 30 } });"}
+{"prompt":"How to learn animation?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database sharding","completion":"Sharding distributes data by key; e.g., PostgreSQL with Citus splits tables across nodes."}
+{"prompt":"Use Neo4j limit","completion":"MATCH (n:Node) RETURN n LIMIT 10;"}
+{"prompt":"What’s the history of economics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL AVG function","completion":"SELECT AVG(salary) FROM employees;"}
+{"prompt":"Use $lte in MongoDB","completion":"db.collection.find({ age: { $lte: 30 } });"}
+{"prompt":"How to learn sculpture?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database performance tuning","completion":"Tune with indexes, query optimization, caching, and hardware scaling; use EXPLAIN to analyze."}
+{"prompt":"Use Redis list push","completion":"LPUSH mylist 'item1'; RPUSH mylist 'item2';"}
+{"prompt":"What’s the best art gallery?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL COUNT function","completion":"SELECT COUNT(*) FROM employees;"}
+{"prompt":"Use $ne in MongoDB","completion":"db.collection.find({ status: { $ne: 'inactive' } });"}
+{"prompt":"Explain SQL database normalization forms","completion":"1NF: Atomic values. 2NF: No partial dependencies. 3NF: No transitive dependencies."}
+{"prompt":"Use Neo4j skip","completion":"MATCH (n:Node) RETURN n SKIP 10 LIMIT 10;"}
+{"prompt":"What’s the history of sociology?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL STDDEV function","completion":"SELECT STDDEV(salary) FROM employees;"}
+{"prompt":"Use $or in MongoDB","completion":"db.collection.find({ $or: [{ age: { $gt: 30 } }, { status: 'active' }] });"}
+{"prompt":"Explain SQL database constraints types","completion":"Types: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK; enforce data integrity."}
+{"prompt":"Use Redis list pop","completion":"LPOP mylist; or RPOP mylist;"}
+{"prompt":"What’s the best museum?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL VARIANCE function","completion":"SELECT VARIANCE(salary) FROM employees;"}
+{"prompt":"Use $and in MongoDB","completion":"db.collection.find({ $and: [{ age: { $gt: 20 } }, { age: { $lt: 30 } }] });"}
+{"prompt":"Explain SQL database triggers limitations","completion":"Triggers can’t call themselves recursively or manage transactions in some DBs; use carefully."}
+{"prompt":"Use Neo4j order by","completion":"MATCH (n:Node) RETURN n ORDER BY n.age DESC;"}
+{"prompt":"What’s the history of anthropology?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL FIRST_VALUE function","completion":"SELECT FIRST_VALUE(salary) OVER (PARTITION BY department ORDER BY salary) FROM employees;"}
+{"prompt":"Use $not in MongoDB","completion":"db.collection.find({ age: { $not: { $gt: 30 } } });"}
+{"prompt":"Explain SQL database indexing types","completion":"Types: B-tree (general), Hash (exact matches), GiST (spatial), GIN (full-text), Bitmap (low-cardinality)."}
+{"prompt":"Use Redis list length","completion":"LLEN mylist;"}
+{"prompt":"What’s the best festival?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LAST_VALUE function","completion":"SELECT LAST_VALUE(salary) OVER (PARTITION BY department ORDER BY salary) FROM employees;"}
+{"prompt":"Use $nor in MongoDB","completion":"db.collection.find({ $nor: [{ age: { $gt: 30 } }, { status: 'inactive' }] });"}
+{"prompt":"Explain SQL database high availability","completion":"High availability uses replication, failover, and clustering; e.g., PostgreSQL streaming replication."}
+{"prompt":"Use Neo4j exists function","completion":"MATCH (n:Node) WHERE EXISTS(n.property) RETURN n;"}
+{"prompt":"What’s the history of linguistics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL NTH_VALUE function","completion":"SELECT NTH_VALUE(salary, 2) OVER (PARTITION BY department ORDER BY salary) FROM employees;"}
+{"prompt":"Use $size in MongoDB aggregation","completion":"db.collection.aggregate([{ $project: { arraySize: { $size: '$items' } } }]);"}
+{"prompt":"How to learn magic?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database partitioning types","completion":"Types: Range (by value ranges), List (by discrete values), Hash (by key hashing)."}
+{"prompt":"Use Redis set cardinality","completion":"SCARD myset;"}
+{"prompt":"What’s the best theme park?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL NTILE function","completion":"SELECT NTILE(4) OVER (ORDER BY salary) AS quartile FROM employees;"}
+{"prompt":"Use $avg in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', avgVal: { $avg: '$value' } } }]);"}
+{"prompt":"Explain SQL database recovery","completion":"Recovery restores data from backups; e.g., MySQL: mysql -u user -p db < backup.sql;"}
+{"prompt":"Use Neo4j coalesce function","completion":"MATCH (n:Node) RETURN COALESCE(n.property, 'default') AS value;"}
+{"prompt":"What’s the history of geography?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL PERCENT_RANK","completion":"SELECT PERCENT_RANK() OVER (ORDER BY salary) AS rank FROM employees;"}
+{"prompt":"Use $sum in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', total: { $sum: '$value' } } }]);"}
+{"prompt":"Explain SQL database connection limits","completion":"Connection limits depend on DB config; e.g., MySQL: SET GLOBAL max_connections = 200;"}
+{"prompt":"Use Redis set membership","completion":"SADD myset 'item'; SISMEMBER myset 'item';"}
+{"prompt":"What’s the best concert?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CUME_DIST","completion":"SELECT CUME_DIST() OVER (ORDER BY salary) AS dist FROM employees;"}
+{"prompt":"Use $max in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', maxVal: { $max: '$value' } } }]);"}
+{"prompt":"Explain SQL database logging","completion":"Logging tracks operations; e.g., PostgreSQL: SET log_statement = 'all';"}
+{"prompt":"Use Neo4j size function","completion":"MATCH (n:Node) RETURN SIZE(n.list) AS length;"}
+{"prompt":"What’s the history of religion?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL CHAR_LENGTH","completion":"SELECT CHAR_LENGTH(name) FROM employees;"}
+{"prompt":"Use $min in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', minVal: { $min: '$value' } } }]);"}
+{"prompt":"Explain SQL database security","completion":"Security uses authentication, encryption, and access control; e.g., GRANT SELECT ON table TO user;"}
+{"prompt":"Use Redis random member","completion":"SADD myset 'a' 'b'; SRANDMEMBER myset;"}
+{"prompt":"What’s the best opera?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL POSITION function","completion":"SELECT POSITION('text' IN column) FROM table;"}
+{"prompt":"Use $stdDevPop in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', stdDev: { $stdDevPop: '$value' } } }]);"}
+{"prompt":"How to learn stand-up paddleboarding?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database vacuuming","completion":"Vacuuming reclaims space; e.g., in PostgreSQL: VACUUM table;"}
+{"prompt":"Use Neo4j reduce function","completion":"MATCH (n:Node) RETURN REDUCE(sum = 0, x IN n.list | sum + x) AS total;"}
+{"prompt":"What’s the history of politics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LEFT function","completion":"SELECT LEFT(name, 3) FROM employees;"}
+{"prompt":"Use $stdDevSamp in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', stdDev: { $stdDevSamp: '$value' } } }]);"}
+{"prompt":"Explain SQL database clustering","completion":"Clustering groups data physically; e.g., in PostgreSQL: CLUSTER table USING index;"}
+{"prompt":"Use Redis pop random member","completion":"SADD myset 'a' 'b'; SPOP myset;"}
+{"prompt":"What’s the best ballet?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL RIGHT function","completion":"SELECT RIGHT(name, 3) FROM employees;"}
+{"prompt":"Use $first in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', firstVal: { $first: '$value' } } }]);"}
+{"prompt":"How to learn kitesurfing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database failover","completion":"Failover switches to a standby server; e.g., PostgreSQL uses streaming replication with failover tools."}
+{"prompt":"Use Neo4j timestamp function","completion":"MATCH (n:Node) SET n.created = TIMESTAMP();"}
+{"prompt":"What’s the history of music?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL REPEAT function","completion":"SELECT REPEAT('x', 3) FROM table;"}
+{"prompt":"Use $last in MongoDB","completion":"db.collection.aggregate([{ $group: { _id: '$category', lastVal: { $last: '$value' } } }]);"}
+{"prompt":"Explain SQL database migration","completion":"Migration moves data/schema; e.g., use mysqldump for MySQL or pg_dump for PostgreSQL."}
+{"prompt":"Use Redis sorted set remove","completion":"ZADD myset 1 'item'; ZREM myset 'item';"}
+{"prompt":"What’s the best symphony?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL LOCATE function","completion":"SELECT LOCATE('text', column) FROM table;"}
+{"prompt":"Use $push with $each in MongoDB","completion":"db.collection.updateOne({ _id: '123' }, { $push: { items: { $each: ['a', 'b'] } } });"}
+{"prompt":"Explain SQL database load balancing","completion":"Load balancing distributes queries; e.g., use proxies like PgBouncer for PostgreSQL."}
+{"prompt":"Use Neo4j extract function","completion":"MATCH (n:Node) RETURN EXTRACT(x IN n.list | x * 2) AS doubled;"}
+{"prompt":"What’s the history of painting?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL REGEXP_LIKE","completion":"SELECT * FROM table WHERE REGEXP_LIKE(column, 'pattern'); (Oracle syntax)"}
+{"prompt":"Use $slice in MongoDB projection","completion":"db.collection.find({}, { items: { $slice: [0, 5] } });"}
+{"prompt":"Explain SQL database monitoring","completion":"Monitoring tracks performance; e.g., MySQL: SHOW STATUS; or use tools like pg_stat_statements."}
+{"prompt":"Use Redis sorted set range by score","completion":"ZADD myset 1 'a' 2 'b'; ZRANGEBYSCORE myset 0 1;"}
+{"prompt":"What’s the best jazz album?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Use SQL REGEXP_REPLACE","completion":"SELECT REGEXP_REPLACE(column, 'old', 'new') FROM table;"}
+{"prompt":"Use $meta in MongoDB","completion":"db.collection.find({ $text: { $search: 'keyword' } }, { score: { $meta: 'textScore' } });"}
+{"prompt":"Explain SQL database connection pooling","completion":"Connection pooling reuses connections; e.g., configure in app servers or use PgBouncer."}
+{"prompt":"Use Neo4j split function","completion":"RETURN SPLIT('a,b,c', ',') AS list;"}
+{"prompt":"What’s the history of sculpture?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to create a table in SQL for users with name and age","completion":"CREATE TABLE users (id INT PRIMARY KEY, name VARCHAR(50), age INT);"}
+{"prompt":"Explain INNER JOIN in SQL with an example","completion":"INNER JOIN returns rows with matches in both tables. Example: SELECT e.name, d.dept_name FROM employees e INNER JOIN departments d ON e.dept_id = d.id;"}
+{"prompt":"Insert a document into MongoDB's 'products' collection","completion":"db.products.insertOne({ name: 'Laptop', price: 999 });"}
+{"prompt":"Optimize this SQL query: SELECT * FROM orders WHERE date = '2023-01-01'","completion":"Add an index: CREATE INDEX idx_date ON orders(date); Query remains: SELECT * FROM orders WHERE date = '2023-01-01';"}
+{"prompt":"In Redis, set a key with value 'hello' and expire in 60 seconds","completion":"SET mykey 'hello' EX 60;"}
+{"prompt":"Create a SQL view for average salary by department","completion":"CREATE VIEW avg_salary AS SELECT dept_id, AVG(salary) AS avg_salary FROM employees GROUP BY dept_id;"}
+{"prompt":"In Neo4j, find shortest path between two nodes","completion":"MATCH p = shortestPath((a:Person {id:1})-[*]-(b:Person {id:2})) RETURN p;"}
+{"prompt":"Write a SQL query using a subquery to find employees above average salary","completion":"SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"}
+{"prompt":"Update multiple documents in MongoDB to set status to 'active'","completion":"db.users.updateMany({}, { $set: { status: 'active' } });"}
+{"prompt":"Use a CTE in SQL to calculate running totals","completion":"WITH cte AS (SELECT id, amount, SUM(amount) OVER (ORDER BY id) AS running_total FROM sales) SELECT * FROM cte;"}
+{"prompt":"In Redis, add elements to a list","completion":"LPUSH mylist 'item1' 'item2';"}
+{"prompt":"Create a SQL index on email column","completion":"CREATE INDEX idx_email ON users(email);"}
+{"prompt":"In Neo4j, create a relationship between two nodes","completion":"MATCH (a:Person {id:1}), (b:Person {id:2}) CREATE (a)-[:FRIEND]->(b);"}
+{"prompt":"Write a SQL query with LEFT JOIN","completion":"SELECT e.name, d.dept_name FROM employees e LEFT JOIN departments d ON e.dept_id = d.id;"}
+{"prompt":"Perform a MongoDB aggregation to group by category","completion":"db.products.aggregate([{ $group: { _id: '$category', total: { $sum: 1 } } }]);"}
+{"prompt":"Explain normalization in SQL databases","completion":"Normalization reduces redundancy: 1NF (atomic values), 2NF (no partial dependencies), 3NF (no transitive dependencies)."}
+{"prompt":"In Redis, use a hash to store user data","completion":"HSET user:1 name 'John' age 30; HGETALL user:1;"}
+{"prompt":"Query embedded documents in MongoDB","completion":"db.users.find({ 'address.city': 'New York' });"}
+{"prompt":"Debug this SQL error: 'column not found'","completion":"Check column name spelling or table schema; ensure column exists in table."}
+{"prompt":"In Neo4j, delete a node and its relationships","completion":"MATCH (n:Person {id:1}) DETACH DELETE n;"}
+{"prompt":"SQL query with GROUP BY and HAVING","completion":"SELECT dept, COUNT(*) FROM employees GROUP BY dept HAVING COUNT(*) > 10;"}
+{"prompt":"Use $lookup in MongoDB aggregation","completion":"db.orders.aggregate([{ $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer' } }]);"}
+{"prompt":"Create a SQL trigger for logging updates","completion":"CREATE TRIGGER log_update AFTER UPDATE ON employees FOR EACH ROW INSERT INTO log (action, time) VALUES ('update', NOW());"}
+{"prompt":"In Redis, use sets for unique elements","completion":"SADD myset 'item1' 'item2'; SMEMBERS myset;"}
+{"prompt":"Write a SQL query with window function for ranking","completion":"SELECT name, salary, RANK() OVER (ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"Query top 5 documents in MongoDB by price","completion":"db.products.find().sort({ price: -1 }).limit(5);"}
+{"prompt":"Explain CAP theorem for NoSQL","completion":"CAP: Consistency, Availability, Partition tolerance. NoSQL databases prioritize AP or CP, not all three."}
+{"prompt":"In Neo4j, find friends of friends","completion":"MATCH (p:Person {name:'Alice'})-[:FRIEND]->()-[:FRIEND]->(fof) RETURN fof.name;"}
+{"prompt":"SQL query for date filtering","completion":"SELECT * FROM orders WHERE order_date BETWEEN '2023-01-01' AND '2023-12-31';"}
+{"prompt":"Use $elemMatch in MongoDB for array queries","completion":"db.users.find({ skills: { $elemMatch: { name: 'Java', level: { $gte: 3 } } } });"}
+{"prompt":"Create a unique constraint in SQL","completion":"ALTER TABLE users ADD CONSTRAINT unique_email UNIQUE (email);"}
+{"prompt":"In Redis, increment a counter","completion":"INCR mycounter;"}
+{"prompt":"SQL full-text search query in MySQL","completion":"CREATE FULLTEXT INDEX ON articles(content); SELECT * FROM articles WHERE MATCH(content) AGAINST('keyword');"}
+{"prompt":"In MongoDB, create an index on a field","completion":"db.collection.createIndex({ name: 1 });"}
+{"prompt":"Explain sharding in NoSQL","completion":"Sharding splits data across servers based on a shard key to improve scalability."}
+{"prompt":"In Neo4j, merge a node with properties","completion":"MERGE (n:Person {id:1}) SET n.name = 'John';"}
+{"prompt":"SQL query for self-join","completion":"SELECT a.name, b.name FROM employees a JOIN employees b ON a.manager_id = b.id;"}
+{"prompt":"Aggregate with $unwind in MongoDB","completion":"db.orders.aggregate([{ $unwind: '$items' }, { $group: { _id: '$items.product', total: { $sum: 1 } } }]);"}
+{"prompt":"Create a SQL stored procedure","completion":"CREATE PROCEDURE get_users() BEGIN SELECT * FROM users; END; CALL get_users();"}
+{"prompt":"In Redis, use pub/sub messaging","completion":"SUBSCRIBE channel; PUBLISH channel 'message';"}
+{"prompt":"SQL query to drop a table","completion":"DROP TABLE users;"}
+{"prompt":"Query MongoDB with regex","completion":"db.users.find({ name: { $regex: '^John', $options: 'i' } });"}
+{"prompt":"Explain database replication in SQL","completion":"Replication copies data from a master to slaves for redundancy; e.g., MySQL uses binlog."}
+{"prompt":"In Neo4j, query nodes with specific properties","completion":"MATCH (n:Person) WHERE n.age > 30 RETURN n;"}
+{"prompt":"SQL query for pivot table","completion":"SELECT * FROM (SELECT year, product, sales FROM sales_data) PIVOT (SUM(sales) FOR product IN ('A', 'B'));"}
+{"prompt":"In MongoDB, delete documents by condition","completion":"db.users.deleteMany({ status: 'inactive' });"}
+{"prompt":"Use transactions in SQL","completion":"BEGIN TRANSACTION; INSERT INTO accounts (balance) VALUES (100); COMMIT;"}
+{"prompt":"In Redis, use sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZRANGE myset 0 -1;"}
+{"prompt":"SQL query with EXISTS","completion":"SELECT name FROM employees WHERE EXISTS (SELECT 1 FROM departments WHERE manager_id = employees.id);"}
+{"prompt":"Use geospatial queries in MongoDB","completion":"db.places.createIndex({ location: '2dsphere' }); db.places.find({ location: { $near: { $geometry: { type: 'Point', coordinates: [-73.9, 40.7] } } } });"}
+{"prompt":"Create a foreign key in SQL","completion":"ALTER TABLE orders ADD FOREIGN KEY (customer_id) REFERENCES customers(id);"}
+{"prompt":"In Neo4j, count relationships","completion":"MATCH (n)-[r:REL]->() RETURN n, COUNT(r) AS rel_count;"}
+{"prompt":"Explain eventual consistency in NoSQL","completion":"Data may be inconsistent temporarily across nodes but converges over time; common in AP systems like Cassandra."}
+{"prompt":"In Redis, expire a key","completion":"EXPIRE mykey 3600;"}
+{"prompt":"What's a black hole?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL recursive CTE for hierarchy","completion":"WITH RECURSIVE hierarchy AS (SELECT id, manager_id, name FROM employees WHERE manager_id IS NULL UNION ALL SELECT e.id, e.manager_id, e.name FROM employees e JOIN hierarchy h ON e.manager_id = h.id) SELECT * FROM hierarchy;"}
+{"prompt":"In MongoDB, sort and limit results","completion":"db.collection.find().sort({ age: -1 }).limit(10);"}
+{"prompt":"SQL query for LIKE pattern matching","completion":"SELECT * FROM products WHERE name LIKE '%phone%';"}
+{"prompt":"In Neo4j, create a unique constraint","completion":"CREATE CONSTRAINT ON (n:Person) ASSERT n.email IS UNIQUE;"}
+{"prompt":"Partition a table in PostgreSQL","completion":"CREATE TABLE sales (id INT, date DATE) PARTITION BY RANGE (date); CREATE TABLE sales_2023 PARTITION OF sales FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');"}
+{"prompt":"In Redis, use transactions","completion":"MULTI; SET key1 'value1'; SET key2 'value2'; EXEC;"}
+{"prompt":"SQL query with UNION ALL","completion":"SELECT name FROM employees UNION ALL SELECT name FROM contractors;"}
+{"prompt":"MongoDB aggregation with $match","completion":"db.orders.aggregate([{ $match: { status: 'pending' } }, { $group: { _id: '$customer_id', total: { $sum: '$amount' } } }]);"}
+{"prompt":"Handle SQL injection in queries","completion":"Use parameterized queries: SELECT * FROM users WHERE id = ?;"}
+{"prompt":"In Neo4j, query variable-length relationships","completion":"MATCH (a:Person)-[*1..3]->(b) RETURN a, b;"}
+{"prompt":"SQL query for top-N per group","completion":"SELECT * FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) AS rn FROM employees) t WHERE rn <= 3;"}
+{"prompt":"In MongoDB, update nested fields","completion":"db.users.updateOne({ _id: 1 }, { $set: { 'address.city': 'Boston' } });"}
+{"prompt":"Create a SQL materialized view","completion":"CREATE MATERIALIZED VIEW sales_summary AS SELECT product, SUM(amount) FROM sales GROUP BY product;"}
+{"prompt":"In Redis, use pipelines for efficiency","completion":"Use MULTI/EXEC or a client library's pipeline method to batch commands."}
+{"prompt":"SQL query with COALESCE","completion":"SELECT COALESCE(NULL, column1, 'default') AS value FROM table;"}
+{"prompt":"MongoDB query with $in operator","completion":"db.products.find({ category: { $in: ['electronics', 'clothing'] } });"}
+{"prompt":"Explain denormalization in NoSQL","completion":"Denormalization embeds related data in a single document to optimize reads, reducing joins."}
+{"prompt":"In Neo4j, find nodes with no relationships","completion":"MATCH (n) WHERE NOT (n)--() RETURN n;"}
+{"prompt":"How to sew clothes?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query for cross join","completion":"SELECT * FROM table1 CROSS JOIN table2;"}
+{"prompt":"In MongoDB, use $push to add to an array","completion":"db.users.updateOne({ _id: 1 }, { $push: { skills: 'Python' } });"}
+{"prompt":"SQL query with BETWEEN","completion":"SELECT * FROM orders WHERE amount BETWEEN 100 AND 500;"}
+{"prompt":"In Redis, check if a key exists","completion":"EXISTS mykey;"}
+{"prompt":"Create a SQL sequence","completion":"CREATE SEQUENCE user_id_seq START 1; SELECT nextval('user_id_seq');"}
+{"prompt":"In Neo4j, query with parameters","completion":"MATCH (n:Person) WHERE n.id = $id RETURN n;"}
+{"prompt":"SQL query for DISTINCT values","completion":"SELECT DISTINCT department FROM employees;"}
+{"prompt":"MongoDB text search query","completion":"db.articles.createIndex({ content: 'text' }); db.articles.find({ $text: { $search: 'keyword' } });"}
+{"prompt":"Explain SQL views vs materialized views","completion":"Views are virtual, updated live; materialized views store data, need refreshing."}
+{"prompt":"In Redis, use sets for intersection","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SINTER set1 set2;"}
+{"prompt":"SQL query for row numbering","completion":"SELECT *, ROW_NUMBER() OVER (ORDER BY id) AS row_num FROM table;"}
+{"prompt":"In MongoDB, use $inc to increment a field","completion":"db.users.updateOne({ _id: 1 }, { $inc: { count: 1 } });"}
+{"prompt":"Create a SQL role for access control","completion":"CREATE ROLE analyst; GRANT SELECT ON table TO analyst;"}
+{"prompt":"In Neo4j, find all paths between nodes","completion":"MATCH p = (a:Person {id:1})-[*]->(b:Person {id:2}) RETURN p;"}
+{"prompt":"SQL query with ORDER BY","completion":"SELECT * FROM employees ORDER BY salary DESC;"}
+{"prompt":"MongoDB aggregation with $sort","completion":"db.orders.aggregate([{ $sort: { amount: -1 } }]);"}
+{"prompt":"Explain SQL constraints","completion":"Constraints enforce rules: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK."}
+{"prompt":"In Redis, use hashes for nested data","completion":"HSET user:1 name 'Alice' age 25; HMGET user:1 name age;"}
+{"prompt":"SQL query for deleting duplicate rows","completion":"DELETE FROM table WHERE id NOT IN (SELECT MIN(id) FROM table GROUP BY col);"}
+{"prompt":"In MongoDB, use $exists operator","completion":"db.users.find({ email: { $exists: true } });"}
+{"prompt":"SQL query with LIMIT and OFFSET","completion":"SELECT * FROM products LIMIT 10 OFFSET 20;"}
+{"prompt":"In Neo4j, delete relationships only","completion":"MATCH ()-[r:REL]->() DELETE r;"}
+{"prompt":"Explain SQL transaction isolation levels","completion":"Levels: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE. Control concurrency behavior."}
+{"prompt":"In Redis, use ZRANGEBYSCORE","completion":"ZADD myset 10 'item1' 20 'item2'; ZRANGEBYSCORE myset 15 25;"}
+{"prompt":"SQL query for NULL handling","completion":"SELECT * FROM users WHERE email IS NULL;"}
+{"prompt":"MongoDB query with $all for arrays","completion":"db.products.find({ tags: { $all: ['sale', 'new'] } });"}
+{"prompt":"What's the plot of Harry Potter?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL function","completion":"CREATE FUNCTION total_salary() RETURNS DECIMAL AS $$ SELECT SUM(salary) FROM employees; $$ LANGUAGE SQL;"}
+{"prompt":"In Neo4j, query with regex","completion":"MATCH (n:Person) WHERE n.name =~ '.*John.*' RETURN n;"}
+{"prompt":"How to build a robot?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query for aggregate functions","completion":"SELECT dept, MAX(salary), MIN(salary), AVG(salary) FROM employees GROUP BY dept;"}
+{"prompt":"In MongoDB, use $group with multiple fields","completion":"db.sales.aggregate([{ $group: { _id: { year: '$year', product: '$product' }, total: { $sum: '$amount' } } }]);"}
+{"prompt":"Explain SQL indexes","completion":"Indexes speed up queries by storing column data structures (e.g., B-tree). CREATE INDEX idx_col ON table(col);"}
+{"prompt":"In Redis, use LPOP for lists","completion":"LPUSH mylist 'item1'; LPOP mylist;"}
+{"prompt":"How to design a garden?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with IN clause","completion":"SELECT * FROM products WHERE category IN ('electronics', 'clothing');"}
+{"prompt":"In Neo4j, find nodes by label","completion":"MATCH (n:Person) RETURN n;"}
+{"prompt":"Create a SQL check constraint","completion":"ALTER TABLE users ADD CONSTRAINT chk_age CHECK (age >= 18);"}
+{"prompt":"MongoDB query with $gte and $lte","completion":"db.products.find({ price: { $gte: 50, $lte: 100 } });"}
+{"prompt":"SQL query for dropping an index","completion":"DROP INDEX idx_name ON table;"}
+{"prompt":"In Redis, use SISMEMBER for sets","completion":"SADD myset 'item1'; SISMEMBER myset 'item1';"}
+{"prompt":"Explain SQL vs NoSQL performance","completion":"SQL: Strong for complex joins, structured data; NoSQL: Fast for unstructured data, horizontal scaling."}
+{"prompt":"In Neo4j, create an index","completion":"CREATE INDEX FOR (n:Person) ON (n.name);"}
+{"prompt":"SQL query for date functions","completion":"SELECT NOW(), DATEADD(day, 7, order_date) FROM orders;"}
+{"prompt":"MongoDB aggregation with $project","completion":"db.users.aggregate([{ $project: { name: 1, age: 1, _id: 0 } }]);"}
+{"prompt":"Create a SQL user","completion":"CREATE USER 'analyst'@'localhost' IDENTIFIED BY 'password';"}
+{"prompt":"In Redis, use HINCRBY for hashes","completion":"HSET user:1 score 10; HINCRBY user:1 score 5;"}
+{"prompt":"SQL query with HAVING and ORDER BY","completion":"SELECT dept, COUNT(*) AS cnt FROM employees GROUP BY dept HAVING cnt > 5 ORDER BY cnt DESC;"}
+{"prompt":"In MongoDB, use $nin operator","completion":"db.products.find({ category: { $nin: ['old', 'discontinued'] } });"}
+{"prompt":"Explain SQL cursors","completion":"Cursors iterate over query results row-by-row; e.g., DECLARE cursor_name CURSOR FOR SELECT ...;"}
+{"prompt":"In Neo4j, query with LIMIT","completion":"MATCH (n:Person) RETURN n LIMIT 10;"}
+{"prompt":"SQL query for string concatenation","completion":"SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM users;"}
+{"prompt":"MongoDB query for array length","completion":"db.users.find({ skills: { $size: 3 } });"}
+{"prompt":"Create a SQL temporary table","completion":"CREATE TEMPORARY TABLE temp_users AS SELECT * FROM users WHERE age > 30;"}
+{"prompt":"In Redis, use ZCOUNT for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZCOUNT myset 15 25;"}
+{"prompt":"SQL query with subquery in FROM","completion":"SELECT * FROM (SELECT id, SUM(amount) AS total FROM orders GROUP BY id) t WHERE total > 1000;"}
+{"prompt":"In Neo4j, query with WHERE and AND","completion":"MATCH (n:Person) WHERE n.age > 30 AND n.city = 'New York' RETURN n;"}
+{"prompt":"Explain SQL triggers vs stored procedures","completion":"Triggers run automatically on events (e.g., INSERT); stored procedures are explicitly called."}
+{"prompt":"In MongoDB, use $setOnInsert","completion":"db.users.updateOne({ _id: 1 }, { $setOnInsert: { created: new Date() } }, { upsert: true });"}
+{"prompt":"How to start yoga?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query for random sampling","completion":"SELECT * FROM users ORDER BY RANDOM() LIMIT 10;"}
+{"prompt":"In Redis, use SPOP for sets","completion":"SADD myset 'item1' 'item2'; SPOP myset;"}
+{"prompt":"Create a SQL schema for a blog","completion":"CREATE TABLE posts (id INT PRIMARY KEY, title VARCHAR(100), content TEXT, created_at TIMESTAMP);"}
+{"prompt":"In Neo4j, count nodes by label","completion":"MATCH (n:Person) RETURN COUNT(n);"}
+{"prompt":"SQL query with NULLIF","completion":"SELECT NULLIF(salary, 0) AS salary FROM employees;"}
+{"prompt":"MongoDB query with $or","completion":"db.users.find({ $or: [{ age: { $gt: 30 } }, { status: 'active' }] });"}
+{"prompt":"Explain SQL table partitioning","completion":"Partitioning splits large tables into smaller chunks, e.g., by range: CREATE TABLE sales PARTITION BY RANGE (year);"}
+{"prompt":"In Redis, use ZREMRANGEBYSCORE","completion":"ZADD myset 10 'item1' 20 'item2'; ZREMRANGEBYSCORE myset 15 25;"}
+{"prompt":"SQL query for ranking with ties","completion":"SELECT *, DENSE_RANK() OVER (ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"In MongoDB, use $pull to remove from array","completion":"db.users.updateOne({ _id: 1 }, { $pull: { skills: 'Java' } });"}
+{"prompt":"Create a SQL view for active users","completion":"CREATE VIEW active_users AS SELECT * FROM users WHERE status = 'active';"}
+{"prompt":"In Neo4j, query with ORDER BY","completion":"MATCH (n:Person) RETURN n ORDER BY n.age DESC;"}
+{"prompt":"SQL query with GROUP_CONCAT","completion":"SELECT dept, GROUP_CONCAT(name) AS employees FROM employees GROUP BY dept;"}
+{"prompt":"MongoDB aggregation with $count","completion":"db.orders.aggregate([{ $match: { status: 'pending' } }, { $count: 'pending_orders' }]);"}
+{"prompt":"Explain SQL foreign key constraints","completion":"Foreign keys ensure referential integrity: ALTER TABLE orders ADD FOREIGN KEY (user_id) REFERENCES users(id);"}
+{"prompt":"In Redis, use ZRANK for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZRANK myset 'item1';"}
+{"prompt":"SQL query for fuzzy matching","completion":"SELECT * FROM names WHERE name SOUNDEX 'Jon'; (MySQL/PostgreSQL with soundex extension)"}
+{"prompt":"In MongoDB, use $addToSet","completion":"db.users.updateOne({ _id: 1 }, { $addToSet: { skills: 'Python' } });"}
+{"prompt":"Create a SQL index for composite key","completion":"CREATE INDEX idx_comp ON orders(customer_id, order_date);"}
+{"prompt":"In Neo4j, query with multiple conditions","completion":"MATCH (n:Person) WHERE n.age > 25 AND n.city = 'London' RETURN n;"}
+{"prompt":"SQL query with subquery in SELECT","completion":"SELECT name, (SELECT COUNT(*) FROM orders WHERE orders.user_id = users.id) AS order_count FROM users;"}
+{"prompt":"MongoDB query with $not","completion":"db.users.find({ age: { $not: { $gt: 30 } } });"}
+{"prompt":"Explain SQL deadlock prevention","completion":"Use consistent table access order, keep transactions short, and use appropriate isolation levels."}
+{"prompt":"In Redis, use HDEL for hashes","completion":"HSET user:1 name 'John'; HDEL user:1 name;"}
+{"prompt":"SQL query for top-N with ties","completion":"SELECT * FROM (SELECT *, DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS rn FROM employees) t WHERE rn <= 2;"}
+{"prompt":"In MongoDB, use $redact in aggregation","completion":"db.collection.aggregate([{ $redact: { $cond: { if: { $eq: ['$level', 1] }, then: '$$KEEP', else: '$$PRUNE' } } }]);"}
+{"prompt":"Create a SQL table with auto-increment","completion":"CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50));"}
+{"prompt":"In Neo4j, query with EXISTS","completion":"MATCH (n:Person) WHERE EXISTS(n.email) RETURN n;"}
+{"prompt":"SQL query for date difference","completion":"SELECT DATEDIFF(end_date, start_date) AS days FROM projects;"}
+{"prompt":"Explain SQL query optimization","completion":"Use indexes, avoid SELECT *, analyze query plans with EXPLAIN, and optimize joins."}
+{"prompt":"In Redis, use SREM for sets","completion":"SADD myset 'item1' 'item2'; SREM myset 'item1';"}
+{"prompt":"SQL query for JSON extraction","completion":"SELECT JSON_EXTRACT(data, '$.name') AS name FROM table; (MySQL/PostgreSQL)"}
+{"prompt":"In Neo4j, query with shortestPath length","completion":"MATCH p = shortestPath((a:Person {id:1})-[*]-(b:Person {id:2})) RETURN length(p);"}
+{"prompt":"What's the best coffee maker?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL trigger for validation","completion":"CREATE TRIGGER check_age BEFORE INSERT ON users FOR EACH ROW IF NEW.age < 18 THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Age must be 18+'; END IF;"}
+{"prompt":"In MongoDB, use $sample for random documents","completion":"db.collection.aggregate([{ $sample: { size: 5 } }]);"}
+{"prompt":"SQL query for case-insensitive search","completion":"SELECT * FROM users WHERE UPPER(name) LIKE UPPER('%john%');"}
+{"prompt":"In Redis, use ZREVRANGE for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZREVRANGE myset 0 -1;"}
+{"prompt":"Explain SQL table inheritance in PostgreSQL","completion":"CREATE TABLE parent (id INT); CREATE TABLE child () INHERITS (parent);"}
+{"prompt":"In Neo4j, query with CASE","completion":"MATCH (n:Person) RETURN n.name, CASE WHEN n.age > 30 THEN 'Senior' ELSE 'Junior' END AS category;"}
+{"prompt":"SQL query with LAG function","completion":"SELECT id, amount, LAG(amount) OVER (ORDER BY id) AS prev_amount FROM sales;"}
+{"prompt":"MongoDB query with $expr","completion":"db.users.find({ $expr: { $gt: ['$spent', '$budget'] } });"}
+{"prompt":"Create a SQL table with JSON column","completion":"CREATE TABLE data (id INT, info JSON);"}
+{"prompt":"In Redis, use PFADD for HyperLogLog","completion":"PFADD myhll 'item1' 'item2'; PFCOUNT myhll;"}
+{"prompt":"SQL query for finding duplicates","completion":"SELECT name, COUNT(*) AS cnt FROM users GROUP BY name HAVING cnt > 1;"}
+{"prompt":"In Neo4j, query with collect","completion":"MATCH (n:Person)-[:FRIEND]->(f) RETURN n.name, collect(f.name) AS friends;"}
+{"prompt":"Explain SQL query execution plan","completion":"Use EXPLAIN or EXPLAIN ANALYZE to see steps like scans, joins, and index usage."}
+{"prompt":"In MongoDB, use $merge in aggregation","completion":"db.collection.aggregate([{ $group: { _id: '$category', total: { $sum: 1 } } }, { $merge: { into: 'summary' } }]);"}
+{"prompt":"SQL query with LEAD function","completion":"SELECT id, amount, LEAD(amount) OVER (ORDER BY id) AS next_amount FROM sales;"}
+{"prompt":"In Redis, use GEOADD for geospatial data","completion":"GEOADD locations 13.361 52.516 'Berlin';"}
+{"prompt":"Create a SQL table with timestamp","completion":"CREATE TABLE events (id INT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"}
+{"prompt":"In Neo4j, query with DISTINCT","completion":"MATCH (n:Person) RETURN DISTINCT n.city;"}
+{"prompt":"SQL query for string length","completion":"SELECT name, LENGTH(name) AS name_length FROM users;"}
+{"prompt":"MongoDB query with $size and $gt","completion":"db.users.find({ skills: { $size: { $gt: 2 } } });"}
+{"prompt":"Explain SQL temporary tables","completion":"Temporary tables exist for a session: CREATE TEMPORARY TABLE temp_data AS SELECT * FROM data;"}
+{"prompt":"In Redis, use ZINTERSTORE for sorted sets","completion":"ZADD set1 10 'a' 20 'b'; ZADD set2 15 'a' 25 'c'; ZINTERSTORE result 2 set1 set2;"}
+{"prompt":"How to learn yoga poses?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with subquery in WHERE","completion":"SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products);"}
+{"prompt":"In Neo4j, query with aggregation","completion":"MATCH (n:Person)-[:FRIEND]->(f) RETURN n.name, COUNT(f) AS friend_count;"}
+{"prompt":"What's the best thriller movie?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with composite key","completion":"CREATE TABLE orders (customer_id INT, order_date DATE, PRIMARY KEY (customer_id, order_date));"}
+{"prompt":"In MongoDB, use $out in aggregation","completion":"db.orders.aggregate([{ $group: { _id: '$customer_id', total: { $sum: '$amount' } } }, { $out: 'totals' }]);"}
+{"prompt":"SQL query for extracting year","completion":"SELECT EXTRACT(YEAR FROM order_date) AS year FROM orders;"}
+{"prompt":"In Redis, use GEORADIUS for geospatial queries","completion":"GEOADD locations 13.361 52.516 'Berlin'; GEORADIUS locations 13.361 52.516 100 km;"}
+{"prompt":"Explain SQL database roles","completion":"Roles group permissions: CREATE ROLE reader; GRANT SELECT ON table TO reader;"}
+{"prompt":"In Neo4j, query with multiple relationships","completion":"MATCH (a:Person)-[:FRIEND]->(b)-[:LIKES]->(c) RETURN a, b, c;"}
+{"prompt":"SQL query with REPLACE function","completion":"SELECT REPLACE(name, 'Jr', 'Junior') AS name FROM users;"}
+{"prompt":"MongoDB query with $mod","completion":"db.products.find({ price: { $mod: [10, 0] } });"}
+{"prompt":"What's the best horror movie?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with default values","completion":"CREATE TABLE users (id INT, status VARCHAR(10) DEFAULT 'active');"}
+{"prompt":"In Redis, use ZSCORE for sorted sets","completion":"ZADD myset 10 'item1'; ZSCORE myset 'item1';"}
+{"prompt":"SQL query with subquery in JOIN","completion":"SELECT u.name, o.order_count FROM users u JOIN (SELECT user_id, COUNT(*) AS order_count FROM orders GROUP BY user_id) o ON u.id = o.user_id;"}
+{"prompt":"In Neo4j, query with shortestPath and properties","completion":"MATCH p = shortestPath((a:Person {id:1})-[*]-(b:Person {id:2})) WHERE ALL(r IN relationships(p) WHERE r.weight > 0) RETURN p;"}
+{"prompt":"Explain SQL query caching","completion":"Query caching stores results for reuse; e.g., MySQL query cache (deprecated) or use materialized views."}
+{"prompt":"In MongoDB, use $slice in projection","completion":"db.users.find({}, { skills: { $slice: [0, 2] } });"}
+{"prompt":"SQL query for time difference","completion":"SELECT TIMESTAMPDIFF(HOUR, start_time, end_time) AS hours FROM events;"}
+{"prompt":"In Redis, use SDIFF for sets","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SDIFF set1 set2;"}
+{"prompt":"What's the best adventure book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with foreign key cascade","completion":"CREATE TABLE orders (id INT, user_id INT, FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE);"}
+{"prompt":"In Neo4j, query with IN clause","completion":"MATCH (n:Person) WHERE n.city IN ['London', 'Paris'] RETURN n;"}
+{"prompt":"SQL query with FIRST_VALUE","completion":"SELECT id, amount, FIRST_VALUE(amount) OVER (PARTITION BY dept ORDER BY id) AS first_amount FROM sales;"}
+{"prompt":"MongoDB query with $elemMatch and $gt","completion":"db.users.find({ scores: { $elemMatch: { $gt: 90 } } });"}
+{"prompt":"Explain SQL database sharding","completion":"Sharding splits data across servers by a key; e.g., partition by user_id in PostgreSQL with Citus."}
+{"prompt":"In Redis, use HGETALL for hashes","completion":"HSET user:1 name 'John' age 30; HGETALL user:1;"}
+{"prompt":"SQL query with LAST_VALUE","completion":"SELECT id, amount, LAST_VALUE(amount) OVER (PARTITION BY dept ORDER BY id) AS last_amount FROM sales;"}
+{"prompt":"In MongoDB, use $setIntersection","completion":"db.collection.aggregate([{ $project: { common: { $setIntersection: ['$array1', '$array2'] } } }]);"}
+{"prompt":"Create a SQL table with check constraint","completion":"CREATE TABLE employees (id INT, salary DECIMAL CHECK (salary >= 0));"}
+{"prompt":"In Neo4j, query with node properties","completion":"MATCH (n:Person {name: 'Alice', age: 30}) RETURN n;"}
+{"prompt":"SQL query with INTERVAL","completion":"SELECT * FROM events WHERE created_at > NOW() - INTERVAL '7 days';"}
+{"prompt":"MongoDB query with $and","completion":"db.users.find({ $and: [{ age: { $gt: 25 } }, { status: 'active' }] });"}
+{"prompt":"Explain SQL query cost estimation","completion":"DBMS estimates cost based on table size, indexes, and statistics; use EXPLAIN to view."}
+{"prompt":"In Redis, use ZREVRANK for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZREVRANK myset 'item1';"}
+{"prompt":"SQL query with subquery correlation","completion":"SELECT name FROM users u WHERE EXISTS (SELECT 1 FROM orders o WHERE o.user_id = u.id AND o.amount > 1000);"}
+{"prompt":"In Neo4j, query with shortestPath and max length","completion":"MATCH p = shortestPath((a:Person {id:1})-[*..5]-(b:Person {id:2})) RETURN p;"}
+{"prompt":"Create a SQL table with unique index","completion":"CREATE TABLE users (id INT, email VARCHAR(50), UNIQUE (email));"}
+{"prompt":"In MongoDB, use $arrayElemAt","completion":"db.users.aggregate([{ $project: { first_skill: { $arrayElemAt: ['$skills', 0] } } }]);"}
+{"prompt":"SQL query with NTILE","completion":"SELECT name, salary, NTILE(4) OVER (ORDER BY salary) AS quartile FROM employees;"}
+{"prompt":"In Redis, use SUNION for sets","completion":"SADD set1 'a' 'b'; SADD set2 'b' 'c'; SUNION set1 set2;"}
+{"prompt":"Explain SQL materialized view refresh","completion":"REFRESH MATERIALIZED VIEW sales_summary; (Use CONCURRENTLY in PostgreSQL for minimal locking)."}
+{"prompt":"In Neo4j, query with multiple labels","completion":"MATCH (n:Person:Employee) RETURN n;"}
+{"prompt":"SQL query with JSONB in PostgreSQL","completion":"SELECT * FROM table WHERE data->>'key' = 'value';"}
+{"prompt":"MongoDB query with $ne","completion":"db.users.find({ status: { $ne: 'inactive' } });"}
+{"prompt":"What's the best historical fiction book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with partitioning","completion":"CREATE TABLE logs (id INT, log_date DATE) PARTITION BY RANGE (log_date);"}
+{"prompt":"In Redis, use ZADD with multiple scores","completion":"ZADD myset 10 'item1' 20 'item2' 30 'item3';"}
+{"prompt":"SQL query with subquery in HAVING","completion":"SELECT dept, COUNT(*) AS cnt FROM employees GROUP BY dept HAVING cnt > (SELECT AVG(cnt) FROM (SELECT COUNT(*) AS cnt FROM employees GROUP BY dept) t);"}
+{"prompt":"In Neo4j, query with WHERE EXISTS","completion":"MATCH (n:Person) WHERE EXISTS((n)-[:FRIEND]->()) RETURN n;"}
+{"prompt":"Explain SQL database backup strategies","completion":"Use full, incremental, or differential backups; e.g., mysqldump for MySQL or pg_dump for PostgreSQL."}
+{"prompt":"In MongoDB, use $cond in aggregation","completion":"db.users.aggregate([{ $project: { status: { $cond: { if: { $gt: ['$age', 30] }, then: 'senior', else: 'junior' } } } }]);"}
+{"prompt":"SQL query with REGEXP","completion":"SELECT * FROM users WHERE name REGEXP '^[A-Z]';"}
+{"prompt":"In Redis, use GEODIST for geospatial data","completion":"GEOADD locations 13.361 52.516 'Berlin' 2.352 48.856 'Paris'; GEODIST locations Berlin Paris km;"}
+{"prompt":"What's the best biography book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with generated column","completion":"CREATE TABLE products (id INT, price DECIMAL, tax DECIMAL GENERATED ALWAYS AS (price * 0.1) STORED);"}
+{"prompt":"In Neo4j, query with apoc procedures","completion":"CALL apoc.path.subgraphAll(n:Person {id:1}, {maxLevel:3}) YIELD nodes, relationships RETURN nodes, relationships;"}
+{"prompt":"SQL query with subquery in CASE","completion":"SELECT name, CASE WHEN salary > (SELECT AVG(salary) FROM employees) THEN 'Above Average' ELSE 'Below Average' END AS status FROM employees;"}
+{"prompt":"In MongoDB, use $addFields in aggregation","completion":"db.orders.aggregate([{ $addFields: { total_with_tax: { $multiply: ['$amount', 1.1] } } }]);"}
+{"prompt":"What's the history of photography?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database clustering","completion":"Clustering groups servers for high availability; e.g., PostgreSQL with Patroni or MySQL Group Replication."}
+{"prompt":"In Redis, use ZREMRANGEBYRANK","completion":"ZADD myset 10 'item1' 20 'item2'; ZREMRANGEBYRANK myset 0 1;"}
+{"prompt":"How to learn stand-up comedy?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with TRIM","completion":"SELECT TRIM(BOTH ' ' FROM name) AS cleaned_name FROM users;"}
+{"prompt":"In Neo4j, query with node degree","completion":"MATCH (n:Person) RETURN n, size((n)--()) AS degree;"}
+{"prompt":"What's the best classic novel?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with full-text index","completion":"CREATE TABLE articles (id INT, content TEXT, FULLTEXT (content));"}
+{"prompt":"In MongoDB, use $bucket in aggregation","completion":"db.users.aggregate([{ $bucket: { groupBy: '$age', boundaries: [0, 20, 40, 60], default: 'other', output: { count: { $sum: 1 } } } }]);"}
+{"prompt":"SQL query with CURRENT_DATE","completion":"SELECT * FROM orders WHERE order_date = CURRENT_DATE;"}
+{"prompt":"In Redis, use ZUNIONSTORE for sorted sets","completion":"ZADD set1 10 'a' 20 'b'; ZADD set2 15 'a' 25 'c'; ZUNIONSTORE result 2 set1 set2;"}
+{"prompt":"Explain SQL query rewriting","completion":"DBMS rewrites queries for efficiency, e.g., converting subqueries to joins; use EXPLAIN to analyze."}
+{"prompt":"In Neo4j, query with apoc.text for string operations","completion":"MATCH (n:Person) RETURN n.name, apoc.text.upperCase(n.name) AS upper_name;"}
+{"prompt":"SQL query with ROUND","completion":"SELECT ROUND(price, 2) AS rounded_price FROM products;"}
+{"prompt":"In MongoDB, use $facet in aggregation","completion":"db.orders.aggregate([{ $facet: { total: [{ $count: 'count' }], categories: [{ $group: { _id: '$category', count: { $sum: 1 } } }] } }]);"}
+{"prompt":"What's the best dystopian novel?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with array column","completion":"CREATE TABLE users (id INT, skills TEXT[]); (PostgreSQL)"}
+{"prompt":"In Redis, use PFMERGE for HyperLogLog","completion":"PFADD hll1 'a' 'b'; PFADD hll2 'b' 'c'; PFMERGE hll3 hll1 hll2;"}
+{"prompt":"SQL query with subquery in ORDER BY","completion":"SELECT name FROM users ORDER BY (SELECT COUNT(*) FROM orders WHERE orders.user_id = users.id) DESC;"}
+{"prompt":"In Neo4j, query with shortestPath and relationship type","completion":"MATCH p = shortestPath((a:Person {id:1})-[r:FRIEND*]-(b:Person {id:2})) RETURN p;"}
+{"prompt":"Explain SQL database recovery","completion":"Recovery uses logs to restore data after crashes; e.g., MySQL binlog or PostgreSQL WAL."}
+{"prompt":"In MongoDB, use $geoWithin for geospatial queries","completion":"db.places.find({ location: { $geoWithin: { $box: [[-74, 40], [-73, 41]] } } });"}
+{"prompt":"SQL query with POSITION","completion":"SELECT name, POSITION('a' IN name) AS pos FROM users;"}
+{"prompt":"In Redis, use GEOSEARCH for geospatial queries","completion":"GEOADD locations 13.361 52.516 'Berlin'; GEOSEARCH locations FROMMEMBER Berlin BYRADIUS 100 km;"}
+{"prompt":"What's the best cookbook?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with UUID","completion":"CREATE TABLE users (id UUID PRIMARY KEY, name VARCHAR(50));"}
+{"prompt":"In Neo4j, query with apoc.coll for collections","completion":"MATCH (n:Person) RETURN apoc.coll.sort(collect(n.name)) AS sorted_names;"}
+{"prompt":"SQL query with EXTRACT","completion":"SELECT EXTRACT(MONTH FROM order_date) AS month FROM orders;"}
+{"prompt":"In MongoDB, use $replaceRoot in aggregation","completion":"db.orders.aggregate([{ $replaceRoot: { newRoot: '$embedded_doc' } }]);"}
+{"prompt":"Explain SQL database statistics","completion":"Statistics help query planners; e.g., ANALYZE in PostgreSQL updates table stats."}
+{"prompt":"In Redis, use ZPOPMIN for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZPOPMIN myset;"}
+{"prompt":"How to learn meditation?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with OVERLAPS","completion":"SELECT * FROM events WHERE (start_date, end_date) OVERLAPS ('2023-01-01', '2023-01-15');"}
+{"prompt":"In Neo4j, query with apoc.create for dynamic nodes","completion":"CALL apoc.create.node(['Person'], {name: 'John', age: 30}) YIELD node RETURN node;"}
+{"prompt":"What's the best autobiography?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with spatial data","completion":"CREATE TABLE locations (id INT, geom GEOMETRY); (PostgreSQL with PostGIS)"}
+{"prompt":"In MongoDB, use $geoIntersects","completion":"db.places.find({ location: { $geoIntersects: { $geometry: { type: 'Point', coordinates: [-73.9, 40.7] } } } });"}
+{"prompt":"SQL query with CAST","completion":"SELECT CAST(price AS INTEGER) AS int_price FROM products;"}
+{"prompt":"In Redis, use ZPOPMAX for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZPOPMAX myset;"}
+{"prompt":"Explain SQL database triggers","completion":"Triggers execute code on events like INSERT; e.g., CREATE TRIGGER log AFTER INSERT ON table FOR EACH ROW ...;"}
+{"prompt":"In Neo4j, query with apoc.path for path expansion","completion":"CALL apoc.path.expand(n:Person {id:1}, 'FRIEND>', '', 1, 3) YIELD path RETURN path;"}
+{"prompt":"How to learn pilates?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with COALESCE and subquery","completion":"SELECT COALESCE((SELECT name FROM users WHERE id = 1), 'Unknown') AS name;"}
+{"prompt":"In MongoDB, use $currentDate","completion":"db.users.updateOne({ _id: 1 }, { $currentDate: { lastModified: true } });"}
+{"prompt":"What's the best travel guidebook?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with enum type","completion":"CREATE TABLE users (id INT, status ENUM('active', 'inactive')); (MySQL)"}
+{"prompt":"In Redis, use SSCAN for sets","completion":"SADD myset 'item1' 'item2'; SSCAN myset 0 MATCH 'item*';"}
+{"prompt":"SQL query with array aggregation","completion":"SELECT dept, array_agg(name) AS employees FROM employees GROUP BY dept; (PostgreSQL)"}
+{"prompt":"In Neo4j, query with apoc.convert for JSON","completion":"MATCH (n:Person) RETURN apoc.convert.toJson(n) AS json;"}
+{"prompt":"Explain SQL database locking","completion":"Locks prevent concurrent data issues; e.g., SELECT ... FOR UPDATE in PostgreSQL."}
+{"prompt":"In MongoDB, use $setUnion in aggregation","completion":"db.collection.aggregate([{ $project: { union: { $setUnion: ['$array1', '$array2'] } } }]);"}
+{"prompt":"How to learn ballet?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with window function SUM","completion":"SELECT id, amount, SUM(amount) OVER (PARTITION BY dept ORDER BY id) AS running_total FROM sales;"}
+{"prompt":"In Redis, use HSCAN for hashes","completion":"HSET user:1 name 'John' age 30; HSCAN user:1 0 MATCH 'name';"}
+{"prompt":"What's the best self-help book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with timestamp default","completion":"CREATE TABLE logs (id INT, created_at TIMESTAMP DEFAULT NOW());"}
+{"prompt":"In Neo4j, query with apoc.text for regex","completion":"MATCH (n:Person) RETURN n.name, apoc.text.regreplace(n.name, '[aeiou]', '*') AS modified;"}
+{"prompt":"SQL query with JSON_ARRAYAGG","completion":"SELECT dept, JSON_ARRAYAGG(name) AS employees FROM employees GROUP BY dept; (MySQL)"}
+{"prompt":"In MongoDB, use $setDifference in aggregation","completion":"db.collection.aggregate([{ $project: { diff: { $setDifference: ['$array1', '$array2'] } } }]);"}
+{"prompt":"Explain SQL database indexing strategies","completion":"Use B-tree for general queries, hash for equality, GiST for spatial data; analyze query patterns."}
+{"prompt":"In Redis, use ZSCAN for sorted sets","completion":"ZADD myset 10 'item1' 20 'item2'; ZSCAN myset 0 MATCH 'item*';"}
+{"prompt":"SQL query with JSON_OBJECT","completion":"SELECT JSON_OBJECT('id', id, 'name', name) AS json_data FROM users; (MySQL)"}
+{"prompt":"In Neo4j, query with apoc.date for date handling","completion":"MATCH (n:Person) RETURN n.name, apoc.date.format(n.created, 'ms', 'yyyy-MM-dd') AS formatted_date;"}
+{"prompt":"What's the best comic book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with spatial index","completion":"CREATE TABLE places (id INT, geom GEOMETRY, SPATIAL INDEX(geom)); (MySQL with spatial support)"}
+{"prompt":"In MongoDB, use $lookup with pipeline","completion":"db.orders.aggregate([{ $lookup: { from: 'users', let: { userId: '$user_id' }, pipeline: [{ $match: { $expr: { $eq: ['$_id', '$$userId'] } } }], as: 'user' } }]);"}
+{"prompt":"How to learn snorkeling?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with subquery in GROUP BY","completion":"SELECT (SELECT name FROM dept WHERE dept.id = employees.dept_id) AS dept_name, COUNT(*) FROM employees GROUP BY dept_name;"}
+{"prompt":"In Redis, use GEOHASH for geospatial data","completion":"GEOADD locations 13.361 52.516 'Berlin'; GEOHASH locations Berlin;"}
+{"prompt":"What's the history of linguistics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database connection pooling","completion":"Connection pooling reuses database connections to reduce overhead; configured in app servers like Tomcat."}
+{"prompt":"In Neo4j, query with apoc.math for calculations","completion":"MATCH (n:Person) RETURN n.name, apoc.math.round(n.score, 2) AS rounded_score;"}
+{"prompt":"SQL query with JSON_CONTAINS","completion":"SELECT * FROM users WHERE JSON_CONTAINS(data, '\"value\"', '$.key'); (MySQL)"}
+{"prompt":"In MongoDB, use $graphLookup in aggregation","completion":"db.employees.aggregate([{ $graphLookup: { from: 'employees', startWith: '$manager_id', connectFromField: 'manager_id', connectToField: '_id', as: 'hierarchy' } }]);"}
+{"prompt":"What's the best poetry collection?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with computed column","completion":"CREATE TABLE orders (id INT, price DECIMAL, quantity INT, total DECIMAL GENERATED ALWAYS AS (price * quantity) STORED);"}
+{"prompt":"In Redis, use SCAN for iteration","completion":"SCAN 0 MATCH 'key*' COUNT 100;"}
+{"prompt":"How to learn ballroom dancing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with string functions","completion":"SELECT UPPER(name), LOWER(email) FROM users;"}
+{"prompt":"In Neo4j, query with apoc.coll.union","completion":"MATCH (n:Person) RETURN apoc.coll.union(collect(n.city), ['London']) AS cities;"}
+{"prompt":"What's the history of geography?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database replication lag","completion":"Replication lag is delay in syncing data to replicas; monitor with tools like MySQL's SHOW SLAVE STATUS."}
+{"prompt":"In MongoDB, use $switch in aggregation","completion":"db.users.aggregate([{ $project: { status: { $switch: { branches: [{ case: { $gt: ['$age', 30] }, then: 'senior' }], default: 'junior' } } } }]);"}
+{"prompt":"SQL query with array contains","completion":"SELECT * FROM users WHERE 'Java' = ANY(skills); (PostgreSQL)"}
+{"prompt":"In Redis, use ZRANGEWITHSCORES","completion":"ZADD myset 10 'item1' 20 'item2'; ZRANGEWITHSCORES myset 0 -1;"}
+{"prompt":"What's the best memoir?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Create a SQL table with JSONB","completion":"CREATE TABLE data (id INT, info JSONB); (PostgreSQL)"}
+{"prompt":"In Neo4j, query with apoc.path.spanningTree","completion":"CALL apoc.path.spanningTree(n:Person {id:1}, {relationshipFilter: 'FRIEND>'}) YIELD path RETURN path;"}
+{"prompt":"SQL query with date formatting","completion":"SELECT DATE_FORMAT(created_at, '%Y-%m-%d') AS formatted_date FROM events; (MySQL)"}
+{"prompt":"In MongoDB, use $geoNear in aggregation","completion":"db.places.aggregate([{ $geoNear: { near: { type: 'Point', coordinates: [-73.9, 40.7] }, distanceField: 'dist' } }]);"}
+{"prompt":"What's the history of economics?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Explain SQL database high availability","completion":"High availability uses replication, failover (e.g., PostgreSQL streaming replication), and load balancing."}
+{"prompt":"In Redis, use ZREMRANGEBYLEX","completion":"ZADD myset 0 'apple' 0 'banana'; ZREMRANGEBYLEX myset '[a' '[b';"}
+{"prompt":"How to learn freediving?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"SQL query with JSON_KEYS","completion":"SELECT JSON_KEYS(data) AS keys FROM table; (MySQL)"}
+{"prompt":"In Neo4j, query with apoc.text.join","completion":"MATCH (n:Person) RETURN apoc.text.join(collect(n.name), ', ') AS names;"}
+{"prompt":"What's the best young adult novel?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How do I insert a new employee into a SQL table?","completion":"INSERT INTO employees (name, salary, department) VALUES ('John Doe', 60000, 'IT');"}
+{"prompt":"How do I update a field in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $set: { age: 35 } });"}
+{"prompt":"What's the best Python framework for web development?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to delete a record in SQL?","completion":"DELETE FROM employees WHERE id = 101;"}
+{"prompt":"What is sharding in NoSQL databases?","completion":"Sharding distributes data across multiple servers to handle large datasets and high throughput."}
+{"prompt":"How to set a key in Redis?","completion":"SET user:101 'John Doe'"}
+{"prompt":"What is eventual consistency in NoSQL?","completion":"Eventual consistency means replicas may temporarily differ but will converge over time."}
+{"prompt":"How to perform a GROUP BY in SQL with HAVING?","completion":"SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 10;"}
+{"prompt":"How do I push an element to a Redis list?","completion":"LPUSH mylist 'value'"}
+{"prompt":"Tell me about AI advancements.","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query for UNION operation.","completion":"SELECT name FROM employees UNION SELECT name FROM contractors;"}
+{"prompt":"Write a SQL query with a CTE.","completion":"WITH high_earners AS (SELECT * FROM employees WHERE salary > 50000) SELECT * FROM high_earners;"}
+{"prompt":"Explain triggers in SQL.","completion":"Triggers are automatic actions (e.g., procedures) that run before/after events like INSERT or UPDATE."}
+{"prompt":"How to batch insert in SQL?","completion":"INSERT INTO employees (name, salary) VALUES ('Alice', 55000), ('Bob', 60000);"}
+{"prompt":"Write a MongoDB query to unwind an array.","completion":"db.collection.aggregate([{ $unwind: '$tags' }]);"}
+{"prompt":"How to perform a full-text search in PostgreSQL?","completion":"SELECT * FROM documents WHERE to_tsvector(content) @@ to_tsquery('search term');"}
+{"prompt":"What is replication in NoSQL?","completion":"Replication copies data across servers for redundancy and load balancing."}
+{"prompt":"Write a Redis query for a hash.","completion":"HMSET user:101 name 'John' age 30"}
+{"prompt":"Explain schema-less design in NoSQL.","completion":"NoSQL databases like MongoDB allow flexible schemas, where documents can have different fields."}
+{"prompt":"Write a SQL query with window functions.","completion":"SELECT name, salary, RANK() OVER (PARTITION BY department ORDER BY salary DESC) FROM employees;"}
+{"prompt":"How to handle transactions in SQL?","completion":"BEGIN TRANSACTION; INSERT INTO accounts VALUES (1, 1000); COMMIT;"}
+{"prompt":"Write a MongoDB projection query.","completion":"db.collection.find({}, { name: 1, age: 0 }); // include name, exclude age"}
+{"prompt":"Write a MongoDB query with $in operator.","completion":"db.collection.find({ category: { $in: ['A', 'B', 'C'] } });"}
+{"prompt":"How to delete documents in MongoDB?","completion":"db.collection.deleteMany({ status: 'inactive' });"}
+{"prompt":"What is a composite index?","completion":"A composite index includes multiple columns to optimize queries with multiple conditions."}
+{"prompt":"How to use EXPLAIN in MySQL?","completion":"EXPLAIN SELECT * FROM employees WHERE salary > 50000;"}
+{"prompt":"Explain denormalization in NoSQL.","completion":"Denormalization duplicates data to improve read performance, common in NoSQL for faster queries."}
+{"prompt":"How to create a Redis set?","completion":"SADD myset 'value1' 'value2'"}
+{"prompt":"Write a MongoDB query to group by field.","completion":"db.collection.aggregate([{ $group: { _id: '$category', total: { $sum: 1 } } }]);"}
+{"prompt":"Write a SQL query with BETWEEN.","completion":"SELECT * FROM orders WHERE order_date BETWEEN '2023-01-01' AND '2023-12-31';"}
+{"prompt":"How to get a range of values in Redis?","completion":"LRANGE mylist 0 10"}
+{"prompt":"Write a SQL query to join three tables.","completion":"SELECT e.name, d.department_name, r.role_name FROM employees e JOIN departments d ON e.dept_id = d.id JOIN roles r ON e.role_id = r.id;"}
+{"prompt":"How to use $regex in MongoDB?","completion":"db.collection.find({ name: { $regex: '^John', $options: 'i' } });"}
+{"prompt":"What is a transaction log?","completion":"A transaction log records all database changes to ensure recovery and consistency."}
+{"prompt":"Write a Neo4j query to find shortest path.","completion":"MATCH p=shortestPath((a:Person {name: 'Alice'})-[:KNOWS*]-(b:Person {name: 'Bob'})) RETURN p;"}
+{"prompt":"How to drop a database in MongoDB?","completion":"db.dropDatabase();"}
+{"prompt":"Explain query optimization in SQL.","completion":"Query optimization involves choosing the most efficient execution plan using indexes, statistics, and query rewriting."}
+{"prompt":"How to use ZADD in Redis?","completion":"ZADD mysortedset 1 'member1' 2 'member2'"}
+{"prompt":"Write a SQL query for a cross join.","completion":"SELECT * FROM employees CROSS JOIN departments;"}
+{"prompt":"Explain data modeling in NoSQL.","completion":"NoSQL data modeling focuses on query patterns, often denormalizing data for performance."}
+{"prompt":"How to use $inc in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $inc: { age: 1 } });"}
+{"prompt":"Explain database constraints in SQL.","completion":"Constraints like PRIMARY KEY, FOREIGN KEY, and NOT NULL enforce data integrity."}
+{"prompt":"Write a SQL query to find top 5 earners.","completion":"SELECT * FROM employees ORDER BY salary DESC LIMIT 5;"}
+{"prompt":"Write a SQL query with IN clause.","completion":"SELECT * FROM employees WHERE department IN ('IT', 'HR');"}
+{"prompt":"How to use $push in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $push: { tags: 'newTag' } });"}
+{"prompt":"What is a covering index?","completion":"A covering index includes all columns needed for a query, avoiding table access."}
+{"prompt":"Explain TTL indexes in MongoDB.","completion":"TTL indexes automatically delete documents after a specified time, useful for expiring data."}
+{"prompt":"How to use COALESCE in SQL?","completion":"SELECT COALESCE(email, 'no-email') FROM employees;"}
+{"prompt":"What is a Redis pipeline?","completion":"Pipelines send multiple commands to Redis at once, reducing round-trip time."}
+{"prompt":"Explain database roles in SQL.","completion":"Roles are groups of permissions assigned to users for access control."}
+{"prompt":"What is a database cursor?","completion":"A cursor allows iterative processing of query results in some SQL databases."}
+{"prompt":"Write a SQL query for RIGHT JOIN.","completion":"SELECT * FROM employees e RIGHT JOIN departments d ON e.dept_id = d.id;"}
+{"prompt":"Explain database snapshots.","completion":"Snapshots capture a database's state at a point in time for backup or analysis."}
+{"prompt":"Write a SQL query to update multiple rows.","completion":"UPDATE employees SET salary = salary * 1.1 WHERE department = 'IT';"}
+{"prompt":"What is a deadlock in SQL?","completion":"A deadlock occurs when two transactions block each other, waiting for resources."}
+{"prompt":"How to use ZRANGE in Redis?","completion":"ZRANGE mysortedset 0 -1 WITHSCORES"}
+{"prompt":"Write a SQL query with NULLIF.","completion":"SELECT NULLIF(salary, 0) FROM employees;"}
+{"prompt":"How to drop a MongoDB index?","completion":"db.collection.dropIndex('field_1');"}
+{"prompt":"Write a SQL query to find max salary per department.","completion":"SELECT department, MAX(salary) FROM employees GROUP BY department;"}
+{"prompt":"Explain database locks.","completion":"Locks prevent concurrent access to ensure data consistency during transactions."}
+{"prompt":"How to use HGET in Redis?","completion":"HGET user:101 name"}
+{"prompt":"Write a SQL query for FULL OUTER JOIN.","completion":"SELECT * FROM employees e FULL OUTER JOIN departments d ON e.dept_id = d.id;"}
+{"prompt":"How to use $addToSet in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $addToSet: { tags: 'uniqueTag' } });"}
+{"prompt":"Explain query execution plans.","completion":"Execution plans show how a database processes a query, including index usage and join order."}
+{"prompt":"What is a database view?","completion":"A view is a virtual table based on a query, used for security and simplicity."}
+{"prompt":"Write a Neo4j query to find all paths.","completion":"MATCH p=(a:Person)-[:KNOWS*1..3]->(b:Person) RETURN p;"}
+{"prompt":"Write a SQL query to find employees by hire date.","completion":"SELECT * FROM employees WHERE hire_date > '2022-01-01';"}
+{"prompt":"How to use $or in MongoDB?","completion":"db.collection.find({ $or: [{ status: 'active' }, { status: 'pending' }] });"}
+{"prompt":"Explain database sharding.","completion":"Sharding splits a database into smaller parts distributed across servers for scalability."}
+{"prompt":"How to use PEXPIRE in Redis?","completion":"PEXPIRE mykey 60000 // expires in 60 seconds (milliseconds)"}
+{"prompt":"How to use $pull in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $pull: { tags: 'oldTag' } });"}
+{"prompt":"What is a database checkpoint?","completion":"A checkpoint saves the database state to disk, ensuring data consistency."}
+{"prompt":"Explain database isolation levels.","completion":"Isolation levels (e.g., Read Committed, Serializable) control transaction visibility to prevent conflicts."}
+{"prompt":"How to use HGETALL in Redis?","completion":"HGETALL user:101"}
+{"prompt":"Write a SQL query to find employees in multiple departments.","completion":"SELECT name FROM employees GROUP BY name HAVING COUNT(DISTINCT department) > 1;"}
+{"prompt":"How to use $set in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $set: { status: 'active' } });"}
+{"prompt":"Explain database recovery.","completion":"Recovery restores a database to a consistent state after a crash using logs or backups."}
+{"prompt":"How to use ZREM in Redis?","completion":"ZREM mysortedset 'member1'"}
+{"prompt":"Write a SQL query with COALESCE.","completion":"SELECT COALESCE(phone, 'No phone') FROM employees;"}
+{"prompt":"How to cook sushi?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with highest salary in each department.","completion":"SELECT e.name, e.department, e.salary FROM employees e INNER JOIN (SELECT department, MAX(salary) AS max_salary FROM employees GROUP BY department) m ON e.department = m.department AND e.salary = m.max_salary;"}
+{"prompt":"Explain database clustering.","completion":"Clustering groups database servers to improve availability and performance."}
+{"prompt":"Write a SQL query with DATEADD.","completion":"SELECT DATEADD(day, 30, hire_date) FROM employees;"}
+{"prompt":"Write a SQL query to find employees with odd IDs.","completion":"SELECT * FROM employees WHERE id % 2 = 1;"}
+{"prompt":"Explain database partitioning strategies.","completion":"Strategies include range, list, and hash partitioning to distribute data."}
+{"prompt":"How to use SSCAN in Redis?","completion":"SSCAN myset 0 MATCH 'value*'"}
+{"prompt":"Write a SQL query with ROW_NUMBER.","completion":"SELECT name, ROW_NUMBER() OVER (ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"How to use $unset in MongoDB?","completion":"db.collection.updateOne({ name: 'John' }, { $unset: { age: '' } });"}
+{"prompt":"What is a database audit?","completion":"An audit tracks database actions for security and compliance monitoring."}
+{"prompt":"Write a Neo4j query to find node count.","completion":"MATCH (n) RETURN COUNT(n);"}
+{"prompt":"How to use $limit in MongoDB aggregation?","completion":"db.collection.aggregate([{ $limit: 5 }]);"}
+{"prompt":"Explain database consistency models.","completion":"Consistency models define how data is synchronized across distributed systems, like strong or eventual consistency."}
+{"prompt":"How to use HSET in Redis?","completion":"HSET user:101 name 'John' age 30"}
+{"prompt":"Write a SQL query with DATEDIFF.","completion":"SELECT DATEDIFF(day, hire_date, GETDATE()) FROM employees;"}
+{"prompt":"What is a database role?","completion":"A role is a collection of permissions assigned to users or groups."}
+{"prompt":"Write a Neo4j query to find nodes with max property.","completion":"MATCH (n:Person) RETURN n ORDER BY n.age DESC LIMIT 1;"}
+{"prompt":"Write a SQL query to find employees with names starting with A.","completion":"SELECT * FROM employees WHERE name LIKE 'A%';"}
+{"prompt":"Explain database backup types.","completion":"Types include full, incremental, and differential backups for data recovery."}
+{"prompt":"Write a SQL query to find employees in specific cities.","completion":"SELECT * FROM employees WHERE city IN ('New York', 'London');"}
+{"prompt":"What is a database transaction?","completion":"A transaction is a sequence of operations treated as a single unit, ensuring ACID properties."}
+{"prompt":"Explain database indexing strategies.","completion":"Strategies include B-tree, hash, and bitmap indexes for different query patterns."}
+{"prompt":"Write a SQL query to find employees with no email.","completion":"SELECT * FROM employees WHERE email IS NULL;"}
+{"prompt":"How to use $avg in MongoDB?","completion":"db.collection.aggregate([{ $group: { _id: null, avgSalary: { $avg: '$salary' } } }]);"}
+{"prompt":"What is a database foreign key constraint?","completion":"A foreign key constraint ensures values in one table match a primary key in another."}
+{"prompt":"Write a Neo4j query to find all relationships of a node.","completion":"MATCH (n:Person {name: 'Alice'})-[r]-() RETURN r;"}
+{"prompt":"Write a SQL query to find employees hired last year.","completion":"SELECT * FROM employees WHERE YEAR(hire_date) = YEAR(GETDATE()) - 1;"}
+{"prompt":"How to use $max in MongoDB?","completion":"db.collection.aggregate([{ $group: { _id: null, maxSalary: { $max: '$salary' } } }]);"}
+{"prompt":"Explain database replication strategies.","completion":"Strategies include master-slave, master-master, and multi-region replication."}
+{"prompt":"How to use SADD in Redis?","completion":"SADD myset 'value1' 'value2'"}
+{"prompt":"How to use $min in MongoDB?","completion":"db.collection.aggregate([{ $group: { _id: null, minSalary: { $min: '$salary' } } }]);"}
+{"prompt":"What is a database log?","completion":"A log records database operations for recovery and auditing purposes."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship.","completion":"MATCH (n)-[:MANAGES]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with salary rank.","completion":"SELECT name, salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rank FROM employees;"}
+{"prompt":"Explain database normalization forms.","completion":"Forms like 1NF (no repeating groups), 2NF (no partial dependencies), 3NF (no transitive dependencies) reduce redundancy."}
+{"prompt":"How to use HMGET in Redis?","completion":"HMGET user:101 name age"}
+{"prompt":"Write a SQL query to find employees by manager.","completion":"SELECT e.name FROM employees e JOIN employees m ON e.manager_id = m.id WHERE m.name = 'Alice';"}
+{"prompt":"How to use $and in MongoDB?","completion":"db.collection.find({ $and: [{ age: { $gt: 25 } }, { status: 'active' }] });"}
+{"prompt":"Write a SQL query to find employees with specific department and salary.","completion":"SELECT * FROM employees WHERE department = 'IT' AND salary > 60000;"}
+{"prompt":"Explain database transaction isolation.","completion":"Isolation ensures transactions don’t interfere, with levels like Read Uncommitted or Serializable."}
+{"prompt":"How to use ZRANK in Redis?","completion":"ZRANK mysortedset 'member1'"}
+{"prompt":"How to use $geoWithin in MongoDB?","completion":"db.collection.find({ location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } } });"}
+{"prompt":"What is a database index type?","completion":"Types include B-tree, hash, full-text, and spatial indexes for different use cases."}
+{"prompt":"Write a Neo4j query to find all nodes with specific property value.","completion":"MATCH (n:Person) WHERE n.age > 30 RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific skills and department.","completion":"SELECT * FROM employees WHERE skills LIKE '%SQL%' AND department = 'IT';"}
+{"prompt":"Explain database connection pooling.","completion":"Connection pooling reuses database connections to improve performance and scalability."}
+{"prompt":"Write a Neo4j query to find nodes by multiple properties.","completion":"MATCH (n:Person {name: 'Alice', age: 30}) RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific hire month.","completion":"SELECT * FROM employees WHERE MONTH(hire_date) = 6;"}
+{"prompt":"Explain database load balancing.","completion":"Load balancing distributes queries across multiple database servers for performance."}
+{"prompt":"How to use ZREVRANGE in Redis?","completion":"ZREVRANGE mysortedset 0 -1 WITHSCORES"}
+{"prompt":"What's the best recipe?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with no projects.","completion":"SELECT e.* FROM employees e LEFT JOIN projects p ON e.id = p.employee_id WHERE p.employee_id IS NULL;"}
+{"prompt":"How to use $cond in MongoDB?","completion":"db.collection.aggregate([{ $project: { status: { $cond: { if: { $gt: ['$score', 50] }, then: 'Pass', else: 'Fail' } } } }]);"}
+{"prompt":"What is a database archive?","completion":"An archive stores old data separately to reduce database size and improve performance."}
+{"prompt":"How to use $indexOfBytes in MongoDB?","completion":"db.collection.aggregate([{ $project: { index: { $indexOfBytes: ['$name', 'a'] } } }]);"}
+{"prompt":"Explain database failover.","completion":"Failover switches to a standby server if the primary fails, ensuring availability."}
+{"prompt":"How to use ZSCORE in Redis?","completion":"ZSCORE mysortedset 'member1'"}
+{"prompt":"What is a database constraint violation?","completion":"A violation occurs when data breaks rules like uniqueness or foreign key constraints."}
+{"prompt":"Write a Neo4j query to find nodes with no incoming relationships.","completion":"MATCH (n) WHERE NOT ()-->(n) RETURN n;"}
+{"prompt":"Explain database replication lag.","completion":"Replication lag is the delay between a write on the primary and its propagation to replicas."}
+{"prompt":"How to use ZADD with multiple members in Redis?","completion":"ZADD mysortedset 1 'member1' 2 'member2'"}
+{"prompt":"What's the best phone?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific years of experience.","completion":"SELECT * FROM employees WHERE DATEDIFF(YEAR, hire_date, GETDATE()) > 5;"}
+{"prompt":"How to use $slice in MongoDB projection?","completion":"db.collection.find({}, { items: { $slice: [1, 3] } });"}
+{"prompt":"What is a database index rebuild?","completion":"An index rebuild recreates an index to optimize performance or after corruption."}
+{"prompt":"Write a Neo4j query to find nodes with specific property range.","completion":"MATCH (n:Person) WHERE n.age BETWEEN 25 AND 35 RETURN n;"}
+{"prompt":"Explain database connection timeout.","completion":"A connection timeout occurs when a database connection attempt exceeds a time limit."}
+{"prompt":"How to use SISMEMBER in Redis?","completion":"SISMEMBER myset 'value'"}
+{"prompt":"Write a SQL query to find employees with specific project count.","completion":"SELECT e.name, COUNT(p.project_id) FROM employees e LEFT JOIN projects p ON e.id = p.employee_id GROUP BY e.name HAVING COUNT(p.project_id) > 2;"}
+{"prompt":"How to use $addFields in MongoDB?","completion":"db.collection.aggregate([{ $addFields: { newField: { $concat: ['$name', '_suffix'] } } }]);"}
+{"prompt":"What is a database deadlock resolution?","completion":"Deadlock resolution involves the database aborting one transaction to allow others to proceed."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship count.","completion":"MATCH (n)-[r]->() RETURN n, COUNT(r) AS rel_count HAVING COUNT(r) > 2;"}
+{"prompt":"Write a SQL query to find employees with specific department size.","completion":"SELECT e.* FROM employees e JOIN (SELECT department, COUNT(*) AS size FROM employees GROUP BY department HAVING COUNT(*) > 10) d ON e.department = d.department;"}
+{"prompt":"How to use $bucket in MongoDB?","completion":"db.collection.aggregate([{ $bucket: { groupBy: '$age', boundaries: [0, 20, 40, 60], default: 'Other' } }]);"}
+{"prompt":"Explain database indexing overhead.","completion":"Indexing overhead includes storage space and slower write operations due to index updates."}
+{"prompt":"How to use ZINCRBY in Redis?","completion":"ZINCRBY mysortedset 1 'member1'"}
+{"prompt":"Write a SQL query to find employees with specific salary percentile.","completion":"SELECT * FROM employees WHERE salary >= (SELECT PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY salary) FROM employees);"}
+{"prompt":"How to use $facet in MongoDB?","completion":"db.collection.aggregate([{ $facet: { total: [{ $count: 'total' }], active: [{ $match: { status: 'active' } }] } }]);"}
+{"prompt":"Explain database query caching.","completion":"Query caching stores query results to speed up repeated queries."}
+{"prompt":"Write a SQL query to find employees with specific work location.","completion":"SELECT * FROM employees WHERE location = 'Remote';"}
+{"prompt":"How to use $arrayToObject in MongoDB?","completion":"db.collection.aggregate([{ $project: { obj: { $arrayToObject: '$keyValuePairs' } } }]);"}
+{"prompt":"What is a database cold backup?","completion":"A cold backup is taken when the database is offline, ensuring complete consistency."}
+{"prompt":"Write a SQL query to find employees with specific team size.","completion":"SELECT e.* FROM employees e JOIN (SELECT team_id, COUNT(*) AS size FROM employees GROUP BY team_id HAVING COUNT(*) > 5) t ON e.team_id = t.team_id;"}
+{"prompt":"How to use $toString in MongoDB?","completion":"db.collection.aggregate([{ $project: { stringId: { $toString: '$_id' } } }]);"}
+{"prompt":"Explain database query optimization techniques.","completion":"Techniques include indexing, query rewriting, and using execution plans."}
+{"prompt":"What is a database performance tuning?","completion":"Performance tuning optimizes database queries, indexes, and configuration for speed."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship length.","completion":"MATCH p=(n)-[:KNOWS*2..3]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific contract type.","completion":"SELECT * FROM employees WHERE contract_type = 'Full-time';"}
+{"prompt":"Explain database scalability techniques.","completion":"Techniques include sharding, replication, and caching to handle growth."}
+{"prompt":"What's the best thriller book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"How to use $toBool in MongoDB?","completion":"db.collection.aggregate([{ $project: { boolValue: { $toBool: '$stringValue' } } }]);"}
+{"prompt":"Write a Neo4j query to find nodes with specific property type.","completion":"MATCH (n) WHERE n.age IS NOT NULL RETURN n;"}
+{"prompt":"Explain database high availability.","completion":"High availability ensures minimal downtime using replication, failover, and backups."}
+{"prompt":"How to use ZINTERSTORE in Redis?","completion":"ZINTERSTORE destination 2 set1 set2 WEIGHTS 1 2"}
+{"prompt":"What's the best mystery book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"What is a database snapshot isolation?","completion":"Snapshot isolation provides a consistent view of data for transactions, avoiding dirty reads."}
+{"prompt":"Write a Neo4j query to find nodes with specific property pattern.","completion":"MATCH (n:Person) WHERE n.email =~ '.*@company.com' RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific leave balance.","completion":"SELECT * FROM employees WHERE leave_balance > 20;"}
+{"prompt":"Explain database write conflicts.","completion":"Write conflicts occur when multiple transactions try to modify the same data concurrently."}
+{"prompt":"How to use ZUNIONSTORE in Redis?","completion":"ZUNIONSTORE destination 2 set1 set2 WEIGHTS 1 2"}
+{"prompt":"What's the best historical book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific project deadline.","completion":"SELECT e.* FROM employees e JOIN projects p ON e.id = p.employee_id WHERE p.deadline < '2024-01-01';"}
+{"prompt":"What is a database read replica?","completion":"A read replica is a copy of the primary database used for read-only queries to reduce load."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship property.","completion":"MATCH (n)-[r:KNOWS {strength: 'strong'}]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific performance score.","completion":"SELECT * FROM employees WHERE performance_score >= 90;"}
+{"prompt":"How to use $switch in MongoDB?","completion":"db.collection.aggregate([{ $project: { result: { $switch: { branches: [{ case: { $gt: ['$score', 50] }, then: 'Pass' }], default: 'Fail' } } } }]);"}
+{"prompt":"Explain database query execution order.","completion":"SQL queries execute in order: FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY."}
+{"prompt":"How to use ZREVRANK in Redis?","completion":"ZREVRANK mysortedset 'member1'"}
+{"prompt":"What's the best romance book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific education level.","completion":"SELECT * FROM employees WHERE education = 'PhD';"}
+{"prompt":"How to use $strLenBytes in MongoDB?","completion":"db.collection.aggregate([{ $project: { length: { $strLenBytes: '$name' } } }]);"}
+{"prompt":"What is a database warm standby?","completion":"A warm standby is a partially active replica ready to take over if the primary fails."}
+{"prompt":"Write a SQL query to find employees with specific overtime hours.","completion":"SELECT * FROM employees WHERE overtime_hours > 10;"}
+{"prompt":"Explain database data integrity.","completion":"Data integrity ensures accuracy and consistency through constraints and validation."}
+{"prompt":"How to use ZREMRANGEBYSCORE in Redis?","completion":"ZREMRANGEBYSCORE mysortedset 1 10"}
+{"prompt":"Write a SQL query to find employees with specific tenure range.","completion":"SELECT * FROM employees WHERE DATEDIFF(YEAR, hire_date, GETDATE()) BETWEEN 3 AND 5;"}
+{"prompt":"What is a database primary index?","completion":"A primary index is created on the primary key to enforce uniqueness and enable fast lookups."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship pattern.","completion":"MATCH (n)-[:KNOWS]->(:Person)-[:LIKES]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific salary increment.","completion":"SELECT * FROM employees WHERE salary_increment > 5;"}
+{"prompt":"Explain database consistency checks.","completion":"Consistency checks verify data against constraints to ensure integrity."}
+{"prompt":"How to use ZREMRANGEBYRANK in Redis?","completion":"ZREMRANGEBYRANK mysortedset 0 2"}
+{"prompt":"What's the best biography?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific region.","completion":"SELECT * FROM employees WHERE region = 'Europe';"}
+{"prompt":"How to use $regexMatch in MongoDB?","completion":"db.collection.aggregate([{ $project: { matches: { $regexMatch: { input: '$name', regex: '^A' } } } }]);"}
+{"prompt":"What is a database secondary index?","completion":"A secondary index is created on non-primary columns to speed up queries."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship weight.","completion":"MATCH (n)-[r:KNOWS {weight: 5}]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific attendance record.","completion":"SELECT * FROM employees WHERE attendance_days > 200;"}
+{"prompt":"How to use $inRegex in MongoDB?","completion":"db.collection.find({ name: { $in: [/^A/, /^B/] } });"}
+{"prompt":"Explain database transaction rollback.","completion":"A rollback reverses a transaction’s changes if it fails, ensuring data consistency."}
+{"prompt":"How to use ZCARD in Redis?","completion":"ZCARD mysortedset"}
+{"prompt":"What is a database unique constraint?","completion":"A unique constraint ensures no duplicate values in a column or set of columns."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship direction.","completion":"MATCH (n)<-[:KNOWS]-(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific work hours.","completion":"SELECT * FROM employees WHERE work_hours_per_week > 40;"}
+{"prompt":"Explain database query plan caching.","completion":"Query plan caching stores execution plans for reuse to improve query performance."}
+{"prompt":"How to use ZREMRANGEBYLEX in Redis?","completion":"ZREMRANGEBYLEX mysortedset '[a' '[z'"}
+{"prompt":"What's the best travel guide?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific promotion date.","completion":"SELECT * FROM employees WHERE promotion_date > '2023-01-01';"}
+{"prompt":"What is a database check constraint?","completion":"A check constraint enforces a condition on column values, like age > 18."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship count range.","completion":"MATCH (n)-[r]->() WITH n, COUNT(r) AS rel_count WHERE rel_count BETWEEN 1 AND 3 RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific supervisor.","completion":"SELECT e.name FROM employees e JOIN employees s ON e.supervisor_id = s.id WHERE s.name = 'Bob';"}
+{"prompt":"Explain database query timeouts.","completion":"Query timeouts limit the time a query can run to prevent resource overuse."}
+{"prompt":"How to use ZLEXCOUNT in Redis?","completion":"ZLEXCOUNT mysortedset - +"}
+{"prompt":"How to use $convert in MongoDB?","completion":"db.collection.aggregate([{ $project: { converted: { $convert: { input: '$value', to: 'int' } } } }]);"}
+{"prompt":"What is a database default constraint?","completion":"A default constraint sets a default value for a column if none is provided."}
+{"prompt":"Write a SQL query to find employees with specific team leader.","completion":"SELECT e.name FROM employees e JOIN employees l ON e.leader_id = l.id WHERE l.name = 'Alice';"}
+{"prompt":"How to use $mergeObjects in MongoDB?","completion":"db.collection.aggregate([{ $project: { combined: { $mergeObjects: ['$obj1', '$obj2'] } } }]);"}
+{"prompt":"Explain database read consistency.","completion":"Read consistency ensures queries see a consistent view of data during execution."}
+{"prompt":"How to use ZRANGEBYSCORE in Redis?","completion":"ZRANGEBYSCORE mysortedset 1 10"}
+{"prompt":"What's the best history book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific project role.","completion":"SELECT e.* FROM employees e JOIN project_roles pr ON e.id = pr.employee_id WHERE pr.role = 'Lead';"}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship property value.","completion":"MATCH (n)-[r:KNOWS {level: 'close'}]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific salary change date.","completion":"SELECT * FROM employees WHERE salary_change_date > '2023-06-01';"}
+{"prompt":"Explain database query logging.","completion":"Query logging records executed queries for monitoring and debugging."}
+{"prompt":"How to use ZRANGEBYLEX in Redis?","completion":"ZRANGEBYLEX mysortedset '[a' '[z'"}
+{"prompt":"What's the best science book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific department code.","completion":"SELECT * FROM employees WHERE department_code = 'IT01';"}
+{"prompt":"What is a database index selectivity?","completion":"Index selectivity measures how unique index values are, impacting query efficiency."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship length range.","completion":"MATCH p=(n)-[:KNOWS*1..2]->(m) RETURN n, m;"}
+{"prompt":"Write a SQL query to find employees with specific cost center.","completion":"SELECT * FROM employees WHERE cost_center = 'CC101';"}
+{"prompt":"How to use $isArray in MongoDB?","completion":"db.collection.aggregate([{ $project: { isArray: { $isArray: '$field' } } }]);"}
+{"prompt":"Explain database transaction durability.","completion":"Durability ensures committed transactions are permanently saved, even after a crash."}
+{"prompt":"How to use ZREVRANGEBYSCORE in Redis?","completion":"ZREVRANGEBYSCORE mysortedset 10 1"}
+{"prompt":"What's the best philosophy book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific performance review date.","completion":"SELECT * FROM employees WHERE review_date > '2023-01-01';"}
+{"prompt":"How to use $size in MongoDB aggregation?","completion":"db.collection.aggregate([{ $project: { arraySize: { $size: '$items' } } }]);"}
+{"prompt":"What is a database index rebuild strategy?","completion":"Strategies include online rebuilds or dropping and recreating indexes during maintenance."}
+{"prompt":"Write a Neo4j query to find nodes with specific property not null.","completion":"MATCH (n:Person) WHERE n.name IS NOT NULL RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific employment type.","completion":"SELECT * FROM employees WHERE employment_type = 'Contract';"}
+{"prompt":"How to use $literal in MongoDB?","completion":"db.collection.aggregate([{ $project: { fixed: { $literal: 'constant' } } }]);"}
+{"prompt":"Explain database transaction atomicity.","completion":"Atomicity ensures a transaction is completed fully or not at all."}
+{"prompt":"How to use ZPOPMAX in Redis?","completion":"ZPOPMAX mysortedset"}
+{"prompt":"Write a SQL query to find employees with specific office location.","completion":"SELECT * FROM employees WHERE office_location = 'HQ';"}
+{"prompt":"What is a database index drop?","completion":"Dropping an index removes it to free space or adjust query plans."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship absence.","completion":"MATCH (n) WHERE NOT (n)-[:KNOWS]->() RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific training hours.","completion":"SELECT * FROM employees WHERE training_hours > 50;"}
+{"prompt":"How to use $eq in MongoDB?","completion":"db.collection.find({ status: { $eq: 'active' } });"}
+{"prompt":"Explain database transaction isolation levels.","completion":"Levels like Read Committed or Serializable control how transactions interact."}
+{"prompt":"How to use ZPOPMIN in Redis?","completion":"ZPOPMIN mysortedset"}
+{"prompt":"What's the best tech book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific clearance level.","completion":"SELECT * FROM employees WHERE clearance_level = 'Top Secret';"}
+{"prompt":"How to use $gt in MongoDB?","completion":"db.collection.find({ age: { $gt: 30 } });"}
+{"prompt":"What is a database index scan type?","completion":"Types include full scan, range scan, and unique scan for different query needs."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship property range.","completion":"MATCH (n)-[r:KNOWS {weight: 3..5}]->(m) RETURN n, m;"}
+{"prompt":"How to use $gte in MongoDB?","completion":"db.collection.find({ age: { $gte: 30 } });"}
+{"prompt":"Explain database query optimization tools.","completion":"Tools like EXPLAIN, query profilers, and index advisors help optimize queries."}
+{"prompt":"How to use ZRANGEWITHSCORES in Redis?","completion":"ZRANGE mysortedset 0 -1 WITHSCORES"}
+{"prompt":"What's the best poetry book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
+{"prompt":"Write a SQL query to find employees with specific mentor.","completion":"SELECT e.name FROM employees e JOIN employees m ON e.mentor_id = m.id WHERE m.name = 'Alice';"}
+{"prompt":"How to use $lt in MongoDB?","completion":"db.collection.find({ age: { $lt: 30 } });"}
+{"prompt":"What is a database index cardinality?","completion":"Cardinality measures the uniqueness of index values, affecting query performance."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship direction absence.","completion":"MATCH (n) WHERE NOT ()-[:KNOWS]->(n) RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific skill level.","completion":"SELECT * FROM employees WHERE skill_level = 'Expert';"}
+{"prompt":"How to use $lte in MongoDB?","completion":"db.collection.find({ age: { $lte: 30 } });"}
