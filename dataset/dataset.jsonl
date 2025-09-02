@@ -82,13 +82,6 @@
 {"prompt":"What’s the difference between AI and ML?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"How to configure AWS S3?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"What’s the history of the internet?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"How to write a resume?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"What’s a neural network?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"How to set up a VPN?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"What’s the best programming language?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"How to analyze data in Excel?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"What’s quantum computing?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
-{"prompt":"How to create a mobile app?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"What’s the time now?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"How to optimize a website for SEO?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"What’s a blockchain?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
@@ -11152,7 +11145,6 @@
 {"prompt":"How to use $eq in MongoDB?","completion":"db.collection.find({ status: { $eq: 'active' } });"}
 {"prompt":"Explain database transaction isolation levels.","completion":"Levels like Read Committed or Serializable control how transactions interact."}
 {"prompt":"How to use ZPOPMIN in Redis?","completion":"ZPOPMIN mysortedset"}
-{"prompt":"What's the best tech book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"Write a SQL query to find employees with specific clearance level.","completion":"SELECT * FROM employees WHERE clearance_level = 'Top Secret';"}
 {"prompt":"How to use $gt in MongoDB?","completion":"db.collection.find({ age: { $gt: 30 } });"}
 {"prompt":"What is a database index scan type?","completion":"Types include full scan, range scan, and unique scan for different query needs."}
@@ -11160,7 +11152,6 @@
 {"prompt":"How to use $gte in MongoDB?","completion":"db.collection.find({ age: { $gte: 30 } });"}
 {"prompt":"Explain database query optimization tools.","completion":"Tools like EXPLAIN, query profilers, and index advisors help optimize queries."}
 {"prompt":"How to use ZRANGEWITHSCORES in Redis?","completion":"ZRANGE mysortedset 0 -1 WITHSCORES"}
-{"prompt":"What's the best poetry book?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"Write a SQL query to find employees with specific mentor.","completion":"SELECT e.name FROM employees e JOIN employees m ON e.mentor_id = m.id WHERE m.name = 'Alice';"}
 {"prompt":"How to use $lt in MongoDB?","completion":"db.collection.find({ age: { $lt: 30 } });"}
 {"prompt":"What is a database index cardinality?","completion":"Cardinality measures the uniqueness of index values, affecting query performance."}
