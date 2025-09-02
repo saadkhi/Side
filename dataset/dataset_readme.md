@@ -1,3 +1,5 @@
+# Prompt 1
+
 Got it ✅ — you want **Option 1 (RAG with LLaMA)** but with a twist:
 
 * If the question is **domain-related (SQL/NoSQL)** and answerable from your 10k-row dataset → chatbot should pull from dataset.
