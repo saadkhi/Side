@@ -11158,3 +11158,14 @@
 {"prompt":"Write a Neo4j query to find nodes with specific relationship direction absence.","completion":"MATCH (n) WHERE NOT ()-[:KNOWS]->(n) RETURN n;"}
 {"prompt":"Write a SQL query to find employees with specific skill level.","completion":"SELECT * FROM employees WHERE skill_level = 'Expert';"}
 {"prompt":"How to use $lte in MongoDB?","completion":"db.collection.find({ age: { $lte: 30 } });"}
+{"prompt":"Explain database query hints.","completion":"Query hints guide the optimizer to use specific indexes or join methods."}
+{"prompt":"How to use ZSCAN in Redis?","completion":"ZSCAN mysortedset 0 MATCH 'member*'"}
+{"prompt":"Write a SQL query to find employees with specific certification.","completion":"SELECT * FROM employees WHERE certification = 'PMP';"}
+{"prompt":"What is a database index fragmentation?","completion":"Fragmentation occurs when index pages are not contiguous, slowing performance."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship absence in both directions.","completion":"MATCH (n) WHERE NOT (n)-[:KNOWS]-() RETURN n;"}
+{"prompt":"Explain database query parallelism.","completion":"Parallelism splits queries into parts executed simultaneously for speed."}
+{"prompt":"How to use ZLEXRANGE in Redis?","completion":"ZLEXRANGE mysortedset '[a' '[z'"}
+{"prompt":"Write a SQL query to find employees with specific relocation status.","completion":"SELECT * FROM employees WHERE relocation_status = 'Willing';"}
+{"prompt":"What is a database index maintenance?","completion":"Maintenance includes rebuilding, reorganizing, and updating statistics for optimal performance."}
+{"prompt":"Write a Neo4j query to find nodes with specific relationship absence in one direction.","completion":"MATCH (n) WHERE NOT (n)-[:KNOWS]->() RETURN n;"}
+{"prompt":"Write a SQL query to find employees with specific work shift.","completion":"SELECT * FROM employees WHERE work_shift = 'Night';"}
