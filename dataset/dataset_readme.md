@@ -125,3 +125,172 @@ def chatbot(query):
 ---
 
 Do you want me to **extend this into a step-by-step implementation guide** (with code + tools like FAISS + Hugging Face + classifier), so you can build the full prototype locally?
+
+# ___________________________________________________________________________
+
+# Prompt 2
+
+Perfect 👍 since you already have **11,000 rows** in `jsonl` with `{"prompt": "...", "completion": "..."}` format, you’re in a really good position. Let’s walk through **next steps** to implement the full chatbot pipeline (RAG + fallback to LLaMA knowledge):
+
+---
+
+# 🔹 Step 1: Clarify Use of Dataset
+
+* Your dataset looks like a **Q\&A style corpus**.
+* Each row:
+
+  ```json
+  {"prompt": "What is SQL normalization?", "completion": "Normalization is ..."}
+  ```
+* This means you can use it for **retrieval** or **fine-tuning**.
+* Since you picked **Option 1 (RAG)**, we’ll use it as a **knowledge base** for retrieval.
+
+---
+
+# 🔹 Step 2: Preprocess Dataset
+
+* Load the JSONL file into Python.
+* Extract `prompt` + `completion`.
+* Create a **knowledge document** for each row (combine Q\&A).
+
+```python
+import json
+
+docs = []
+with open("data.jsonl", "r") as f:
+    for line in f:
+        row = json.loads(line)
+        text = f"Q: {row['prompt']}\nA: {row['completion']}"
+        docs.append(text)
+
+print(len(docs))  # should be 11000
+```
+
+---
+
+# 🔹 Step 3: Build Embedding Index (FAISS)
+
+* Use `sentence-transformers` for embeddings.
+* Store embeddings in **FAISS** index.
+
+```python
+from sentence_transformers import SentenceTransformer
+import faiss
+import numpy as np
+
+embedder = SentenceTransformer("all-MiniLM-L6-v2")  # lightweight & fast
+
+doc_embeddings = embedder.encode(docs, convert_to_numpy=True, show_progress_bar=True)
+
+# Build FAISS index
+dimension = doc_embeddings.shape[1]
+index = faiss.IndexFlatL2(dimension)
+index.add(doc_embeddings)
+
+print("Index size:", index.ntotal)  # should be 11000
+```
+
+---
+
+# 🔹 Step 4: Load LLaMA (Hugging Face)
+
+You’ll need a **chat-tuned model** for safe responses.
+
+Examples:
+
+* `meta-llama/Llama-2-7b-chat-hf` (needs Hugging Face token + GPU).
+* Or lighter `microsoft/phi-3-mini-4k-instruct` (CPU-friendly, less hallucination).
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+
+model_name = "microsoft/phi-3-mini-4k-instruct"  # or llama2-chat if you have GPU
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+
+llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
+```
+
+---
+
+# 🔹 Step 5: Domain Classifier (Optional but Recommended)
+
+Train a **binary classifier** (Database-related vs Not).
+
+* Fast way: fine-tune `distilbert-base-uncased` on small labeled dataset of DB vs non-DB queries.
+* Quick hack: keyword-based filter (detect terms like SQL, NoSQL, database, query, etc.).
+
+```python
+def is_database_query(query: str) -> bool:
+    keywords = ["sql", "nosql", "database", "query", "table", "index", "join"]
+    return any(k in query.lower() for k in keywords)
+```
+
+---
+
+# 🔹 Step 6: Retrieval + Fallback Pipeline
+
+Now combine everything:
+
+```python
+def chatbot(query):
+    # Step 1: Check domain relevance
+    if not is_database_query(query):
+        return "I only answer database-related queries."
+    
+    # Step 2: Retrieve top matches
+    q_embedding = embedder.encode([query], convert_to_numpy=True)
+    D, I = index.search(q_embedding, k=3)  # top 3
+    
+    # Step 3: Check threshold
+    if D[0][0] > 0.6:  
+        # High similarity, use dataset
+        context = "\n".join([docs[i] for i in I[0]])
+    else:
+        # No good dataset match → fallback to model
+        context = ""
+    
+    # Step 4: Build prompt
+    prompt = f"""
+    You are a SQL/NoSQL expert.
+    Context: {context if context else "No context found."}
+    Question: {query}
+
+    Instructions:
+    - If context is provided, answer only from it.
+    - If no context, but question is still about databases, answer from your own knowledge.
+    - If not database related, say: "I only answer database-related queries."
+    """
+
+    response = llm(prompt, max_new_tokens=300, do_sample=True)[0]['generated_text']
+    return response
+```
+
+---
+
+# 🔹 Step 7: Test the Chatbot
+
+* **Case 1**: Query in dataset → it should retrieve & answer from docs.
+* **Case 2**: Query not in dataset but still domain → fallback to model knowledge.
+* **Case 3**: Query outside domain → reject.
+
+---
+
+# 🔹 Step 8: (Optional Enhancements)
+
+* **Guardrails**: Use `GuardrailsAI` or `LangChain` to check hallucination.
+* **API Deployment**: Wrap in **FastAPI / Flask** → expose as REST API.
+* **UI**: Streamlit or React front-end.
+* **Caching**: Use Redis for repeated queries.
+
+---
+
+✅ After this, you’ll have a **working chatbot specialized in SQL/NoSQL** with:
+
+* Knowledge retrieval from your dataset.
+* Fallback to LLaMA when dataset is missing info.
+* Domain filter to refuse unrelated queries.
+
+---
+
+Do you want me to **extend this into a full working notebook/script** (with `requirements.txt` and FastAPI endpoint), so you can run it directly and test the chatbot?
