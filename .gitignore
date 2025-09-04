@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+
+# Virtual environment
+env/
+venv/
+.venv/
+
+# Django specific
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+*.log
+email_config.py
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pip cache and build
+pip-wheel-metadata/
+*.egg
+.eggs/
+dist/
+build/
+*.manifest
+*.spec
+
+# Node (if using npm/yarn)
+node_modules/
