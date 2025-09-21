@@ -1,2 +1,2 @@
 # DBQ
-- hello world
+- hello-world
