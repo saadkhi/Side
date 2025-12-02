@@ -1,0 +1,13 @@
+gradio>=3.45.0
+transformers>=4.34.0
+peft>=0.4.0
+accelerate>=0.20.3
+torch>=2.2.0
+bitsandbytes>=0.41.0
+safetensors
+sentencepiece
+tokenizers
+huggingface-hub
+numpy
+protobuf>=3.20.0
+xformers  # optional, for optimized attention on some GPUs
