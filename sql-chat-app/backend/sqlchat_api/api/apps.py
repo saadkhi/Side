@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SqlPilotAppConfig(AppConfig):
+class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'sql_pilot_app'
+    name = 'api'
