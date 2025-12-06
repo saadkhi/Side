@@ -163,3 +163,8 @@ docker-compose.override.yml
 # Media and static files (for web frameworks)
 media/
 staticfiles/
+# Ignore LoRA models
+model_lora/
+*.safetensors
+*.bin
+*.pt

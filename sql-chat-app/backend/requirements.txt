@@ -1,0 +1,28 @@
+# Django==5.0
+# djangorestframework
+# django-cors-headers
+# gunicorn
+
+# # PyTorch CPU-only (official & guaranteed to work)
+# --index-url https://download.pytorch.org/whl/cpu
+# --extra-index-url https://pypi.org/simple
+
+# torch>=2.3
+# torchvision
+# torchaudio
+# transformers>=4.40
+# peft
+# bitsandbytes>=0.43
+# accelerate
+# sentencepiece
+
+
+Django==5.0
+djangorestframework
+python-decouple
+torch
+transformers
+peft
+accelerate
+bitsandbytes
+gunicorn
