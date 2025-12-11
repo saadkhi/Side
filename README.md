@@ -1,4 +1,4 @@
-# DBQ
+
 
 print("hello world")
 
