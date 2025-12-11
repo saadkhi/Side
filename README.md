@@ -1,8 +1,1 @@
-
-
 print("hello world")
-
-
-
-
-
