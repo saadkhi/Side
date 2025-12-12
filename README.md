@@ -1,8 +1,1 @@
-# DBQ
-
 print("hello world")
-
-
-
-
-
