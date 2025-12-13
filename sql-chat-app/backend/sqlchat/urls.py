@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
+
+def root_view(request):
+    return JsonResponse({'message': 'SQL Chat API - use /api/chat/ endpoint'})
 
 urlpatterns = [
+    path('', root_view, name='home'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 ]
