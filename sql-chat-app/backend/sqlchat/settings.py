@@ -28,14 +28,20 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # For development only
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://localhost:80',
+    'http://127.0.0.1:80',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
 ]

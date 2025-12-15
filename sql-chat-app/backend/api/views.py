@@ -3,22 +3,19 @@ import os
 import logging
 import traceback
 from pathlib import Path
+
 from dotenv import load_dotenv
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from gradio_client import Client
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-import torch
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize model and tokenizer as None
-model = None
-tokenizer = None
-MODEL_LOADED = False
 
 def load_environment():
     """Load environment variables from .env file if it exists."""
@@ -27,66 +24,84 @@ def load_environment():
         Path(__file__).resolve().parent.parent.parent / '.env',
         Path('.env'),
     ]
-    
+
     for path in possible_paths:
         if path.exists():
             load_dotenv(dotenv_path=path, override=True)
             logger.info(f"Loaded .env file from: {path}")
             return True
-    
+
     logger.warning("No .env file found")
     return False
 
+
 # Load environment variables
 load_environment()
-HF_TOKEN = os.getenv('HF_TOKEN')
+HF_TOKEN = os.getenv("HF_TOKEN")
+GRADIO_SPACE = os.getenv("GRADIO_SPACE", "saadkhi/SQL_chatbot_API")
 
-# Try to load model only if not running migrations and HF_TOKEN is available
-if 'manage.py' not in os.sys.argv or 'migrate' not in os.sys.argv:
-    if not HF_TOKEN:
-        logger.warning("HF_TOKEN not found in environment variables")
-    else:
-        try:
-            from transformers import AutoModelForCausalLM, AutoTokenizer
-            
-            logger.info("Loading model and tokenizer...")
-            
-            model_name = "saadkhi/SQL_Chat_finetuned_model"
-            
-            tokenizer = AutoTokenizer.from_pretrained(
-                model_name,
-                trust_remote_code=True,
-                token=HF_TOKEN
-            )
-            
-            model = AutoModelForCausalLM.from_pretrained(
-                model_name,
-                device_map="auto",
-                torch_dtype=torch.bfloat16,
-                trust_remote_code=True,
-                token=HF_TOKEN
-            )
-            
-            model.eval()
-            MODEL_LOADED = True
-            logger.info("Model and tokenizer loaded successfully!")
-            
-        except Exception as e:
-            logger.error(f"Error loading model: {str(e)}")
-            logger.error(traceback.format_exc())
-            MODEL_LOADED = False
-else:
-    logger.info("Skipping model loading during migrations")
+
+def get_gradio_client() -> Client:
+    """
+    Lazily create and cache a Gradio Client for the SQL chatbot Space.
+    Uses HF_TOKEN if provided (for private Spaces).
+    """
+    # Use a function attribute as a simple cache
+    if hasattr(get_gradio_client, "_client"):
+        return getattr(get_gradio_client, "_client")
+
+    try:
+        if HF_TOKEN:
+            client = Client(GRADIO_SPACE, token=HF_TOKEN)
+        else:
+            client = Client(GRADIO_SPACE)
+
+        setattr(get_gradio_client, "_client", client)
+        logger.info(f"Initialized Gradio client for Space: {GRADIO_SPACE}")
+        return client
+    except Exception as e:
+        logger.error(f"Failed to initialize Gradio client: {e}")
+        logger.error(traceback.format_exc())
+        raise
+
+
+def generate_model_response(user_message: str) -> str:
+    """
+    Generate a model-backed response by calling the external Gradio Space API.
+    """
+    client = get_gradio_client()
+
+    result = client.predict(
+        prompt=user_message,
+        api_name="/chat",
+    )
+
+    # The Space returns a single string
+    return str(result).strip()
+
+
+def generate_fallback_response(user_message: str) -> str:
+    """Return a helpful fallback response when the model is unavailable."""
+    intro = (
+        "The conversational model is not loaded right now, but I'm still here to help. "
+        "Here's a structured reply you can use:"
+    )
+    template = (
+        f"{intro}\n\n"
+        "1) I received your request:\n"
+        f"   \"{user_message}\"\n\n"
+        "2) Suggested next steps:\n"
+        "- Confirm the database tables and columns involved.\n"
+        "- Identify any filters, ordering, or aggregations needed.\n"
+        "- Translate the above into SQL using the database's dialect.\n\n"
+        "3) Example prompt you can try once the model is ready:\n"
+        f"   \"Write a SQL query to address: {user_message}\""
+    )
+    return template
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ChatView(APIView):
     def post(self, request):
-        if not MODEL_LOADED or model is None or tokenizer is None:
-            return Response(
-                {"error": "Model is not loaded. Please check server logs."},
-                status=status.HTTP_503_SERVICE_UNAVAILABLE
-            )
-            
         try:
             user_message = request.data.get("message", "")
             if not user_message:
@@ -94,33 +109,19 @@ class ChatView(APIView):
                     {"error": "Message cannot be empty"},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            
+
             logger.info(f"Received message: {user_message}")
-            
-            # Format the message for the model
-            prompt = f"<|user|>\n{user_message}\n<|assistant|>\n"
-            
-            # Tokenize the input
-            inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-            
-            # Generate response
-            outputs = model.generate(
-                **inputs,
-                max_new_tokens=512,
-                temperature=0.7,
-                do_sample=True,
-                top_p=0.9,
-                pad_token_id=tokenizer.eos_token_id,
-                eos_token_id=tokenizer.eos_token_id,
-            )
-            
-            # Decode the response
-            response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-            response = response.split("<|assistant|>")[-1].strip()
-            
-            logger.info(f"Generated response: {response[:100]}...")
-            return Response({"response": response})
-            
+
+            try:
+                response_text: str = generate_model_response(user_message)
+            except Exception as gen_err:
+                logger.error(f"Gradio model call failed, falling back. Details: {gen_err}")
+                logger.error(traceback.format_exc())
+                response_text = generate_fallback_response(user_message)
+
+            logger.info(f"Responding with: {response_text[:120]}...")
+            return Response({"response": response_text})
+
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")
             logger.error(traceback.format_exc())
