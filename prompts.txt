@@ -1,0 +1,1 @@
+write queries to merge two columns from 2 different tables and find unique values from merged column and create new column for unique values.
