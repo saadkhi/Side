@@ -211,7 +211,7 @@ model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
 ```
 
----
+----
 
 # 🔹 Step 5: Domain Classifier (Optional but Recommended)
 
