@@ -1,1 +1,30 @@
-write queries to merge two columns from 2 different tables and find unique values from merged column and create new column for unique values.
+By Saad: write queries to merge two columns from 2 different tables and find unique values from merged column and create new column for unique values.
+
+1. Merge Two Columns From Different Tables, Remove Duplicates, and Store Results
+
+Query Task:
+Write a SQL query to merge the email column from customers and email_address from orders, remove duplicates, and insert the unique emails into a new table called unique_emails.
+
+2. Combine Data From Multiple Tables and Rank Unique Values
+
+Query Task:
+Merge the user_id column from logins and purchases, remove duplicates, and assign a sequential rank to each unique user using window functions.
+
+3. Merge Two Columns, Find Common and Unique Values Separately
+
+Query Task:
+Write a SQL query to merge the product_id column from inventory and sales, then create two new columns:
+
+one containing common product IDs
+
+one containing unique product IDs
+
+4. Create a New Column Showing Source of Unique Records
+
+Query Task:
+Merge the phone_number column from employees and contractors, remove duplicates, and create a new column indicating whether the number came from employees, contractors, or both.
+
+5. Merge Columns With Conditional Filtering and Deduplication
+
+Query Task:
+Merge the account_id column from active_accounts and closed_accounts, exclude accounts closed before 2022-01-01, remove duplicates, and store the unique account IDs in a new column.
