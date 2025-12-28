@@ -101,7 +101,7 @@ cp sql-chat-app/env.example sql-chat-app/.env
 
 ---
 
-## API
+## APIs
 
 ### `POST /api/chat/`
 
