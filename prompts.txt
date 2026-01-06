@@ -16,9 +16,7 @@ Query Task:
 Write a SQL query to merge the product_id column from inventory and sales, then create two new columns:
 
 one containing common product IDs
-
 one containing unique product IDs
-
 4. Create a New Column Showing Source of Unique Records
 
 Query Task:
