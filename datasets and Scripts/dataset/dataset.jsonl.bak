@@ -65,7 +65,6 @@
 {"prompt":"Write a MongoDB query to find top 5 highest values","completion":"db.collection.find().sort({ value: -1 }).limit(5);"}
 {"prompt":"What’s a capped collection in MongoDB?","completion":"A capped collection is a fixed-size MongoDB collection that automatically overwrites old data when full, ideal for logging."}
 {"prompt":"Write a Redis command to get all keys","completion":"KEYS *"}
-
 {"prompt":"How do I select all products from a SQL table named 'products'?","completion":"SELECT * FROM products;"}
 {"prompt":"What's the best way to learn Python?","completion":"Sorry, I can only answer questions related to SQL and NoSQL databases."}
 {"prompt":"Write a MongoDB query to find documents where age is less than 30","completion":"db.collection.find({ age: { $lt: 30 } });"}
