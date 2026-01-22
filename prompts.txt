@@ -8,7 +8,7 @@ Write a SQL query to merge the email column from customers and email_address fro
 2. Combine Data From Multiple Tables and Rank Unique Values
 
 Query Task:
-Merge the user_id column from logins and purchases, remove duplicates, and assign a sequential rank to each unique user using window functions.
+Write a SQL query to Merge the user_id column from logins and purchases, remove duplicates, and assign a sequential rank to each unique user using window functions.
 
 3. Merge Two Columns, Find Common and Unique Values Separately
 

@@ -73,7 +73,7 @@ def generate_model_response(user_message: str) -> str:
 
     result = client.predict(
         prompt=user_message,
-        api_name="/chat",
+        api_name="/generate_sql",
     )
 
     # The Space returns a single string
