@@ -1,4 +1,4 @@
-## SQL Chat App (Django and React) + Dataset/Fine-tuning Utilities
+## SQL Chat App (Django + React) + Dataset/Fine-tuning Utilities
 
 This repo contains:
 
