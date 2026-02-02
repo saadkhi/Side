@@ -1,152 +1,35 @@
 // In frontend/src/App.tsx
-import React, { useState, useRef, useEffect, useMemo } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import AuthPage from './pages/AuthPage';
+import ChatPage from './pages/ChatPage';
 import './App.css';
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
-}
+const AppContent: React.FC = () => {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      }}>
+        <div style={{ color: 'white', fontSize: '18px' }}>Loading...</div>
+      </div>
+    );
+  }
+
+  return isAuthenticated ? <ChatPage /> : <AuthPage />;
+};
 
 function App() {
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const api = useMemo(() => {
-    const isViteDev = typeof window !== 'undefined' && window.location.port === '5173';
-    const fallbackBase = isViteDev ? 'http://localhost:8000/api' : '/api';
-    const baseURL = import.meta.env.VITE_API_BASE_URL || fallbackBase;
-    const client = axios.create({
-      baseURL,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      timeout: 0, // allow longer model inference time
-      withCredentials: false,
-    });
-
-    client.interceptors.response.use(
-      (response) => response,
-      (err) => {
-        const message =
-          err?.response?.data?.error ||
-          err?.message ||
-          'Unexpected error while contacting the server.';
-        setError(message);
-        return Promise.reject(err);
-      }
-    );
-    return client;
-  }, []);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const sendMessage = async () => {
-    if (!message.trim() || isLoading) return;
-
-    const userMessage = message;
-    setMessage('');
-    setIsLoading(true);
-    setError(null);
-
-    // Add user message to chat
-    setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);
-
-    try {
-      const response = await api.post('/chat/', {
-        message: userMessage,
-      });
-
-      if (response.data && response.data.response) {
-        setMessages((prev) => [
-          ...prev,
-          { role: 'assistant', content: response.data.response },
-        ]);
-      } else {
-        throw new Error('No response data received');
-      }
-    } catch (err) {
-      console.error('Error sending message:', err);
-      setError(
-        'Failed to get a response from the server. Please check your connection and try again.'
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  };
-
   return (
-    <div className="app">
-      <div className="app-card">
-        <header className="app-header">
-          <div>
-            <p className="eyebrow">SQL Chat Assistant</p>
-            <h1>Ask database questions in plain language</h1>
-            <p className="subtext">
-              Your messages are routed to the backend API and answered by the model (or a safe
-              fallback if the model is still loading).
-            </p>
-          </div>
-          <div className="status-pill">
-            <span className={`dot ${isLoading ? 'warning' : 'ok'}`} />
-            {isLoading ? 'Waiting for response...' : 'Ready'}
-          </div>
-        </header>
-
-        <div className="chat-window">
-          {messages.length === 0 ? (
-            <div className="empty-state">
-              Start a conversation by typing a message below
-            </div>
-          ) : (
-            messages.map((msg, i) => (
-              <div key={i} className={`message ${msg.role}`}>
-                <div className="message-role">
-                  {msg.role === 'user' ? 'You' : 'Assistant'}
-                </div>
-                <div className="message-content">{msg.content}</div>
-              </div>
-            ))
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {error && (
-          <div className="error-banner">
-            {error}
-          </div>
-        )}
-
-        <div className="input-row">
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="Type your SQL query or question here..."
-            disabled={isLoading}
-          />
-          <button onClick={sendMessage} disabled={isLoading || !message.trim()}>
-            {isLoading ? 'Sending...' : 'Send'}
-          </button>
-        </div>
-      </div>
-    </div>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 

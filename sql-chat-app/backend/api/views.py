@@ -9,8 +9,6 @@ from gradio_client import Client
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -99,7 +97,6 @@ def generate_fallback_response(user_message: str) -> str:
     )
     return template
 
-@method_decorator(csrf_exempt, name='dispatch')
 class ChatView(APIView):
     def post(self, request):
         try:
