@@ -1,4 +1,4 @@
-## SQL Chat App (Django + React) + Dataset/Fine-tuning Utilities
+## SQL Chat App (Django + React) and Dataset/Fine-tuning Utilities
 
 This repo contains:
 
@@ -149,6 +149,7 @@ See `datasets and Scripts/` for:
 
 - **Frontend can’t reach backend in dev**: ensure Django is running on `http://localhost:8000` and you didn’t override `VITE_API_BASE_URL` incorrectly.
 - **Model responses always fall back**: verify `GRADIO_SPACE` is correct and (if the Space is private) set `HF_TOKEN` in your `.env`.
+
 
 
 
