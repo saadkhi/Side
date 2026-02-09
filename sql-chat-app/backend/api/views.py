@@ -70,7 +70,7 @@ def generate_model_response(user_message: str) -> str:
     client = get_gradio_client()
 
     result = client.predict(
-        prompt=user_message,
+        user_input=user_message,
         api_name="/generate_sql",
     )
 
