@@ -26,6 +26,4 @@ Merge the phone_number column from employees and contractors, remove duplicates,
 Query Task:
 Merge the account_id column from active_accounts and closed_accounts, exclude accounts closed before 2022-01-01, remove duplicates, and store the unique account IDs in a new column.
 
-cred 
-ather6
-atheer1234
+
