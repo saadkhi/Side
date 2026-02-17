@@ -26,6 +26,7 @@ const ChatPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -66,11 +67,35 @@ const ChatPage: React.FC = () => {
     }
   };
 
+  const deleteConversation = async (id: number, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent selecting the conversation triggers
+
+    try {
+      await api.delete(`/conversations/${id}/`);
+      setConversations(conversations.filter(c => c.id !== id));
+
+      // If we deleted the current conversation, clear view
+      if (currentConversationId === id) {
+        startNewChat();
+      }
+    } catch (err) {
+      console.error('Error deleting conversation:', err);
+      setError('Failed to delete conversation.');
+    }
+  };
+
   const startNewChat = () => {
     setCurrentConversationId(null);
     setMessages([]);
     setError(null);
     setSidebarOpen(false);
+  };
+
+  const editMessage = (content: string) => {
+    setMessage(content);
+    if (textareaRef.current) {
+      textareaRef.current.focus();
+    }
   };
 
   const sendMessage = async () => {
@@ -137,6 +162,8 @@ const ChatPage: React.FC = () => {
         currentConversationId={currentConversationId}
         onSelectConversation={loadConversation}
         onNewChat={startNewChat}
+        onDeleteConversation={deleteConversation}
+        username={user?.username || 'User'}
         isOpen={sidebarOpen}
         toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
       />
@@ -144,13 +171,13 @@ const ChatPage: React.FC = () => {
       <main className="main-content">
         <div className="app-card">
           <header className="app-header">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <button className="menu-toggle" onClick={() => setSidebarOpen(true)}>
                 <span>☰</span>
               </button>
               <div>
                 <p className="eyebrow">SQL Chat Assistant</p>
-                <h1>Ask database questions in plain language</h1>
+                <h1>Ask database questions</h1>
               </div>
             </div>
 
@@ -161,16 +188,7 @@ const ChatPage: React.FC = () => {
               </div>
               <button
                 onClick={handleLogout}
-                style={{
-                  padding: '8px 16px',
-                  background: '#f0f0f0',
-                  border: '1px solid #ddd',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  color: '#333',
-                }}
+                className="logout-btn"
               >
                 Logout
               </button>
@@ -194,6 +212,24 @@ const ChatPage: React.FC = () => {
                     {msg.role === 'user' ? 'You' : 'Assistant'}
                   </div>
                   <div className="message-content">{msg.content}</div>
+                  {msg.role === 'user' && (
+                    <button
+                      className="edit-btn"
+                      onClick={() => editMessage(msg.content)}
+                      title="Edit & Resend"
+                    >
+                      ✏️
+                    </button>
+                  )}
+                  {msg.role === 'assistant' && (
+                    <button
+                      className="copy-btn"
+                      onClick={() => navigator.clipboard.writeText(msg.content)}
+                      title="Copy Response"
+                    >
+                      📋
+                    </button>
+                  )}
                 </div>
               ))
             )}
@@ -208,6 +244,7 @@ const ChatPage: React.FC = () => {
 
           <div className="input-row">
             <textarea
+              ref={textareaRef}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyPress}
@@ -215,7 +252,7 @@ const ChatPage: React.FC = () => {
               disabled={isLoading}
             />
             <button onClick={sendMessage} disabled={isLoading || !message.trim()}>
-              {isLoading ? 'Sending...' : 'Send'}
+              {isLoading ? '...' : 'Send'}
             </button>
           </div>
         </div>

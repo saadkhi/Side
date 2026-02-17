@@ -2,12 +2,12 @@
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #0f2233;
+  color: #ffffff;
+  background-color: #000000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f2f5fb;
 }
 
 *,
@@ -19,6 +19,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: #000000;
 }
 
 #root {
