@@ -1,159 +1,120 @@
-## SQL Chat App (Django + React) and Dataset and Fine-tuning Utilities
+# SQL Chat App (Django + React)
 
-This repo contains:
-
-- **`sql-chat-app/`**: a simple chat UI (React/Vite) + API (Django REST) that answers **database/SQL questions** by calling a **Hugging Face Gradio Space** (with a safe fallback response if the model/API is unavailable).
-- **`datasets and Scripts/`**: utilities + notebooks used to prepare datasets / experiment with fine-tuning.
-
----
+A modern, full-stack chat application that answers database/SQL questions using a specialized AI model. Features a robust backend with authentication and chat history, served via a "Gen Z" aesthetic frontend.
 
 ## Features
 
-- **Chat UI**: clean single-page chat interface.
-- **Backend API**: `POST /api/chat/` that returns a JSON response.
-- **Model integration**: backend calls a Gradio Space via `gradio_client` (token supported for private Spaces).
-- **Fallback mode**: if the model call fails, the API returns a structured “next steps” response instead of crashing.
+- **AI-Powered Chat**: Answers SQL questions by calling a specialized Hugging Face Gradio Space.
+- **Authentication**: Secure Login and Signup using JWT (JSON Web Tokens).
+- **Chat History**:
+    - **Sidebar**: View past conversations.
+    - **Persistence**: Chats are saved to the database.
+    - **Delete**: Remove old conversations with a custom confirmation modal.
+- **Modern UI ("Gen Z" Aesthetic)**:
+    - **Theme**: High-contrast Black background, White text, and Neon Green accents.
+    - **Typography**: Inter font for a clean, modern look.
+    - **Dynamic Input**: Text area and send button align perfectly.
+- **Productivity Tools**:
+    - **Edit & Resend**: Correct mistakes or refine prompts easily.
+    - **Copy Response**: One-click copy for assistant answers.
+- **Fallback Mode**: Graceful handling of model failures with structured error responses.
 
 ---
 
-## Architecture (high level)
+## Architecture
 
-1. **Frontend** sends a message to the backend: `POST /api/chat/`
-2. **Backend** calls the configured Gradio Space (`GRADIO_SPACE`) to get the model response
-3. Backend returns `{ "response": "..." }`
+1.  **Frontend**: React (Vite) + TypeScript. Handles UI, Auth state, and API communication.
+2.  **Backend**: Django REST Framework. Manages Users, Conversations, Messages, and AI integration.
+3.  **AI Model**: Proxies requests to a Hugging Face Space via `gradio_client`.
 
 ---
 
-## Quickstart (Docker)
+## Quickstart (Local Development)
 
 ### Prerequisites
 
-- Docker + Docker Compose
+- Python 3.8+
+- Node.js 16+
+- `pip` and `npm`
 
-### Run
-
-```bash
-cd sql-chat-app
-docker compose up --build
-```
-
-### Open
-
-- **Frontend**: `http://localhost` (served via Nginx)
-- **Backend API**: `http://localhost/api/chat/` (proxied by Nginx to Django)
-
----
-
-## Local development (recommended for hacking)
-
-### Backend (Django)
+### 1. Backend Setup (Django)
 
 ```bash
 cd sql-chat-app/backend
+
+# Create virtual environment
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 
-# optional but recommended (see "Environment variables" below)
+# Setup Environment Variables
 cp ../env.example .env
+# Edit .env and set HF_TOKEN if needed (for private spaces)
 
-python manage.py runserver 0.0.0.0:8000
+# Run Migrations (Critical for Auth & History)
+python manage.py makemigrations
+python manage.py migrate
+
+# Create Superuser (Optional)
+python manage.py createsuperuser
+
+# Run Server
+python manage.py runserver
 ```
-
 Backend runs at `http://localhost:8000`.
 
-### Frontend (Vite)
+### 2. Frontend Setup (React/Vite)
 
 ```bash
 cd sql-chat-app/frontend
+
+# Install dependencies
 npm install
+
+# Run Dev Server
 npm run dev
 ```
-
 Frontend runs at `http://localhost:5173`.
-
-In dev mode the frontend automatically calls the backend at `http://localhost:8000/api`.
-
----
-
-## Environment variables
-
-The backend looks for a `.env` file in either:
-
-- `sql-chat-app/backend/.env`
-- `sql-chat-app/.env`
-
-Create it by copying the example:
-
-```bash
-cp sql-chat-app/env.example sql-chat-app/.env
-```
-
-### Backend
-
-- **`GRADIO_SPACE`**: Hugging Face Space id to call (default: `saadkhi/SQL_chatbot_API`)
-- **`HF_TOKEN`**: optional Hugging Face token (needed for private Spaces)
-
-### Frontend
-
-- **`VITE_API_BASE_URL`** (optional): override API base URL
-  - Example for local backend: `http://localhost:8000/api`
 
 ---
 
 ## APIs
 
-### `POST /api/chat/`
+### Authentication
 
-**Request**
+- **POST** `/api/register/`: Register a new user.
+- **POST** `/api/login/`: Login and receive JWT tokens (`access`, `refresh`).
 
-```json
-{ "message": "Explain LEFT JOIN with an example" }
-```
+### Chat & History
 
-**Response**
-
-```json
-{ "response": "..." }
-```
-
-**cURL**
-
-```bash
-curl -sS -X POST "http://localhost:8000/api/chat/" \
-  -H "Content-Type: application/json" \
-  -d '{"message":"Write a SQL query to get the top 5 customers by revenue"}'
-```
+- **GET** `/api/conversations/`: List all conversations for the logged-in user.
+- **POST** `/api/chat/`: Send a message.
+    - Body: `{ "message": "query...", "conversation_id": 123 }` (optional `conversation_id`)
+    - Response: `{ "response": "AI answer", "conversation_id": 123, "title": "..." }`
+- **GET** `/api/conversations/<id>/`: Get messages for a specific conversation.
+- **DELETE** `/api/conversations/<id>/`: Delete a conversation.
 
 ---
 
-## Datasets & scripts
+## Environment Variables
 
-See `datasets and Scripts/` for:
+Create a `.env` file in `sql-chat-app/backend/` or `sql-chat-app/`:
 
-- `dataset/`: JSONL datasets (prompt/completion format)
-- `notebook_scripts/`: notebooks for fine-tuning/testing experiments
-- `remove_duplicates.py`: helper script
+```ini
+# Django Secret Key
+SECRET_KEY=django-insecure-...
 
----
-
-## Repo layout
-
-- `sql-chat-app/backend/`: Django project (`sqlchat`) + API app (`api`)
-- `sql-chat-app/frontend/`: Vite + React UI
-- `sql-chat-app/nginx/`: Nginx reverse-proxy config (used by Docker Compose)
+# Hugging Face Configuration
+GRADIO_SPACE=saadkhi/SQL_chatbot_API
+HF_TOKEN=hf_...  # Optional: For private spaces
+```
 
 ---
 
 ## Troubleshooting
 
-- **Frontend can’t reach backend in dev**: ensure Django is running on `http://localhost:8000` and you didn’t override `VITE_API_BASE_URL` incorrectly.
-- **Model responses always fall back**: verify `GRADIO_SPACE` is correct and (if the Space is private) set `HF_TOKEN` in your `.env`.
-
-
-
-
-
-
-
-
+- **CORS Errors**: Ensure `django-cors-headers` is installed and configured in `settings.py`.
+- **Auth Errors**: If login fails repeatedly, check if the `access_token` is expired or invalid in LocalStorage.
+- **Model Errors**: If the chatbot returns a fallback message, verify `GRADIO_SPACE` is accessible and `HF_TOKEN` is valid.
