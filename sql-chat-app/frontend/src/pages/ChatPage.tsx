@@ -163,7 +163,7 @@ const ChatPage: React.FC = () => {
         onSelectConversation={loadConversation}
         onNewChat={startNewChat}
         onDeleteConversation={deleteConversation}
-        username={user?.username || 'User'}
+        username={user?.first_name || user?.username || 'User'}
         isOpen={sidebarOpen}
         toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
       />

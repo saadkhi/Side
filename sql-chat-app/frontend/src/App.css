@@ -419,13 +419,13 @@
   padding: 24px 30px;
   border-top: 1px solid #333;
   background-color: #000000;
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  align-items: stretch;
   gap: 16px;
 }
 
 .input-row textarea {
-  width: 100%;
+  flex: 1;
   min-height: 50px;
   max-height: 200px;
   border-radius: 4px;
@@ -447,8 +447,8 @@
 }
 
 .input-row button {
-  height: 50px;
-  /* Match textarea min-height approx */
+  height: auto;
+  /* Match textarea height */
   padding: 0 30px;
   background-color: #ffffff;
   /* Contrast white button */
