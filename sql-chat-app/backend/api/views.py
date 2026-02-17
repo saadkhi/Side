@@ -6,9 +6,13 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from gradio_client import Client
-from rest_framework import status
+from rest_framework import status, viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+
+from .models import Conversation, Message
+from .serializers import ConversationSerializer, ConversationDetailSerializer, MessageSerializer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -97,27 +101,77 @@ def generate_fallback_response(user_message: str) -> str:
     )
     return template
 
+class ConversationViewSet(viewsets.ModelViewSet):
+    serializer_class = ConversationSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Conversation.objects.filter(user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return ConversationDetailSerializer
+        return ConversationSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 class ChatView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def post(self, request):
         try:
-            user_message = request.data.get("message", "")
-            if not user_message:
+            user_message_content = request.data.get("message", "")
+            conversation_id = request.data.get("conversation_id")
+
+            if not user_message_content:
                 return Response(
                     {"error": "Message cannot be empty"},
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-            logger.info(f"Received message: {user_message}")
+            logger.info(f"Received message: {user_message_content}")
+
+            # Get or create conversation
+            conversation = None
+            if conversation_id:
+                conversation = get_object_or_404(Conversation, id=conversation_id, user=request.user)
+            else:
+                conversation = Conversation.objects.create(
+                    user=request.user, 
+                    title=user_message_content[:50] # helper title
+                )
+
+            # Save user message
+            Message.objects.create(
+                conversation=conversation,
+                role='user',
+                content=user_message_content
+            )
 
             try:
-                response_text: str = generate_model_response(user_message)
+                response_text: str = generate_model_response(user_message_content)
             except Exception as gen_err:
                 logger.error(f"Gradio model call failed, falling back. Details: {gen_err}")
                 logger.error(traceback.format_exc())
-                response_text = generate_fallback_response(user_message)
+                response_text = generate_fallback_response(user_message_content)
+
+            # Save assistant message
+            Message.objects.create(
+                conversation=conversation,
+                role='assistant',
+                content=response_text
+            )
+            
+            # Update conversation timestamp
+            conversation.save() # Updates updated_at
 
             logger.info(f"Responding with: {response_text[:120]}...")
-            return Response({"response": response_text})
+            return Response({
+                "response": response_text,
+                "conversation_id": conversation.id,
+                "title": conversation.title
+            })
 
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")

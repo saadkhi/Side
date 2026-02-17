@@ -1,10 +1,15 @@
 # api/urls.py
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
-from .views import ChatView
+from .views import ChatView, ConversationViewSet
 from .auth_views import register, login, user_profile, logout
 
+router = DefaultRouter()
+router.register(r'conversations', ConversationViewSet, basename='conversation')
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('chat/', ChatView.as_view()),
     path('auth/register/', register, name='register'),
     path('auth/login/', login, name='login'),
