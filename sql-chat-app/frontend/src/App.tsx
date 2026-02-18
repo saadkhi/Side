@@ -15,9 +15,9 @@ const AppContent: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        backgroundColor: '#000000',
       }}>
-        <div style={{ color: 'white', fontSize: '18px' }}>Loading...</div>
+        <div style={{ color: '#39ff14', fontSize: '24px', fontWeight: '700', letterSpacing: '2px' }}>LOADING...</div>
       </div>
     );
   }

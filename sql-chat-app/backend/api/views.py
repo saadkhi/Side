@@ -45,7 +45,7 @@ GRADIO_SPACE = os.getenv("GRADIO_SPACE", "saadkhi/SQL_chatbot_API")
 
 def get_gradio_client() -> Client:
     """
-    Lazily create and cache a Gradio Client for the SQL chatbot Space.
+    Lazily create and cache a Gradio Client for the Talk2DB chatbot Space.
     Uses HF_TOKEN if provided (for private Spaces).
     """
     # Use a function attribute as a simple cache

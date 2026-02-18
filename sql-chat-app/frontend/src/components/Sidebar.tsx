@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../media/logo_talk2db.png';
 import '../App.css';
 
 interface Conversation {
@@ -52,6 +53,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         <>
             <div className={`sidebar ${isOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                        <img src={logo} alt="Talk2DB Logo" style={{ width: '30px', height: '30px' }} />
+                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff' }}>Talk2DB</span>
+                    </div>
                     <div className="user-profile">
                         <span style={{ fontSize: '18px' }}>●</span> {username}
                     </div>

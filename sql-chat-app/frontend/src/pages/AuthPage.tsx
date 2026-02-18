@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import logo from '../media/logo_talk2db.png';
 import './AuthPage.css';
 
 const AuthPage: React.FC = () => {
@@ -32,9 +33,28 @@ const AuthPage: React.FC = () => {
         await register(username, email, password, passwordConfirm, firstName, lastName);
       }
     } catch (err: any) {
+      const data = err?.response?.data;
+      let errorMsg = '';
+
+      if (data) {
+        if (typeof data === 'string') {
+          errorMsg = data;
+        } else if (data.error) {
+          errorMsg = data.error;
+        } else if (data.message) {
+          errorMsg = data.message;
+        } else if (data.detail) {
+          errorMsg = data.detail;
+        } else if (typeof data === 'object') {
+          // Handle DRF validation errors like { "email": ["..."], "username": ["..."] }
+          const firstField = Object.keys(data)[0];
+          const firstError = data[firstField];
+          errorMsg = Array.isArray(firstError) ? firstError[0] : firstError;
+        }
+      }
+
       setError(
-        err?.response?.data?.error ||
-        err?.response?.data?.message ||
+        errorMsg ||
         err?.message ||
         (isLogin ? 'Login failed. Please check your credentials.' : 'Registration failed. Please try again.')
       );
@@ -47,7 +67,8 @@ const AuthPage: React.FC = () => {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-header">
-          <h1>SQL Chat Assistant</h1>
+          <img src={logo} alt="Talk2DB Logo" className="auth-logo" style={{ width: '80px', marginBottom: '20px' }} />
+          <h1>Talk2DB</h1>
           <p>{isLogin ? 'Welcome back!' : 'Create your account'}</p>
         </div>
 

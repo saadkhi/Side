@@ -1,4 +1,4 @@
-# SQL Chat App (Django + React)
+# Talk2DB (Django + React)
 
 A modern, full-stack chat application that answers database/SQL questions using a specialized AI model. Features a robust backend with authentication and chat history, served via a "Gen Z" aesthetic frontend.
 

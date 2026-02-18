@@ -4,7 +4,21 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from .serializers import UserRegistrationSerializer, UserSerializer, LoginSerializer
+
+
+def send_welcome_email(email, username):
+    """
+    Send a welcome email to the newly registered user.
+    """
+    send_mail(
+        subject='Welcome to Our Platform 🎉',
+        message=f'Hi {username},\n\nWelcome to our system!',
+        from_email='airtrackeroffic@gmail.com',
+        recipient_list=[email],
+        fail_silently=False,
+    )
 
 
 @api_view(['POST'])
@@ -16,6 +30,13 @@ def register(request):
     serializer = UserRegistrationSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
+        
+        # Send welcome email
+        try:
+            send_welcome_email(user.email, user.username)
+        except Exception as e:
+            print(f"Error sending email: {e}")
+
         refresh = RefreshToken.for_user(user)
         return Response({
             'user': UserSerializer(user).data,

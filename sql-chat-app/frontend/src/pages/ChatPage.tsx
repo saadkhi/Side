@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../services/authService';
 import Sidebar from '../components/Sidebar';
+import logo from '../media/logo_talk2db.png';
 import '../App.css';
 
 interface Message {
@@ -175,9 +176,12 @@ const ChatPage: React.FC = () => {
               <button className="menu-toggle" onClick={() => setSidebarOpen(true)}>
                 <span>☰</span>
               </button>
-              <div>
-                <p className="eyebrow">SQL Chat Assistant</p>
-                <h1>Ask database questions</h1>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src={logo} alt="Talk2DB Logo" style={{ width: '20px', height: '20px' }} />
+                  <p className="eyebrow" style={{ margin: 0 }}>Talk2DB</p>
+                </div>
+                <h1 style={{ marginTop: '4px' }}>Ask database questions</h1>
               </div>
             </div>
 
@@ -196,7 +200,7 @@ const ChatPage: React.FC = () => {
           </header>
 
           <p className="subtext" style={{ padding: '0 24px' }}>
-            Welcome, {user?.username || 'User'}! Your messages are routed to the backend API.
+            Welcome, {user?.username || 'User'}! Your messages are routed to the Talk2DB backend.
           </p>
 
 
